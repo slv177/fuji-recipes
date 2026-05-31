@@ -13,7 +13,6 @@ __pycache__/
 # Large generated data (reproducible from scripts)
 html_cache/
 recipes/
-index.html
 
 # Debug / temp files
 blockdump.txt
