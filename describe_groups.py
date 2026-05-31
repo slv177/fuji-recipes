@@ -6,6 +6,8 @@ For each group:
 - ask Claude to write a 2-3 sentence description
 """
 import json, os
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer

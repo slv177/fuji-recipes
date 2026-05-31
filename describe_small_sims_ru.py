@@ -1,5 +1,7 @@
 """Generate Russian descriptions for small film simulations (not sub-clustered)."""
 import json, os
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer

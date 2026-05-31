@@ -5,6 +5,8 @@ a name that appears in many groups gets down-weighted so it doesn't dominate.
 """
 import json, re
 import math
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 import pandas as pd
 from collections import Counter

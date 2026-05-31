@@ -1,5 +1,7 @@
 """Final naming pass: force distinctiveness by showing sibling groups explicitly."""
 import json, re, math
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 from collections import Counter
 

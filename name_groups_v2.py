@@ -1,6 +1,8 @@
 """Refine group names: ban words that appear in too many names (overused across groups)."""
 import json, re
 import math
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 from collections import Counter
 

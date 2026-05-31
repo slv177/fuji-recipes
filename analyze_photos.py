@@ -7,6 +7,8 @@ For each group:
 - save to group_visual_analysis.json
 """
 import os, re, json
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 import pandas as pd
 from bs4 import BeautifulSoup

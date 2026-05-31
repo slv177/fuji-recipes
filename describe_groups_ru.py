@@ -1,5 +1,7 @@
 """Regenerate group descriptions in Russian."""
 import json, os
+from dotenv import load_dotenv
+load_dotenv()
 import anthropic
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
