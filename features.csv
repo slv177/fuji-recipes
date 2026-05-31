@@ -183,3 +183,10 @@ my-fujifilm-x-t30-faded-monochrome-film-simulation-recipe,Faded Monochrome,Acros
 my-fujifilm-x-t30-split-toned-bw-film-simulation-recipe,Split-Toned B&W,Acros,4.0,4.0,2.0,1.0,-4.0,,200.0,2.0,,1.0,,0.0,0.0,
 my-fujifilm-x-t30-cyanotype-film-simulation-recipe,Cyanotype,Acros,3.0,3.0,,-4.0,-4.0,,400.0,2.0,,2.0,,,,
 fujifilm-x100v-film-simulation-recipe-verano-tostado,Verano Tostado,Classic Chrome,-1.0,2.0,3.0,2.0,-4.0,0.0,200.0,0.0,0.0,2.0,1.0,-2.0,-5.0,
+ext-dagostino-classic-negative,Classic Negative,Classic Negative,,,2.0,3.0,-4.0,1.0,,2.0,2.0,1.0,0.0,0.0,0.0,6000.0
+ext-dagostino-kodachrome64-minus,Kodachrome 64 -,Classic Chrome,4.0,-2.0,4.0,-1.0,-4.0,1.0,400.0,2.0,1.0,1.0,0.0,2.0,-4.0,
+ext-dagostino-kodachrome64-plus,Kodachrome 64 +,Classic Chrome,0.0,0.0,2.0,1.0,-4.0,3.0,200.0,2.0,1.0,1.0,0.0,2.0,-5.0,5500.0
+ext-dagostino-kodak-portra,Kodak Portra,Classic Chrome,-2.0,2.0,2.0,-1.0,-4.0,-2.0,400.0,2.0,1.0,1.0,0.0,1.0,-6.0,5200.0
+ext-dagostino-summer,Summer,Classic Chrome,-2.0,-2.0,4.0,0.0,-4.0,-5.0,400.0,2.0,0.0,0.0,0.0,-3.0,-2.0,7100.0
+ext-dagostino-monochrome,Monochrome,Monochrome,0.0,3.0,0.0,1.0,0.0,1.0,100.0,0.0,2.0,2.0,0.0,0.0,0.0,
+ext-dagostino-noir,Noir,Acros,4.0,4.0,0.0,4.0,-4.0,1.0,100.0,0.0,0.0,2.0,1.0,0.0,0.0,

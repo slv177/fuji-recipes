@@ -233,14 +233,17 @@ for sim in FS_ORDER:
 
             slugs = (df_sub[df_sub['subcluster_label'] == g['label']]['slug'].tolist()
                      or sim_slugs.get(g['label'], []))
+            # build title map from df_feat (covers new external recipes too)
+            slug_title = df_feat.set_index('slug')['title'].to_dict()
             recipe_items = ''.join(
-                f'<li><a href="{slug_url.get(s, "#")}" target="_blank">{t}</a></li>'
-                for s, t in zip(slugs, g['titles'])
+                f'<li><a href="{slug_url.get(s, "#")}" target="_blank">'
+                f'{slug_title.get(s, s)}</a></li>'
+                for s in slugs
             )
             badges = ''.join(f'<span class="badge">{k}</span>' for k in g['keywords'][:7])
             stbl = settings_rows(slugs)
 
-            sub_n_label = f'{g["n"]} рецепт{"а" if 2<=g["n"]<=4 else ("ов" if g["n"]>=5 else "")}'
+            sub_n_label = f'{len(slugs)} рецепт{"а" if 2<=len(slugs)<=4 else ("ов" if len(slugs)>=5 else "")}'
             group_name  = names.get(g['label'], g['label'])
             desc = re.sub(r'^#+\s.*\n?', '', g['description']).strip()
 

@@ -183,3 +183,10 @@ my-fujifilm-x-t30-faded-monochrome-film-simulation-recipe,Faded Monochrome,Acros
 my-fujifilm-x-t30-split-toned-bw-film-simulation-recipe,Split-Toned B&W,Acros,0,Acros#0
 my-fujifilm-x-t30-cyanotype-film-simulation-recipe,Cyanotype,Acros,0,Acros#0
 fujifilm-x100v-film-simulation-recipe-verano-tostado,Verano Tostado,Classic Chrome,1,Classic Chrome#1
+ext-dagostino-classic-negative,Classic Negative,Classic Negative,1,Classic Negative#1
+ext-dagostino-kodachrome64-minus,Kodachrome 64 -,Classic Chrome,0,Classic Chrome#0
+ext-dagostino-kodachrome64-plus,Kodachrome 64 +,Classic Chrome,0,Classic Chrome#0
+ext-dagostino-kodak-portra,Kodak Portra,Classic Chrome,2,Classic Chrome#2
+ext-dagostino-summer,Summer,Classic Chrome,0,Classic Chrome#0
+ext-dagostino-monochrome,Monochrome,Monochrome,-1,Monochrome
+ext-dagostino-noir,Noir,Acros,0,Acros#0
