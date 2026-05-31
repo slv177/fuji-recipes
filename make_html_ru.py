@@ -3,11 +3,12 @@ import json, re, os
 import pandas as pd
 from bs4 import BeautifulSoup
 
-data    = json.load(open('group_descriptions_ru.json', encoding='utf-8'))
-visual  = json.load(open('group_visual_analysis.json', encoding='utf-8'))
-names   = {g['label']: g['name'] for g in json.load(open('group_names.json', encoding='utf-8'))}
-df_feat = pd.read_csv('features.csv')
-df_sub  = pd.read_csv('subclusters.csv')
+data     = json.load(open('group_descriptions_ru.json', encoding='utf-8'))
+visual   = json.load(open('group_visual_analysis.json', encoding='utf-8'))
+names    = {g['label']: g['name'] for g in json.load(open('group_names.json', encoding='utf-8'))}
+sim_info = json.load(open('film_sim_info.json', encoding='utf-8'))
+df_feat  = pd.read_csv('features.csv')
+df_sub   = pd.read_csv('subclusters.csv')
 # slug → url mapping
 slug_url = {r['slug']: r['url'] for r in json.load(open('recipes.json', encoding='utf-8'))}
 
@@ -152,6 +153,62 @@ def settings_rows(slugs):
                      f'<td class="sv">{mean:+.1f}</td></tr>')
     return f'<table class="stbl">{rows}</table>' if rows else ''
 
+# ── Comparison table ──────────────────────────────────────────────────────────
+CMP_COLS = ['Контраст', 'Насыщенность', 'Цветовой сдвиг', 'Светa', 'Тени', 'Лучше всего для']
+BW_SIMS = {'Acros', 'Monochrome'}
+
+CONTRAST_ORDER = {
+    'экстремальный': 5, 'extreme': 5,
+    'очень высокий': 4,
+    'высокий': 3,
+    'средний': 2, 'medium': 2,
+    'средний (std) / средний (hi)': 2,
+    'низкий (std) / средний (hi)': 1.5,
+    'низкий': 1,
+    'очень низкий': 0,
+}
+
+def contrast_rank(si):
+    v = si.get('table', {}).get('Контраст', '').lower()
+    for key, rank in CONTRAST_ORDER.items():
+        if key in v:
+            return rank
+    return 2  # default
+
+def make_row(sim):
+    si = sim_info.get(sim)
+    if not si:
+        return None
+    color = SIM_COLORS.get(sim, '#999')
+    t = si.get('table', {})
+    cells = ''.join(f'<td>{t.get(c, "—")}</td>' for c in CMP_COLS[:-1])
+    cells += f'<td>{si.get("best_for","—")}</td>'
+    anchor = sim.lower().replace(' ', '-').replace('/', '-')
+    return (contrast_rank(si),
+            f'<tr class="cmp-link" onclick="location.href=\'#sim-{anchor}\'">'
+            f'<td><span class="sim-dot" style="background:{color}"></span>'
+            f'<strong>{sim}</strong></td>{cells}</tr>')
+
+color_sims = sorted(
+    [r for s in FS_ORDER if s not in BW_SIMS and (r := make_row(s))],
+    key=lambda x: x[0], reverse=True)
+bw_sims = sorted(
+    [r for s in FS_ORDER if s in BW_SIMS and (r := make_row(s))],
+    key=lambda x: x[0], reverse=True)
+
+cmp_rows    = ''.join(r for _, r in color_sims)
+cmp_rows_bw = ''.join(r for _, r in bw_sims)
+
+cmp_headers = ''.join(f'<th>{c}</th>' for c in CMP_COLS)
+comparison_table = f'''
+<div class="cmp-section">
+  <h2>Сравнение плёнок</h2>
+  <table class="cmp-tbl">
+    <thead><tr><th>Симуляция</th>{cmp_headers}</tr></thead>
+    <tbody>{cmp_rows}<tr class="bw-sep"><td colspan="7">Монохромные плёнки</td></tr>{cmp_rows_bw}</tbody>
+  </table>
+</div>'''
+
 # ── HTML builder ──────────────────────────────────────────────────────────────
 from collections import defaultdict
 by_sim = defaultdict(list)
@@ -270,13 +327,32 @@ for sim in FS_ORDER:
   </div>
 </div>'''
 
+    si = sim_info.get(sim, {})
+    tbl_rows = ''.join(
+        f'<tr><td class="ti-k">{k}</td><td class="ti-v">{v}</td></tr>'
+        for k, v in si.get('table', {}).items()
+    ) if si else ''
+    si_block = f'''
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> {si.get("inspired_by","")}</div>
+      <p class="si-desc">{si.get("description","")}</p>
+      <div class="si-row">
+        <table class="si-tbl">{tbl_rows}</table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>{si.get("best_for","")}</div>
+      </div>
+    </div>''' if si else ''
+
+    sim_id = sim.lower().replace(' ', '-').replace('/', '-')
     sections += f'''
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid {color}">
+<section class="sim-sec" id="sim-{sim_id}" style="border-top:4px solid {color}">
+  <div class="sim-hdr">
     <span class="sim-title">{SIM_NAMES_RU.get(sim, sim)}</span>
     <span class="sim-n">{sim_total} рецептов</span>
   </div>
-  <div class="grid">{cards}</div>
+  {si_block}
+  <div class="sim-cards-area">
+    <div class="grid">{cards}</div>
+  </div>
 </section>'''
 
 HTML = f'''<!DOCTYPE html>
@@ -294,17 +370,27 @@ header h1{{font-size:1.75rem;font-weight:700;letter-spacing:-.4px}}
 header p{{color:#999;margin-top:8px;font-size:.9rem}}
 main{{max-width:100%;padding:36px 40px}}
 
-.sim-sec{{margin-bottom:60px}}
-.sim-hdr{{background:#fff;padding:14px 20px;margin-bottom:18px;border-radius:6px;
-          display:flex;align-items:baseline;gap:14px;
-          box-shadow:0 1px 4px rgba(0,0,0,.07)}}
-.sim-title{{font-size:1.25rem;font-weight:800}}
-.sim-n{{font-size:.82rem;color:#999}}
+/* ── outer film-simulation container ── */
+.sim-sec{{background:#fff;border-radius:12px;margin-bottom:48px;
+          box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}}
+.sim-hdr{{padding:20px 28px;display:flex;align-items:baseline;gap:14px;
+          border-bottom:1px solid #f0eeea}}
+.sim-title{{font-size:1.3rem;font-weight:800}}
+.sim-n{{font-size:.82rem;color:#aaa}}
 
-.grid{{display:flex;flex-direction:column;gap:24px}}
+/* film sim description inside the container */
+.si-body{{padding:20px 28px;border-bottom:1px solid #f0eeea;
+          display:flex;flex-direction:column;gap:10px}}
 
-.card{{background:#fff;border-radius:10px;padding:28px 32px;
-       box-shadow:0 1px 5px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:16px;
+/* nested recipe-group cards area */
+.sim-cards-area{{background:#f7f6f2;padding:20px 28px;
+                 display:flex;flex-direction:column;gap:0}}
+
+.grid{{display:flex;flex-direction:column;gap:16px}}
+
+/* inner card — slightly inset look */
+.card{{background:#fff;border-radius:8px;padding:24px 28px;
+       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:16px;
        width:100%}}
 .card-head{{display:flex;justify-content:space-between;align-items:center}}
 .card-name{{font-weight:700;font-size:1.05rem}}
@@ -344,6 +430,34 @@ main{{max-width:100%;padding:36px 40px}}
 .vision-rows{{display:flex;gap:24px;font-size:.82rem;flex-wrap:wrap}}
 .vtag-lbl{{color:#aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-right:4px}}
 .vtags{{color:#555}}
+
+/* film simulation description (inside outer container) */
+.si-inspired{{font-size:.83rem;color:#aaa}}
+.si-lbl{{font-weight:600;color:#666;margin-right:5px}}
+.si-desc{{font-size:.92rem;color:#333;line-height:1.75;max-width:900px}}
+.si-row{{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;margin-top:4px}}
+.si-tbl{{border-collapse:collapse;font-size:.82rem}}
+.si-tbl td{{padding:3px 16px 3px 0;vertical-align:top}}
+.ti-k{{color:#888;white-space:nowrap}}
+.ti-v{{color:#333;font-weight:500}}
+.si-bestfor{{font-size:.88rem;color:#555;max-width:300px}}
+
+/* comparison table */
+.cmp-section{{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:48px;
+              box-shadow:0 1px 4px rgba(0,0,0,.07)}}
+.cmp-section h2{{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#1a1a1a}}
+.cmp-tbl{{width:100%;border-collapse:collapse;font-size:.82rem}}
+.cmp-tbl th{{background:#f4f3ef;padding:8px 12px;text-align:left;font-weight:600;
+             color:#555;border-bottom:2px solid #e0ddd8;white-space:nowrap}}
+.cmp-tbl td{{padding:7px 12px;border-bottom:1px solid #f0eeea;vertical-align:top}}
+.cmp-tbl tr:last-child td{{border-bottom:none}}
+.cmp-tbl tr:hover td{{background:#faf9f6}}
+.cmp-link{{cursor:pointer}}
+.cmp-link:hover td{{background:#eef2ff}}
+.bw-sep td{{background:#f4f3ef;color:#999;font-size:.72rem;text-transform:uppercase;
+            letter-spacing:.08em;padding:6px 12px;border-top:2px solid #e0ddd8}}
+.sim-dot{{display:inline-block;width:10px;height:10px;border-radius:50%;
+          margin-right:7px;vertical-align:middle}}
 </style>
 </head>
 <body>
@@ -351,7 +465,8 @@ main{{max-width:100%;padding:36px 40px}}
   <h1>Fujifilm X-Trans IV — группы рецептов</h1>
   <p>184 рецепта · 11 плёночных симуляций · 20 подгрупп · описания и фотографии из оригинальных статей</p>
 </header>
-<main>{sections}</main>
+<main>{comparison_table}
+{sections}</main>
 </body>
 </html>'''
 

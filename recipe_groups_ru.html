@@ -13,17 +13,27 @@ header h1{font-size:1.75rem;font-weight:700;letter-spacing:-.4px}
 header p{color:#999;margin-top:8px;font-size:.9rem}
 main{max-width:100%;padding:36px 40px}
 
-.sim-sec{margin-bottom:60px}
-.sim-hdr{background:#fff;padding:14px 20px;margin-bottom:18px;border-radius:6px;
-          display:flex;align-items:baseline;gap:14px;
-          box-shadow:0 1px 4px rgba(0,0,0,.07)}
-.sim-title{font-size:1.25rem;font-weight:800}
-.sim-n{font-size:.82rem;color:#999}
+/* ── outer film-simulation container ── */
+.sim-sec{background:#fff;border-radius:12px;margin-bottom:48px;
+          box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.sim-hdr{padding:20px 28px;display:flex;align-items:baseline;gap:14px;
+          border-bottom:1px solid #f0eeea}
+.sim-title{font-size:1.3rem;font-weight:800}
+.sim-n{font-size:.82rem;color:#aaa}
 
-.grid{display:flex;flex-direction:column;gap:24px}
+/* film sim description inside the container */
+.si-body{padding:20px 28px;border-bottom:1px solid #f0eeea;
+          display:flex;flex-direction:column;gap:10px}
 
-.card{background:#fff;border-radius:10px;padding:28px 32px;
-       box-shadow:0 1px 5px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:16px;
+/* nested recipe-group cards area */
+.sim-cards-area{background:#f7f6f2;padding:20px 28px;
+                 display:flex;flex-direction:column;gap:0}
+
+.grid{display:flex;flex-direction:column;gap:16px}
+
+/* inner card — slightly inset look */
+.card{background:#fff;border-radius:8px;padding:24px 28px;
+       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:16px;
        width:100%}
 .card-head{display:flex;justify-content:space-between;align-items:center}
 .card-name{font-weight:700;font-size:1.05rem}
@@ -63,6 +73,34 @@ main{max-width:100%;padding:36px 40px}
 .vision-rows{display:flex;gap:24px;font-size:.82rem;flex-wrap:wrap}
 .vtag-lbl{color:#aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-right:4px}
 .vtags{color:#555}
+
+/* film simulation description (inside outer container) */
+.si-inspired{font-size:.83rem;color:#aaa}
+.si-lbl{font-weight:600;color:#666;margin-right:5px}
+.si-desc{font-size:.92rem;color:#333;line-height:1.75;max-width:900px}
+.si-row{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;margin-top:4px}
+.si-tbl{border-collapse:collapse;font-size:.82rem}
+.si-tbl td{padding:3px 16px 3px 0;vertical-align:top}
+.ti-k{color:#888;white-space:nowrap}
+.ti-v{color:#333;font-weight:500}
+.si-bestfor{font-size:.88rem;color:#555;max-width:300px}
+
+/* comparison table */
+.cmp-section{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:48px;
+              box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.cmp-section h2{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:.82rem}
+.cmp-tbl th{background:#f4f3ef;padding:8px 12px;text-align:left;font-weight:600;
+             color:#555;border-bottom:2px solid #e0ddd8;white-space:nowrap}
+.cmp-tbl td{padding:7px 12px;border-bottom:1px solid #f0eeea;vertical-align:top}
+.cmp-tbl tr:last-child td{border-bottom:none}
+.cmp-tbl tr:hover td{background:#faf9f6}
+.cmp-link{cursor:pointer}
+.cmp-link:hover td{background:#eef2ff}
+.bw-sep td{background:#f4f3ef;color:#999;font-size:.72rem;text-transform:uppercase;
+            letter-spacing:.08em;padding:6px 12px;border-top:2px solid #e0ddd8}
+.sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
+          margin-right:7px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -71,12 +109,30 @@ main{max-width:100%;padding:36px 40px}
   <p>184 рецепта · 11 плёночных симуляций · 20 подгрупп · описания и фотографии из оригинальных статей</p>
 </header>
 <main>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #4a6fa5">
+<div class="cmp-section">
+  <h2>Сравнение плёнок</h2>
+  <table class="cmp-tbl">
+    <thead><tr><th>Симуляция</th><th>Контраст</th><th>Насыщенность</th><th>Цветовой сдвиг</th><th>Светa</th><th>Тени</th><th>Лучше всего для</th></tr></thead>
+    <tbody><tr class="cmp-link" onclick="location.href='#sim-eterna-bleach-bypass'"><td><span class="sim-dot" style="background:#7a6a8a"></span><strong>Eterna Bleach Bypass</strong></td><td>Экстремальный</td><td>Минимальная</td><td>Серебристый</td><td>Яркие</td><td>Очень глубокие</td><td>Урбанистика, абстракция, художественные проекты, путешествия</td></tr><tr class="cmp-link" onclick="location.href='#sim-velvia'"><td><span class="sim-dot" style="background:#c44b2b"></span><strong>Velvia</strong></td><td>Экстремальный</td><td>Экстремальная</td><td>Перенасыщенный</td><td>Яркие, драматичные</td><td>Очень глубокие</td><td>Пейзажи, природа, закаты, абстракция</td></tr><tr class="cmp-link" onclick="location.href='#sim-classic-negative'"><td><span class="sim-dot" style="background:#7a9e7e"></span><strong>Classic Negative</strong></td><td>Очень высокий</td><td>Высокая</td><td>Тёплый (красно-пурпурный)</td><td>Тёплые</td><td>Холодные, глубокие</td><td>Портреты, свадьбы, яркий естественный свет, репортаж</td></tr><tr class="cmp-link" onclick="location.href='#sim-classic-chrome'"><td><span class="sim-dot" style="background:#4a6fa5"></span><strong>Classic Chrome</strong></td><td>Средний</td><td>Низкая</td><td>Холодный (голубой)</td><td>Нейтральные</td><td>Глубокие</td><td>Уличная съёмка, путешествия, документалистика, фотожурналистика</td></tr><tr class="cmp-link" onclick="location.href='#sim-pro-neg'"><td><span class="sim-dot" style="background:#b05a5a"></span><strong>PRO Neg</strong></td><td>Низкий (Std) / Средний (Hi)</td><td>Низкая</td><td>Нейтральный, тёплый</td><td>Мягкие</td><td>Поднятые (Std) / Средние (Hi)</td><td>Студийные и уличные портреты, мода, свадьбы</td></tr><tr class="cmp-link" onclick="location.href='#sim-provia'"><td><span class="sim-dot" style="background:#4a8aa5"></span><strong>Provia</strong></td><td>Средний</td><td>Средняя</td><td>Нейтральный, тёплый</td><td>Сбалансированные</td><td>Сбалансированные</td><td>Универсальная съёмка, исходная точка, обучение</td></tr><tr class="cmp-link" onclick="location.href='#sim-astia'"><td><span class="sim-dot" style="background:#a57a4a"></span><strong>Astia</strong></td><td>Средний</td><td>Средняя (низкая для кожи)</td><td>Тёплый, мягкий</td><td>Мягкие, изящные</td><td>Плавные</td><td>Портреты на улице, мода, смешанное освещение</td></tr><tr class="cmp-link" onclick="location.href='#sim-eterna'"><td><span class="sim-dot" style="background:#c17c3a"></span><strong>Eterna</strong></td><td>Очень низкий</td><td>Очень низкая</td><td>Нейтральный</td><td>Поднятые, мягкие</td><td>Поднятые</td><td>Видео, цветокоррекция, кинематографический стиль</td></tr><tr class="bw-sep"><td colspan="7">Монохромные плёнки</td></tr><tr class="cmp-link" onclick="location.href='#sim-acros'"><td><span class="sim-dot" style="background:#555555"></span><strong>Acros</strong></td><td>Высокий</td><td>Ч/б</td><td>Нейтральный ч/б</td><td>Текстурированные</td><td>Глубокие с деталями</td><td>Художественная ч/б фотография, пейзажи, уличная съёмка, портреты</td></tr><tr class="cmp-link" onclick="location.href='#sim-monochrome'"><td><span class="sim-dot" style="background:#888888"></span><strong>Monochrome</strong></td><td>Средний</td><td>Ч/б</td><td>Нейтральный ч/б</td><td>Сбалансированные</td><td>Сбалансированные</td><td>Нейтральная ч/б съёмка, редакционная работа, база для обработки</td></tr></tbody>
+  </table>
+</div>
+
+<section class="sim-sec" id="sim-classic-chrome" style="border-top:4px solid #4a6fa5">
+  <div class="sim-hdr">
     <span class="sim-title">Classic Chrome</span>
     <span class="sim-n">53 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Не конкретная плёнка — воссоздаёт эстетику документальной фотожурналистики 1960–80-х, характерной для журналов Life и National Geographic.</div>
+      <p class="si-desc">Classic Chrome создавалась путём анализа сотен документальных и журналистских снимков, а не путём копирования конкретной плёнки. Результат — приглушённые, насыщенные тона с мягким контрастом и характерным смещением синего в сторону тёмного голубого. Неба не перенасыщены, оранжевые тона не кричат — всё работает как единая сдержанная палитра. Симуляция удаляет пурпурные компоненты из синего неба, что даёт тот самый «холодный» документальный оттенок. Отлично подходит как база для обработки благодаря управляемому характеру цвета.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Средний</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Низкая</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Холодный (голубой)</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Нейтральные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Глубокие</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Уличная съёмка, путешествия, документалистика, фотожурналистика</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Kodachrome Warm Earth</span>
@@ -173,13 +229,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">fujifilm t30</span><span class="badge">elite</span><span class="badge">elite chrome</span><span class="badge">chrome 200</span><span class="badge">weber ut</span><span class="badge">south weber</span><span class="badge">weber</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #7a9e7e">
+<section class="sim-sec" id="sim-classic-negative" style="border-top:4px solid #7a9e7e">
+  <div class="sim-hdr">
     <span class="sim-title">Classic Negative</span>
     <span class="sim-n">45 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujicolor Superia — потребительская цветная негативная плёнка Fujifilm 1980-х.</div>
+      <p class="si-desc">Classic Negative — наиболее «плёночная» из цветных симуляций по характеру. Она использует отдельные тональные кривые для разных цветов, из-за чего красные, синие и зелёные получают разный контраст одновременно — именно так работала настоящая цветная негативная плёнка. Это создаёт богатый, немного неравномерный образ с тёплыми светами и прохладными тенями. Высокий контраст и насыщенность делают цвета живыми, но без цифровой «пластиковости». Особенно хороша для съёмки людей — кожные тона получают теплоту, зелень остаётся зелёной, а не жёлтой.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Очень высокий</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Высокая</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Тёплый (красно-пурпурный)</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Тёплые</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Холодные, глубокие</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Портреты, свадьбы, яркий естественный свет, репортаж</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Pacific Warm Reverie</span>
@@ -276,13 +343,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">immanuel</span><span class="badge">creamy color</span><span class="badge">creamy</span><span class="badge">bleach</span><span class="badge">bleach bypass</span><span class="badge">bypass</span><span class="badge">fujifilm x100v</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #c17c3a">
+<section class="sim-sec" id="sim-eterna" style="border-top:4px solid #c17c3a">
+  <div class="sim-hdr">
     <span class="sim-title">Eterna</span>
     <span class="sim-n">22 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujifilm Eterna — профессиональная кинематографическая плёнка для съёмки фильмов.</div>
+      <p class="si-desc">Eterna разработана для кинематографистов, которым нужна максимальная гибкость в постобработке. Профиль намеренно плоский: поднятые тени, прижатые света, минимальный контраст и очень приглушённые цвета — как промежуточное состояние между Log-профилем и стандартным цветом. Для неподвижных снимков без обработки выглядит тусклой, но именно это и нужно видеооператорам. В фотографии Eterna даёт «кинематографическую рамку» — ощущение непроявленного кадра, мягкой плёнки в ожидании цветокоррекции. Хорошо сочетается с тёплыми источниками света.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Очень низкий</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Очень низкая</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Нейтральный</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Поднятые, мягкие</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Поднятые</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Видео, цветокоррекция, кинематографический стиль</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Eterna Timeless Warmth</span>
@@ -355,13 +433,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">fujifilm x100v</span><span class="badge">cinestill</span><span class="badge">x100v</span><span class="badge">farmington ut</span><span class="badge">farmington</span><span class="badge">vision3 500t</span><span class="badge">cinestill 800t</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #7a6a8a">
+<section class="sim-sec" id="sim-eterna-bleach-bypass" style="border-top:4px solid #7a6a8a">
+  <div class="sim-hdr">
     <span class="sim-title">Eterna Bleach Bypass</span>
     <span class="sim-n">12 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Техника «bleach bypass» — пропуск стадии отбеливания при проявке кинопленки Eterna. Используется в кино для создания жёсткой, обесцвеченной картинки.</div>
+      <p class="si-desc">Bleach Bypass — химический процесс, при котором серебро не вымывается из плёнки, оставаясь поверх цветового слоя. Результат: экстремальный контраст, глубокие тени, яркие света и минимум цвета — практически чёрно-белое с призраком цветности. В кино эту технику использовали в «Спасти рядового Райана», «Секретах Лос-Анджелеса». Симуляция Fujifilm точно воспроизводит этот эффект — самая «жёсткая» из цветных симуляций. Там, где цвет мешает композиции — в городской среде, архитектуре, абстрактных сценах — она работает лучше всего.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Экстремальный</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Минимальная</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Серебристый</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Яркие</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Очень глубокие</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Урбанистика, абстракция, художественные проекты, путешествия</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Faded Silver Noir</span>
@@ -410,13 +499,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">kodachrome</span><span class="badge">bleach</span><span class="badge">bleach bypass</span><span class="badge">corrected</span><span class="badge">bypass</span><span class="badge">color corrected</span><span class="badge">kodachrome blue</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #b05a5a">
+<section class="sim-sec" id="sim-pro-neg" style="border-top:4px solid #b05a5a">
+  <div class="sim-hdr">
     <span class="sim-title">PRO Neg</span>
     <span class="sim-n">15 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Профессиональная студийная негативная плёнка Fujifilm NS160, разработанная специально для портретной съёмки.</div>
+      <p class="si-desc">Семейство PRO Neg создано с одной задачей: максимально льстить портретируемому. Базовая версия (Std) — одна из самых мягких и плоских симуляций в линейке: она скрывает тени, смягчает контраст и позволяет студийному свету полностью формировать образ. PRO Neg Hi добавляет контраст — для уличных и outdoor-портретов, где фотограф не может управлять освещением. Кожные тона воспроизводятся натурально, без перегрева или излишней пластичности. Нейтральный цветовой баланс делает эти симуляции надёжной основой для портретной съёмки в любых условиях.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Низкий (Std) / Средний (Hi)</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Низкая</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Нейтральный, тёплый</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Мягкие</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Поднятые (Std) / Средние (Hi)</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Студийные и уличные портреты, мода, свадьбы</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Fujicolor Pro Softness</span>
@@ -533,13 +633,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">kodachrome</span><span class="badge">thomas</span><span class="badge">pure</span><span class="badge">pure negative</span><span class="badge">dr auto</span><span class="badge">dr</span><span class="badge">ignore</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #555555">
+<section class="sim-sec" id="sim-acros" style="border-top:4px solid #555555">
+  <div class="sim-hdr">
     <span class="sim-title">Acros</span>
     <span class="sim-n">14 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujifilm Neopan Acros 100 — чёрно-белая плёнка с исключительно тонким зерном и широким тональным диапазоном, считающаяся эталоном среди ч/б плёнок.</div>
+      <p class="si-desc">Neopan Acros — одна из лучших ч/б плёнок в истории, снятая с производства в 2018 году. Fujifilm воссоздала её характер в цифровой симуляции, сохранив структурированное тонкое зерно, богатые тени с деталями и выразительные светa. В отличие от обычного Monochrome, Acros более драматична и контрастна — это «характерная» ч/б съёмка, а не нейтральная. Поддерживает симуляцию цветных фильтров: красный усиливает контраст неба, жёлтый смягчает кожу, зелёный выделяет листву. Это лучший вариант для экспрессивной ч/б работы прямо из камеры.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Высокий</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Ч/б</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Нейтральный ч/б</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Текстурированные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Глубокие с деталями</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Структурированное, тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Художественная ч/б фотография, пейзажи, уличная съёмка, портреты</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Kodak Contrast Classics</span>
@@ -588,13 +699,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"><span class="badge">acros</span><span class="badge">monochrome</span><span class="badge">superia</span><span class="badge">moody</span><span class="badge">superia film</span><span class="badge">monochrome film</span><span class="badge">grain size</span></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #c44b2b">
+<section class="sim-sec" id="sim-velvia" style="border-top:4px solid #c44b2b">
+  <div class="sim-hdr">
     <span class="sim-title">Velvia</span>
     <span class="sim-n">7 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujichrome Velvia RVP 50 — культовая слайдовая плёнка с экстремальной насыщенностью, ставшая стандартом для пейзажной и природной фотографии.</div>
+      <p class="si-desc">Velvia вышла в 1990 году и произвела революцию в пейзажной фотографии. Её гиперреальная насыщенность, глубокие тёмно-зелёные и интенсивные красные стали эталоном для изданий о природе и дикой природе. В цифровой симуляции Fujifilm воспроизводит этот экстремальный характер: цвета выглядят «слишком настоящими», ярче реальности. Для портретов она непригодна — кожные тона становятся неестественными. Но для заката, горного ландшафта или цветущего луга — она создаёт то эмоциональное «вау», которого не добьёшься никаким другим способом. Лучше всего работает при небольшой недоэкспозиции.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Экстремальный</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Экстремальная</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Перенасыщенный</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Яркие, драматичные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Очень глубокие</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Пейзажи, природа, закаты, абстракция</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Vibrant Nature Velvia</span>
@@ -619,13 +741,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #888888">
+<section class="sim-sec" id="sim-monochrome" style="border-top:4px solid #888888">
+  <div class="sim-hdr">
     <span class="sim-title">Monochrome</span>
     <span class="sim-n">7 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Provia с удалённым цветом — нейтральная отправная точка для ч/б фотографии.</div>
+      <p class="si-desc">Monochrome — это стандартный, сбалансированный чёрно-белый профиль без выраженного характера. В отличие от Acros, он не стремится к драме и контрасту: плавные градиенты, ровные переходы от тени к свету, предсказуемый результат. Это делает его хорошей основой для дальнейшей обработки — он не навязывает эстетику. Поддерживает цветные фильтры: жёлтый слегка затемняет небо и смягчает кожу, красный усиливает контраст, зелёный подчёркивает растительность. Выбор между Acros и Monochrome — это выбор между выразительностью и нейтральностью.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Средний</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Ч/б</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Нейтральный ч/б</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Сбалансированные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Сбалансированные</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Нейтральная ч/б съёмка, редакционная работа, база для обработки</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Classic Tonal Drama</span>
@@ -650,13 +783,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #4a8aa5">
+<section class="sim-sec" id="sim-provia" style="border-top:4px solid #4a8aa5">
+  <div class="sim-hdr">
     <span class="sim-title">Provia</span>
     <span class="sim-n">5 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujichrome Provia 100F — профессиональная слайдовая плёнка с нейтральным, сбалансированным цветом. Базовый стандарт Fujifilm.</div>
+      <p class="si-desc">Provia — нейтральная точка отсчёта в линейке Fujifilm, эквивалент «стандартного» цветового профиля. Она не делает ничего экстремального: умеренный контраст, умеренная насыщенность, чистый белый баланс. Есть лёгкий тёплый оттенок — жёлто-зелёный, характерный для Fujifilm — но он почти не заметен в реальных условиях. Если другие симуляции создают настроение, Provia просто фиксирует сцену. Это делает её идеальной отправной точкой для тех, кто только знакомится с камерой, и надёжным запасным вариантом для остальных.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Средний</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Средняя</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Нейтральный, тёплый</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Сбалансированные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Сбалансированные</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Универсальная съёмка, исходная точка, обучение</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Natural Provia Standard</span>
@@ -681,13 +825,24 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"></div>
 </div></div>
+  </div>
 </section>
-<section class="sim-sec">
-  <div class="sim-hdr" style="border-left:5px solid #a57a4a">
+<section class="sim-sec" id="sim-astia" style="border-top:4px solid #a57a4a">
+  <div class="sim-hdr">
     <span class="sim-title">Astia</span>
     <span class="sim-n">3 рецептов</span>
   </div>
-  <div class="grid">
+  
+    <div class="si-body">
+      <div class="si-inspired"><span class="si-lbl">Основа:</span> Fujichrome Astia 100F — слайдовая плёнка для портретной и fashion-фотографии, разработанная для мягкого воспроизведения кожных тонов.</div>
+      <p class="si-desc">Astia создавалась для фэшн-съёмки на плёнку: мягкие кожные тона, живые синие и зелёные, изящные переходы в светах. В цифровой симуляции эта логика сохранена: красные и оранжевые (кожа, закаты) приглушены и смягчены, тогда как синее небо и зелёная листва получают насыщенность и pop. Это делает Astia уникальной — она одновременно «нежная» и «яркая», в зависимости от того, что перед объективом. Мягкий переход в светах позволяет снимать в жёстком полуденном свете без пересвеченных лиц. Один из самых сложных для имитации в постобработке профилей.</p>
+      <div class="si-row">
+        <table class="si-tbl"><tr><td class="ti-k">Контраст</td><td class="ti-v">Средний</td></tr><tr><td class="ti-k">Насыщенность</td><td class="ti-v">Средняя (низкая для кожи)</td></tr><tr><td class="ti-k">Цветовой сдвиг</td><td class="ti-v">Тёплый, мягкий</td></tr><tr><td class="ti-k">Светa</td><td class="ti-v">Мягкие, изящные</td></tr><tr><td class="ti-k">Тени</td><td class="ti-v">Плавные</td></tr><tr><td class="ti-k">Зерно</td><td class="ti-v">Тонкое</td></tr></table>
+        <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>Портреты на улице, мода, смешанное освещение</div>
+      </div>
+    </div>
+  <div class="sim-cards-area">
+    <div class="grid">
 <div class="card">
   <div class="card-head">
     <span class="card-name">Redscale Pastels Warm</span>
@@ -712,6 +867,7 @@ main{max-width:100%;padding:36px 40px}
   </div>
   <div class="tags"></div>
 </div></div>
+  </div>
 </section></main>
 </body>
 </html>
