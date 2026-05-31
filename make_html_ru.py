@@ -6,7 +6,8 @@ from bs4 import BeautifulSoup
 data     = json.load(open('group_descriptions_ru.json', encoding='utf-8'))
 visual   = json.load(open('group_visual_analysis.json', encoding='utf-8'))
 names    = {g['label']: g['name'] for g in json.load(open('group_names.json', encoding='utf-8'))}
-sim_info = json.load(open('film_sim_info.json', encoding='utf-8'))
+sim_info     = json.load(open('film_sim_info.json', encoding='utf-8'))
+official_photos = json.load(open('official_photos.json', encoding='utf-8'))
 df_feat  = pd.read_csv('features.csv')
 df_sub   = pd.read_csv('subclusters.csv')
 # slug → url mapping
@@ -200,7 +201,56 @@ cmp_rows    = ''.join(r for _, r in color_sims)
 cmp_rows_bw = ''.join(r for _, r in bw_sims)
 
 cmp_headers = ''.join(f'<th>{c}</th>' for c in CMP_COLS)
-comparison_table = f'''
+
+INTRO_BLOCK = '''
+<div class="intro-block">
+  <h2>О каталоге</h2>
+  <p>Каталог построен на основе двух источников. Основной массив — <strong>184 рецепта</strong>
+  с сайта <a href="https://fujixweekly.com/fujifilm-x-trans-iv-recipes/" target="_blank">Fuji X Weekly</a>
+  (Ritchie Roesch), крупнейшей коллекции рецептов для X-Trans IV. Дополнительно добавлены
+  <strong>7 рецептов</strong> Джозефа Д'Агостино
+  (<a href="https://www.josephdagostinophotography.com/joedagostino-photo-blog/2021/1/27/r7ydnsoxgcgdi4uasfztt70yyuty1t" target="_blank">josephdagostinophotography.com</a>).
+  Итого: <strong>191 рецепт</strong>.</p>
+
+  <p>Каждый рецепт представлен как точка в многомерном пространстве настроек. Мы сгруппировали
+  рецепты методом иерархической кластеризации (Ward) сначала по типу плёночной симуляции, затем
+  нашли скрытые подгруппы внутри каждой симуляции — по балансу белого, динамическому диапазону
+  и чёткости. Для каждой группы Claude Opus проанализировал примеры фотографий и сформулировал
+  визуальный характер. Названия групп сгенерированы с TF-IDF-взвешиванием названий плёнок.</p>
+
+  <h3>Что объединяет рецепты внутри группы, а что различает</h3>
+  <p>Анализ разброса параметров внутри каждой группы показал устойчивую закономерность:
+  <strong>баланс белого</strong> — самый вариативный параметр почти везде. Авторы приходят к
+  похожему визуальному результату разными путями: кто-то через тёплый Kelvin, кто-то через сдвиги
+  Red/Blue. <strong>Grain</strong>, напротив, обычно стабилен — внутри группы авторы сходятся на
+  одном характере зернистости.</p>
+  <p>Самая неоднородная группа — <strong>Kodak Contrast Classics</strong> (Acros): варьируется
+  буквально всё, включая WB ±1375K. Это скорее «сборная всего разного в Acros», чем плотный
+  кластер. Наоборот, <strong>Cinematic Teal Glow</strong> (Eterna) — единственная группа, где
+  стабильна и Clarity = −5, и WB ≈ 4275K: оба автора пришли к практически одинаковому
+  специфическому профилю независимо.</p>
+  <p><strong>Kodachrome Warm Earth</strong> (Classic Chrome, 26 рецептов) — самая большая группа,
+  и при этом ни один параметр не зафиксирован: это «размытый центр» симуляции, куда попало всё,
+  что не вписалось в более специфичные подгруппы. Использовать как ориентир, но не как образец.</p>
+
+  <h3>Рецепты Д'Агостино: насколько они уникальны?</h3>
+  <p>Сравнение с ближайшими соседями в пространстве настроек показало следующее:</p>
+  <ul>
+    <li><strong>Kodachrome 64 +</strong> и <strong>Summer</strong> — практически идентичны уже
+    существующим рецептам (расстояние 0.00 и 0.26). Независимые переоткрытия одних и тех же настроек.</li>
+    <li><strong>Classic Negative</strong>, <strong>Kodachrome 64 −</strong>, <strong>Kodak Portra</strong> —
+    вписываются в свои группы, но с личным акцентом: повышенная резкость, экстремально поднятые
+    света, сильный тёплый сдвиг WB.</li>
+    <li><strong>Noir</strong> (Acros) — выбивается из группы: Sharpness +4, Highlight +4, DR100.
+    Намеренный максимализм контраста.</li>
+    <li><strong>Monochrome</strong> — самый далёкий от любого соседа (расстояние 6.23), занимает
+    собственную нишу в малочисленной группе.</li>
+  </ul>
+  <p class="intro-note">Рецепты Д'Агостино отмечены звёздочкой <span class="ext-mark">*</span>
+  в списках групп.</p>
+</div>'''
+
+comparison_table = f'''{INTRO_BLOCK}
 <div class="cmp-section">
   <h2>Сравнение плёнок</h2>
   <table class="cmp-tbl">
@@ -208,6 +258,64 @@ comparison_table = f'''
     <tbody>{cmp_rows}<tr class="bw-sep"><td colspan="7">Монохромные плёнки</td></tr>{cmp_rows_bw}</tbody>
   </table>
 </div>'''
+
+# ── Group homogeneity analysis ────────────────────────────────────────────────
+NUMERIC_LABELS = {
+    'highlight': 'Highlight', 'shadow': 'Shadow', 'color': 'Color',
+    'sharpness': 'Sharpness', 'clarity': 'Clarity', 'dynamic_range': 'Dyn. Range',
+    'grain_strength': 'Grain', 'wb_red': 'WB Red', 'wb_blue': 'WB Blue',
+    'wb_kelvin': 'WB Kelvin',
+}
+DR_DECODE = {100.0:'DR100', 200.0:'DR200', 400.0:'DR400', 250.0:'DR-Auto'}
+GRAIN_DECODE = {0.0:'Off', 1.0:'Weak', 2.0:'Strong'}
+
+
+def group_homogeneity(slugs):
+    """Return (stable_items, variable_items) for a list of recipe slugs."""
+    sub = df_feat[df_feat['slug'].isin(slugs)]
+    if len(sub) < 2:
+        return [], []
+    stable, variable = [], []
+    for col, lbl in NUMERIC_LABELS.items():
+        v = sub[col].dropna()
+        if len(v) < 2:
+            continue
+        std = v.std()
+        mean = v.mean()
+        if col == 'wb_kelvin':
+            if std < 400:
+                stable.append(f'{lbl} ≈ {mean:.0f}K')
+            elif std > 1200:
+                variable.append(lbl)
+        elif col == 'dynamic_range':
+            if std < 50:
+                stable.append(f'{lbl}: {DR_DECODE.get(v.mode().iloc[0], str(int(v.mode().iloc[0])))}')
+            elif std > 100:
+                variable.append(lbl)
+        elif col == 'grain_strength':
+            if std < 0.4:
+                stable.append(f'{lbl}: {GRAIN_DECODE.get(v.mode().iloc[0], str(v.mode().iloc[0]))}')
+        else:
+            if std < 0.5:
+                stable.append(f'{lbl}: {mean:+.0f}')
+            elif std > 1.5:
+                variable.append(lbl)
+    return stable, variable
+
+
+def homogeneity_html(slugs):
+    stable, variable = group_homogeneity(slugs)
+    if not stable and not variable:
+        return ''
+    parts = []
+    if stable:
+        items = ' · '.join(f'<span class="hom-val">{s}</span>' for s in stable)
+        parts.append(f'<span class="hom-lbl">Одинаково:</span> {items}')
+    if variable:
+        items = ' · '.join(f'<span class="hom-var">{v}</span>' for v in variable)
+        parts.append(f'<span class="hom-lbl">Варьируется:</span> {items}')
+    return f'<div class="hom-block">{" &nbsp;|&nbsp; ".join(parts)}</div>'
+
 
 # ── HTML builder ──────────────────────────────────────────────────────────────
 from collections import defaultdict
@@ -231,15 +339,20 @@ for sim in FS_ORDER:
                 f'<img src="{u}" loading="lazy" onerror="this.style.display=\'none\'">'
                 for u in photos)
 
-            slugs = (df_sub[df_sub['subcluster_label'] == g['label']]['slug'].tolist()
-                     or sim_slugs.get(g['label'], []))
+            if '#' in g['label']:
+                # proper subcluster — use df_sub
+                slugs = df_sub[df_sub['subcluster_label'] == g['label']]['slug'].tolist()
+            else:
+                # whole-sim label (small sims like Monochrome, Velvia…) — use df_feat
+                slugs = df_feat[df_feat['film_sim'] == g['label']]['slug'].tolist()
             # build title map from df_feat (covers new external recipes too)
             slug_title = df_feat.set_index('slug')['title'].to_dict()
-            recipe_items = ''.join(
-                f'<li><a href="{slug_url.get(s, "#")}" target="_blank">'
-                f'{slug_title.get(s, s)}</a></li>'
-                for s in slugs
-            )
+            def recipe_li(s):
+                title = slug_title.get(s, s)
+                mark = ' <span class="ext-mark">*</span>' if s.startswith('ext-') else ''
+                return (f'<li><a href="{slug_url.get(s,"#")}" target="_blank">'
+                        f'{title}</a>{mark}</li>')
+            recipe_items = ''.join(recipe_li(s) for s in slugs)
             badges = ''.join(f'<span class="badge">{k}</span>' for k in g['keywords'][:7])
             stbl = settings_rows(slugs)
 
@@ -260,12 +373,14 @@ for sim in FS_ORDER:
     <p class="vision-notes">{notes}</p>
   </div>'''
 
+            hom_html = homogeneity_html(slugs)
             cards += f'''
 <div class="card">
   <div class="card-head">
     <span class="card-name">{group_name}</span>
     <span class="pill">{sub_n_label}</span>
   </div>
+  {hom_html}
   <p class="desc">{desc}</p>
   <div class="gallery">{photo_html}</div>
   {vision_html}
@@ -291,7 +406,8 @@ for sim in FS_ORDER:
             for u in photos)
         sim_rows = df_feat[df_feat['film_sim'] == sim][['slug','title']]
         recipe_items = ''.join(
-            f'<li><a href="{slug_url.get(row.slug, "#")}" target="_blank">{row.title}</a></li>'
+            f'<li><a href="{slug_url.get(row.slug,"#")}" target="_blank">{row.title}</a>'
+            f'{"<span class=\"ext-mark\"> *</span>" if row.slug.startswith("ext-") else ""}</li>'
             for row in sim_rows.itertuples()
         )
         stbl = settings_rows(slugs_sim)
@@ -309,12 +425,14 @@ for sim in FS_ORDER:
     <div class="col-lbl">Визуальный анализ</div>
     <p class="vision-notes">{notes}</p>
   </div>'''
+        hom_html = homogeneity_html(slugs_sim)
         cards = f'''
 <div class="card">
   <div class="card-head">
     <span class="card-name">{group_name}</span>
     <span class="pill">{n_label}</span>
   </div>
+  {hom_html}
   {"<p class='desc'>" + desc + "</p>" if desc else ""}
   <div class="gallery">{photo_html}</div>
   {vision_html}
@@ -335,6 +453,20 @@ for sim in FS_ORDER:
         f'<tr><td class="ti-k">{k}</td><td class="ti-v">{v}</td></tr>'
         for k, v in si.get('table', {}).items()
     ) if si else ''
+    op = official_photos.get(sim, {})
+    official_gallery = ''
+    if op.get('photos'):
+        imgs = ''.join(
+            f'<img src="{u}" loading="lazy" onerror="this.style.display=\'none\'">'
+            for u in op['photos']
+        )
+        src_link = f'<a href="{op["url"]}" target="_blank">fujifilm-x.com</a>'
+        official_gallery = f'''
+      <div class="official-gallery">
+        <div class="og-photos">{imgs}</div>
+        <div class="og-credit">© Fujifilm X · {src_link}</div>
+      </div>'''
+
     si_block = f'''
     <div class="si-body">
       <div class="si-inspired"><span class="si-lbl">Основа:</span> {si.get("inspired_by","")}</div>
@@ -343,14 +475,17 @@ for sim in FS_ORDER:
         <table class="si-tbl">{tbl_rows}</table>
         <div class="si-bestfor"><span class="si-lbl">Лучше всего для:</span><br>{si.get("best_for","")}</div>
       </div>
+      {official_gallery}
     </div>''' if si else ''
 
     sim_id = sim.lower().replace(' ', '-').replace('/', '-')
+    n_groups = len(groups) if groups else 1
+    groups_str = f'{n_groups} групп{"а" if n_groups==1 else ("ы" if 2<=n_groups<=4 else "")}'
     sections += f'''
 <section class="sim-sec" id="sim-{sim_id}" style="border-top:4px solid {color}">
   <div class="sim-hdr">
     <span class="sim-title">{SIM_NAMES_RU.get(sim, sim)}</span>
-    <span class="sim-n">{sim_total} рецептов</span>
+    <span class="sim-n">{groups_str} · {sim_total} рецептов</span>
   </div>
   {si_block}
   <div class="sim-cards-area">
@@ -422,6 +557,12 @@ main{{max-width:100%;padding:36px 40px}}
 .rlist li:last-child{{border-bottom:none}}
 .rlist a{{color:#333;text-decoration:none}}
 .rlist a:hover{{color:#4a6fa5;text-decoration:underline}}
+.ext-mark{{color:#c17c3a;font-weight:700;font-size:.85em}}
+.hom-block{{font-size:.78rem;color:#666;background:#f7f6f2;border-radius:4px;
+            padding:6px 12px;display:flex;flex-wrap:wrap;gap:6px 16px}}
+.hom-lbl{{color:#aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-right:2px}}
+.hom-val{{color:#4a7a5a;font-weight:500}}
+.hom-var{{color:#b05a5a}}
 
 .tags{{display:flex;flex-wrap:wrap;gap:5px}}
 .badge{{background:#eef2ff;color:#4a6fa5;font-size:.7rem;
@@ -445,6 +586,15 @@ main{{max-width:100%;padding:36px 40px}}
 .ti-v{{color:#333;font-weight:500}}
 .si-bestfor{{font-size:.88rem;color:#555;max-width:300px}}
 
+/* official gallery */
+.official-gallery{{margin-top:4px}}
+.og-photos{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;border-radius:6px;overflow:hidden}}
+.og-photos img{{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:opacity .2s}}
+.og-photos img:hover{{opacity:.9}}
+.og-credit{{font-size:.72rem;color:#bbb;margin-top:5px;text-align:right}}
+.og-credit a{{color:#bbb;text-decoration:none}}
+.og-credit a:hover{{color:#4a6fa5}}
+
 /* comparison table */
 .cmp-section{{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:48px;
               box-shadow:0 1px 4px rgba(0,0,0,.07)}}
@@ -459,6 +609,17 @@ main{{max-width:100%;padding:36px 40px}}
 .cmp-link:hover td{{background:#eef2ff}}
 .bw-sep td{{background:#f4f3ef;color:#999;font-size:.72rem;text-transform:uppercase;
             letter-spacing:.08em;padding:6px 12px;border-top:2px solid #e0ddd8}}
+
+/* intro block */
+.intro-block{{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:24px;
+              box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:14px}}
+.intro-block h2{{font-size:1.1rem;font-weight:700}}
+.intro-block h3{{font-size:.95rem;font-weight:700;color:#555;margin-top:4px}}
+.intro-block p{{font-size:.9rem;color:#444;line-height:1.75;max-width:900px}}
+.intro-block ul{{font-size:.9rem;color:#444;line-height:1.75;max-width:900px;
+                 padding-left:20px;display:flex;flex-direction:column;gap:4px}}
+.intro-block a{{color:#4a6fa5}}
+.intro-note{{color:#888 !important;font-size:.82rem !important}}
 .sim-dot{{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}}
 </style>
