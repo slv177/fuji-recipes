@@ -1,0 +1,146 @@
+[
+  {
+    "label": "Acros#0",
+    "film_sim": "Acros",
+    "n": 11,
+    "name": "Kodak Contrast Classics"
+  },
+  {
+    "label": "Acros#1",
+    "film_sim": "Acros",
+    "n": 3,
+    "name": "Acros Contemplative Monochrome"
+  },
+  {
+    "label": "Classic Chrome#0",
+    "film_sim": "Classic Chrome",
+    "n": 23,
+    "name": "Kodachrome Warm Earth"
+  },
+  {
+    "label": "Classic Chrome#1",
+    "film_sim": "Classic Chrome",
+    "n": 14,
+    "name": "Portra Warm Earth"
+  },
+  {
+    "label": "Classic Chrome#2",
+    "film_sim": "Classic Chrome",
+    "n": 15,
+    "name": "Kodachrome Earthtone Archive"
+  },
+  {
+    "label": "Classic Chrome#3",
+    "film_sim": "Classic Chrome",
+    "n": 1,
+    "name": "Elite Chrome Melancholia"
+  },
+  {
+    "label": "Classic Negative#0",
+    "film_sim": "Classic Negative",
+    "n": 17,
+    "name": "Pacific Warm Reverie"
+  },
+  {
+    "label": "Classic Negative#1",
+    "film_sim": "Classic Negative",
+    "n": 19,
+    "name": "Superia Faded Warmth"
+  },
+  {
+    "label": "Classic Negative#2",
+    "film_sim": "Classic Negative",
+    "n": 6,
+    "name": "Superia Summer Warmth"
+  },
+  {
+    "label": "Classic Negative#3",
+    "film_sim": "Classic Negative",
+    "n": 3,
+    "name": "Faded Analog Reverie"
+  },
+  {
+    "label": "Eterna Bleach Bypass#0",
+    "film_sim": "Eterna Bleach Bypass",
+    "n": 10,
+    "name": "Faded Silver Noir"
+  },
+  {
+    "label": "Eterna Bleach Bypass#1",
+    "film_sim": "Eterna Bleach Bypass",
+    "n": 2,
+    "name": "Bleach Bypass Melancholia"
+  },
+  {
+    "label": "Eterna#0",
+    "film_sim": "Eterna",
+    "n": 13,
+    "name": "Eterna Timeless Warmth"
+  },
+  {
+    "label": "Eterna#1",
+    "film_sim": "Eterna",
+    "n": 7,
+    "name": "Eterna Melancholy"
+  },
+  {
+    "label": "Eterna#2",
+    "film_sim": "Eterna",
+    "n": 2,
+    "name": "Cinematic Teal Glow"
+  },
+  {
+    "label": "PRO Neg#0",
+    "film_sim": "PRO Neg",
+    "n": 7,
+    "name": "Fujicolor Pro Softness"
+  },
+  {
+    "label": "PRO Neg#1",
+    "film_sim": "PRO Neg",
+    "n": 4,
+    "name": "Warm Fade Analog"
+  },
+  {
+    "label": "PRO Neg#2",
+    "film_sim": "PRO Neg",
+    "n": 1,
+    "name": "Nostalgic Print"
+  },
+  {
+    "label": "PRO Neg#3",
+    "film_sim": "PRO Neg",
+    "n": 2,
+    "name": "Industrial Softness Blend"
+  },
+  {
+    "label": "PRO Neg#4",
+    "film_sim": "PRO Neg",
+    "n": 1,
+    "name": "Pure Negative Pastels"
+  },
+  {
+    "label": "Velvia",
+    "film_sim": "Velvia",
+    "n": 7,
+    "name": "Vibrant Nature Velvia"
+  },
+  {
+    "label": "Monochrome",
+    "film_sim": "Monochrome",
+    "n": 7,
+    "name": "Classic Tonal Drama"
+  },
+  {
+    "label": "Provia",
+    "film_sim": "Provia",
+    "n": 5,
+    "name": "Natural Provia Standard"
+  },
+  {
+    "label": "Astia",
+    "film_sim": "Astia",
+    "n": 3,
+    "name": "Redscale Pastels Warm"
+  }
+]

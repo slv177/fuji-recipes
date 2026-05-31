@@ -1,0 +1,45 @@
+=== settings_only ===
+silhouette by k: 2:0.086, 3:0.088, 4:0.069, 5:0.077, 6:0.075, 7:0.080, 8:0.075, 9:0.084, 10:0.082, 11:0.080, 12:0.087
+best k = 3 (silhouette 0.088)
+cluster x film_sim:
+film_sim               Acros  Astia  Classic Chrome  Classic Negative  Eterna  Eterna Bleach Bypass  Monochrome  PRO Neg  Provia  Unknown  Velvia
+cluster_settings_only                                                                                                                            
+0                          4      1              30                34      12                     9           2        6       1        0       2
+1                         10      2              22                11      10                     3           5        9       4        1       5
+2                          0      0               1                 0       0                     0           0        0       0        0       0
+dominant film sim per cluster:
+  cluster 0 (n=101): Classic Negative 34/101
+  cluster 1 (n=82): Classic Chrome 22/82
+  cluster 2 (n=1): Classic Chrome 1/1
+
+=== with_filmsim ===
+silhouette by k: 2:0.088, 3:0.160, 4:0.227, 5:0.275, 6:0.314, 7:0.365, 8:0.397, 9:0.426, 10:0.449, 11:0.461, 12:0.462
+best k = 12 (silhouette 0.462)
+cluster x film_sim:
+film_sim              Acros  Astia  Classic Chrome  Classic Negative  Eterna  Eterna Bleach Bypass  Monochrome  PRO Neg  Provia  Unknown  Velvia
+cluster_with_filmsim                                                                                                                            
+0                         0      0               0                45       0                     0           0        0       0        0       0
+1                        14      0               0                 0       0                     0           0        0       0        0       0
+2                         0      0              52                 0       0                     0           0        0       0        0       0
+3                         0      0               0                 0      22                     0           0        0       0        0       0
+4                         0      0               0                 0       0                    12           0        0       0        0       0
+5                         0      3               0                 0       0                     0           0        0       0        0       0
+6                         0      0               0                 0       0                     0           0       15       0        0       0
+7                         0      0               0                 0       0                     0           0        0       0        0       7
+8                         0      0               0                 0       0                     0           7        0       0        0       0
+9                         0      0               0                 0       0                     0           0        0       5        0       0
+10                        0      0               0                 0       0                     0           0        0       0        1       0
+11                        0      0               1                 0       0                     0           0        0       0        0       0
+dominant film sim per cluster:
+  cluster 0 (n=45): Classic Negative 45/45
+  cluster 1 (n=14): Acros 14/14
+  cluster 2 (n=52): Classic Chrome 52/52
+  cluster 3 (n=22): Eterna 22/22
+  cluster 4 (n=12): Eterna Bleach Bypass 12/12
+  cluster 5 (n=3): Astia 3/3
+  cluster 6 (n=15): PRO Neg 15/15
+  cluster 7 (n=7): Velvia 7/7
+  cluster 8 (n=7): Monochrome 7/7
+  cluster 9 (n=5): Provia 5/5
+  cluster 10 (n=1): Unknown 1/1
+  cluster 11 (n=1): Classic Chrome 1/1

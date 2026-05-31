@@ -1,0 +1,185 @@
+slug,title,film_sim,highlight,shadow,color,sharpness,noise_reduction,clarity,dynamic_range,color_chrome,color_chrome_blue,grain_strength,grain_size,wb_red,wb_blue,wb_kelvin
+my-fujifilm-x100v-kodachrome-64-film-simulation-recipe,Kodachrome 64,Classic Chrome,0.0,0.0,2.0,1.0,-4.0,3.0,200.0,2.0,1.0,1.0,0.0,2.0,-5.0,5500.0
+fujifilm-x-e4-film-simulation-recipe-kodachrome-25,Kodachrome 25,Classic Chrome,0.5,-0.5,1.0,3.0,-4.0,3.0,400.0,2.0,2.0,0.0,0.0,2.0,-4.0,5500.0
+fujifilm-x100v-film-simulation-recipe-kodachrome-1,Kodachrome 1,Classic Chrome,4.0,-2.0,4.0,-2.0,-4.0,1.0,400.0,2.0,1.0,2.0,0.0,2.0,-4.0,
+two-fujifilm-x-trans-iv-film-simulation-recipes-kodachrome-ii,Kodachrome II &Kodachrome II v2,Classic Chrome,1.0,2.0,1.0,1.0,-4.0,-2.0,200.0,2.0,1.0,1.0,0.0,3.0,-4.0,
+mccurry-kodachrome-a-fujifilm-x-trans-iv-film-simulation-recipe,McCurry Kodachrome,Classic Chrome,0.0,0.0,2.0,-2.0,-2.0,0.0,100.0,2.0,0.0,1.0,0.0,-1.0,4.0,5900.0
+kodak-vision3-250d-fujifilm-x-e4-x-trans-iv-film-simulation-recipe,Kodak Vision3 250D,Eterna,3.0,4.0,3.0,-2.0,-4.0,-2.0,100.0,2.0,0.0,2.0,0.0,-3.0,-1.0,4000.0
+kodak-portra-160-fujifilm-x100v-x-trans-iv-film-simulation-recipe,Kodak Portra 160,Classic Chrome,-1.0,-2.0,0.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,1.0,0.0,4.0,-6.0,4900.0
+fujifilm-x100v-film-simulation-kodak-portra-400,Kodak Portra 400,Classic Chrome,-1.0,-2.0,2.0,-2.0,-4.0,2.0,250.0,2.0,1.0,2.0,0.0,3.0,-5.0,5500.0
+fujifilm-x100v-film-simulation-recipe-kodak-portra-400-v2,Kodak Portra 400 v2,Classic Chrome,0.0,-2.0,2.0,-2.0,-4.0,-2.0,400.0,2.0,1.0,2.0,0.0,1.0,-6.0,5200.0
+fujifilm-x-trans-iv-film-simulation-recipe-kodak-portra-400-warm,Kodak Portra 400 Warm,Classic Chrome,-1.0,-2.0,2.0,-2.0,-4.0,-2.0,400.0,2.0,0.0,2.0,0.0,0.0,-7.0,5500.0
+fujifilm-x-trans-iv-film-simulation-recipe-reggies-portra,Reggie’s Portra,Classic Chrome,-1.0,-1.0,2.0,-2.0,-4.0,0.0,250.0,2.0,1.0,1.0,0.0,2.0,-4.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-portra-style,Portra-Style,Classic Chrome,,,1.0,-2.0,-4.0,3.0,250.0,2.0,1.0,2.0,0.0,2.0,-6.0,5000.0
+fujifilm-x100v-film-simulation-recipe-kodak-portra-800,Kodak Portra 800,Classic Chrome,1.0,0.0,3.0,-2.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,1.0,-5.0,5200.0
+fujifilm-x-trans-iv-film-simulation-recipe-kodak-portra-800-v2,Kodak Portra 800 v2,Classic Chrome,0.0,-2.0,-4.0,-2.0,-4.0,-5.0,400.0,2.0,2.0,2.0,0.0,3.0,-6.0,5500.0
+kodak-portra-800-v3-fujifilm-x-t5-x-trans-v-x-e4-x-trans-iv-film-simulation-recipe,Kodak Portra 800 v3,Classic Chrome,-2.0,-0.5,3.0,-2.0,-4.0,-3.0,400.0,2.0,0.0,2.0,1.0,-1.0,-3.0,6600.0
+fujifilm-x-trans-iv-film-simulation-recipe-kodak-gold-v2,Kodak Gold v2,Classic Chrome,0.0,-1.0,-1.0,-1.0,-4.0,-2.0,200.0,1.0,0.0,2.0,1.0,2.0,4.0,5800.0
+fujifilm-x100v-film-simulation-recipe-kodak-ultramax-400,Kodak Ultramax 400,Classic Chrome,1.0,1.0,4.0,0.0,-4.0,3.0,250.0,1.0,1.0,2.0,1.0,1.0,-5.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-kodak-max-800,Kodak Max 800,Classic Negative,-2.0,1.0,-1.0,-2.0,-4.0,-4.0,400.0,2.0,0.0,2.0,0.0,-5.0,-2.0,7300.0
+kodak-royal-gold-400-fujifilm-x-trans-iv-x-trans-v-film-simulation-recipe,Kodak Royal Gold 400,Classic Negative,-1.0,1.0,4.0,-1.0,-4.0,-3.0,400.0,2.0,1.0,2.0,0.0,3.0,5.0,7500.0
+fujifilm-x100v-film-simulation-recipe-kodak-ektar-100,Kodak Ektar 100,Classic Chrome,1.0,-2.0,4.0,0.0,-4.0,3.0,250.0,2.0,1.0,0.0,0.0,3.0,0.0,6050.0
+fujifilm-x-trans-iv-film-simulation-recipe-elite-chrome-200,Elite Chrome 200,Classic Chrome,-1.0,1.0,-1.0,-1.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,-1.0,-3.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-kodak-high-definition-plus-200,Kodak High Definition Plus 200,Classic Chrome,0.0,1.0,2.0,0.0,-4.0,-3.0,400.0,1.0,1.0,1.0,0.0,-2.0,-7.0,4800.0
+kodak-emulsion-a-fujifilm-recipe-for-x-trans-iv-cameras,Kodak Emulsion,Classic Chrome,-2.0,-2.0,3.0,-2.0,-4.0,-3.0,400.0,2.0,0.0,2.0,1.0,-2.0,2.0,7500.0
+fujifilm-x-e4-film-simulation-recipe-old-kodak,Old Kodak,Classic Chrome,3.5,-0.5,3.0,-2.0,-4.0,-2.0,400.0,2.0,2.0,2.0,0.0,1.0,-6.0,
+fujifilm-x-pro3-x-trans-iv-film-simulation-recipe-old-ektachrome,Old Ektachrome,Classic Chrome,2.0,1.0,3.0,0.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,3.0,2.0,5500.0
+four-fujifilm-x-trans-iv-film-simulation-recipes-kodaneg-vc-nc,KodaNeg VC & NC,Provia,-1.0,1.0,4.0,0.0,-4.0,3.0,400.0,2.0,0.0,1.0,0.0,6.0,-6.0,
+fujifilm-x-trans-iv-film-simulation-recipe-kodak-brilliance,Kodak Brilliance,Classic Chrome,4.0,-2.0,4.0,-1.0,-4.0,2.0,200.0,2.0,1.0,1.0,0.0,2.0,-1.0,5500.0
+classic-color-fujifilm-x-t5-x-trans-v-and-x-e4-x-trans-iv-film-simulation-recipe,Classic Color,Classic Chrome,-0.5,-2.0,3.0,-2.0,-4.0,-2.0,400.0,2.0,1.0,2.0,0.0,0.0,-6.0,5300.0
+using-ai-to-create-film-simulation-recipes-urban-dreams-x100v-x-trans-iv-film-simulation-recipe,Urban Dreams,Classic Chrome,-1.0,1.0,2.0,-1.0,-2.0,2.0,400.0,0.0,0.0,2.0,1.0,0.0,2.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-pure-negative,Pure Negative,PRO Neg,1.0,2.0,-4.0,1.0,-4.0,-2.0,200.0,1.0,0.0,1.0,0.0,1.0,-2.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-chrome-slide,Chrome Slide,Classic Negative,1.0,1.0,4.0,0.0,-4.0,3.0,400.0,2.0,2.0,1.0,0.0,-3.0,1.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-positive-film,Positive Film,Classic Negative,1.0,2.0,4.0,,-4.0,-4.0,400.0,2.0,2.0,1.0,1.0,7.0,-9.0,2950.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-september-summer,September Summer,Classic Negative,-1.0,-1.0,1.0,0.0,-4.0,-4.0,400.0,0.0,1.0,1.0,0.0,3.0,-7.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-pacific-blues,Pacific Blues,Classic Negative,-2.0,3.0,4.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,2.0,1.0,1.0,-3.0,5800.0
+fujifilm-x-trans-iv-film-simulation-recipe-nostalgia-color,Nostalgia Color,Classic Negative,-1.0,3.0,-2.0,-2.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,-4.0,-1.0,6700.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-nostalgic-print,Nostalgic Print,PRO Neg,-2.0,0.0,-4.0,-2.0,-4.0,-3.0,400.0,1.0,1.0,2.0,0.0,-3.0,-4.0,4700.0
+new-nostalgic-negative-film-simulation-x-trans-iv-nostalgic-negative-recipe,Nostalgic Negative,Classic Chrome,-1.0,0.0,4.0,0.0,-4.0,-5.0,200.0,2.0,2.0,1.0,1.0,3.0,-5.0,
+fujifilm-x-trans-iv-film-simulation-recipe-vintage-negative,Vintage Negative,Classic Negative,1.0,2.0,-3.0,,-4.0,-5.0,400.0,2.0,2.0,2.0,1.0,-6.0,-5.0,0.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-vintage-color,Vintage Color,Eterna,2.0,3.0,1.0,-2.0,-4.0,-2.0,200.0,2.0,2.0,2.0,1.0,-1.0,-4.0,7350.0
+fujifilm-x-pro3-x-trans-iv-film-simulation-recipe-vintage-color-v2,Vintage Color v2,Classic Negative,2.0,3.0,-1.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,2.0,1.0,-1.0,-4.0,7350.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-vintage-analog,Vintage Analog,Classic Negative,2.0,0.0,-4.0,-1.0,-4.0,-2.0,200.0,0.0,1.0,2.0,0.0,-4.0,4.0,9100.0
+vintage-print-fujifilm-x-e4-x-trans-iv-film-simulation-recipe,Vintage Print,Classic Negative,2.0,-2.0,-4.0,-4.0,-4.0,-4.0,200.0,2.0,2.0,2.0,1.0,3.0,-6.0,5500.0
+fujifilm-x-trans-iv-film-simulation-recipe-vintage-vibes,Vintage Vibes,Classic Negative,0.0,-2.0,2.0,-2.0,-4.0,-2.0,400.0,2.0,1.0,2.0,0.0,1.0,-6.0,5200.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-timeless-negative,Timeless Negative,Eterna,1.0,-1.0,3.0,0.0,-4.0,-2.0,200.0,2.0,1.0,1.0,0.0,4.0,-5.0,
+eterna-summer-fujifilm-x-trans-iv-x-trans-v-film-simulation-recipe,Eterna Summer,Eterna,2.5,0.0,4.0,-1.0,-4.0,-3.0,200.0,2.0,1.0,2.0,0.0,3.0,-7.0,5500.0
+fujifilm-x-trans-iv-film-simulation-recipe-eterna-v2,Eterna v2,Eterna,3.0,2.0,3.0,0.0,-4.0,-3.0,400.0,2.0,2.0,2.0,0.0,4.0,-7.0,
+vintage-eterna-fujifilm-x-trans-v-x-trans-iv-x-h1-film-simulation-recipes,Vintage Eterna,Eterna,3.0,-1.0,2.0,-1.0,-4.0,-2.0,100.0,0.0,2.0,2.0,,2.0,-5.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-arizona-analog,Arizona Analog,Eterna,-1.0,3.0,-2.0,-2.0,-4.0,-3.0,400.0,1.0,1.0,2.0,0.0,6.0,-3.0,5500.0
+1960-chrome-fujifilm-x-t5-x-trans-v-x-e4-x-trans-iv-film-simulation-recipe,1960 Chrome,Eterna Bleach Bypass,-2.0,-1.0,2.0,-1.0,-4.0,-2.0,400.0,2.0,0.0,2.0,1.0,-2.0,-4.0,4000.0
+1981-kodak-fujifilm-x100v-x-trans-iv-film-simulation-recipe,1981 Kodak,Eterna,-0.0,4.0,-4.0,-2.0,-4.0,-4.0,200.0,2.0,0.0,2.0,0.0,7.0,-7.0,5500.0
+fujifilm-x100v-film-simulation-recipe-fujicolor-reala-100,Fujicolor Reala 100,Classic Negative,-1.0,-1.0,0.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,1.0,0.0,0.0,0.0,5500.0
+fujifilm-x100v-film-simulation-recipe-fujicolor-superia-100,Fujicolor Superia 100,Classic Negative,-1.0,-2.0,1.0,-2.0,-4.0,-2.0,250.0,2.0,1.0,1.0,0.0,0.0,-1.0,5500.0
+fujifilm-x100v-film-simulation-recipe-superia-xtra-400,Superia Xtra 400,Classic Negative,0.0,-1.0,4.0,-1.0,-4.0,-2.0,400.0,0.0,2.0,2.0,0.0,3.0,-5.0,
+fujifilm-x100v-film-simulation-recipe-superia-premium-400,Superia Premium 400,Classic Negative,-2.0,0.0,4.0,-1.0,-4.0,-2.0,200.0,2.0,1.0,2.0,0.0,4.0,-3.0,4700.0
+fujifilm-x100v-film-simulation-recipe-fujicolor-superia-800,Fujicolor Superia 800,Classic Negative,-1.0,1.0,-1.0,-1.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,-1.0,-3.0,5500.0
+fujifilm-x100v-film-simulation-recipe-fujicolor-superia-1600,Fujicolor Superia 1600,Classic Negative,0.0,2.0,-3.0,-1.0,-4.0,-4.0,400.0,2.0,2.0,2.0,1.0,3.0,1.0,5500.0
+fujifilm-x-e4-film-simulation-recipe-fujicolor-natura-1600,Fujicolor Natura 1600,Classic Negative,-1.5,1.5,-2.0,-2.0,-4.0,-4.0,400.0,2.0,2.0,2.0,1.0,-1.0,-2.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-scanned-superia,Scanned Superia,Classic Negative,,,3.0,-3.0,-4.0,3.0,250.0,1.0,1.0,1.0,0.0,-2.0,3.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-superia-summer,Superia Summer,Classic Negative,-1.5,-0.5,1.0,-1.0,-4.0,-4.0,400.0,0.0,1.0,1.0,0.0,3.0,-6.0,5300.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-pulled-fujicolor-superia,Pulled Fujicolor Superia,Classic Negative,,,3.0,-2.0,-4.0,2.0,400.0,2.0,2.0,1.0,0.0,-4.0,-2.0,5500.0
+fujifilm-x-trans-iv-x-pro3-x100v-x-t4-x-s10-x-e4-film-simulation-recipe-fujicolor-nps-160-pulled,Fujicolor NPS 160 Pulled,Classic Negative,-2.0,-2.0,-4.0,,-4.0,-2.0,400.0,1.0,2.0,1.0,0.0,-1.0,-4.0,
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-fujicolor-100-gold,Fujicolor 100 Gold,Classic Negative,-2.0,1.0,3.0,-2.0,-4.0,-2.0,400.0,0.0,0.0,2.0,0.0,4.0,-5.0,5500.0
+magenta-negative-fujifilm-x-e4-x-trans-iv-film-simulation-recipe,Magenta Negative,Classic Negative,-2.0,-1.0,0.0,-2.0,-4.0,-4.0,400.0,2.0,2.0,2.0,1.0,4.0,2.0,5100.0
+fujifilm-x-trans-iv-film-simulation-recipe-fujicolor-c200,Fujicolor C200,Classic Negative,0.5,-0.5,2.0,,-4.0,-3.0,400.0,1.0,0.0,1.0,1.0,0.0,-3.0,5500.0
+fujicolor-c200-v2-fujifilm-x100v-x-trans-iv-film-simulation-recipe,Fujicolor C200 v2,Classic Negative,-2.0,-2.0,4.0,-1.0,-4.0,-2.0,100.0,2.0,2.0,1.0,0.0,-2.0,1.0,7500.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-fujicolor-pro-400h,Fujicolor Pro 400H,Classic Negative,-2.0,4.0,4.0,-2.0,-4.0,-4.0,400.0,2.0,1.0,2.0,0.0,0.0,-4.0,4900.0
+fujifilm-x-trans-iv-film-simulation-recipe-fujicolor-nph,Fujicolor NPH,Provia,-1.0,0.0,0.0,0.0,-4.0,-3.0,100.0,2.0,2.0,1.0,1.0,-3.0,-4.0,5250.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-fujicolor-negative,Fujicolor Negative,Classic Negative,-2.0,3.0,-4.0,-2.0,-4.0,-3.0,400.0,0.0,0.0,2.0,0.0,-1.0,-6.0,
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-fujicolor-analog,Fujicolor Analog,Classic Negative,-1.0,0.0,-3.0,0.0,-4.0,-3.0,400.0,2.0,2.0,1.0,0.0,-5.0,5.0,6900.0
+fujifilm-x-trans-iv-film-simulation-recipe-fujicolor-super-hg-part-1-of-3,Fujicolor Super HG,Classic Negative,0.0,1.0,2.0,0.0,-4.0,-3.0,400.0,1.0,2.0,1.0,1.0,-3.0,-1.0,4000.0
+fujifilm-x-trans-iv-film-simulation-recipe-fujicolor-super-hg-v2-part-2-of-3,Fujicolor Super HG v2,Classic Negative,-1.0,1.0,2.0,0.0,-4.0,2.0,400.0,1.0,2.0,1.0,1.0,-3.0,-1.0,
+fujifilm-x-trans-iv-film-simulation-recipe-super-hg-astia-part-3-of-3,Super HG Astia,Astia,2.0,1.0,2.0,-1.0,-4.0,2.0,400.0,1.0,1.0,1.0,0.0,-3.0,-1.0,4000.0
+fujifilm-x-pro3-x-trans-iv-film-simulation-recipe-standard-provia,Standard Provia,Provia,2.0,1.0,2.0,0.0,-4.0,-3.0,400.0,2.0,1.0,1.0,0.0,-3.0,0.0,5500.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-fujichrome-provia-100f,Fujichrome Provia 100F,Classic Chrome,-1.0,3.0,4.0,-1.0,-4.0,-3.0,400.0,2.0,2.0,1.0,0.0,-2.0,5.0,5500.0
+fujifilm-x100v-film-simulation-recipe-color-negative-400,Color Negative 400,Classic Negative,0.0,4.0,4.0,0.0,-4.0,-5.0,400.0,1.0,1.0,1.0,1.0,-2.0,-4.0,
+pro-negative-160c-film-simulation-recipe-for-fujifilm-x-trans-iv-x-trans-v,PRO Negative 160C,PRO Neg,0.5,-1.5,4.0,-1.0,-4.0,-2.0,400.0,2.0,1.0,1.0,0.0,1.0,-3.0,
+fujifilm-x-trans-iv-film-simulation-recipe-agfachrome-rs-100,AgfaChrome RS 100,Classic Negative,1.0,-1.0,2.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,2.0,0.0,-3.0,5.0,5500.0
+fujifilm-x-pro3-x-trans-iv-film-simulation-recipe-agfa-ultra-100,Agfa Ultra 100,Classic Negative,2.0,-2.0,2.0,-1.0,-4.0,-3.0,400.0,2.0,2.0,1.0,1.0,-2.0,3.0,5500.0
+fujifilm-x100v-film-simulation-recipe-agfa-vista-100,Agfa Vista 100,Classic Negative,1.0,-2.0,2.0,-0.0,-4.0,3.0,200.0,1.0,1.0,2.0,0.0,-4.0,-5.0,5600.0
+not-my-fujifilm-x100v-classic-negative-film-simulation-recipe,Classic Negative,Classic Negative,1.0,0.0,3.0,0.0,-4.0,2.0,200.0,1.0,1.0,1.0,1.0,4.0,-4.0,
+snow-fun-with-fujifilm-x-t4-fujinon-90mm-new-film-simulation-recipe-amandas-classic-negative,Amanda’s Classic Negative,Classic Negative,1.0,1.5,3.0,1.0,-4.0,0.0,200.0,2.0,1.0,1.0,0.0,0.0,0.0,
+fujifilm-x-trans-iv-film-simulation-recipe-retro-gold,Retro Gold,Classic Chrome,4.0,2.0,4.0,0.0,-4.0,-2.0,400.0,2.0,2.0,1.0,0.0,4.0,-6.0,4000.0
+fujifilm-x-trans-iv-film-simulation-recipe-retro-gold-low-contrast,Retro Gold Low Contrast,Classic Chrome,0.0,-2.0,4.0,0.0,-4.0,-3.0,400.0,2.0,2.0,1.0,0.0,4.0,-6.0,4000.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-santacolor,SantaColor,Eterna,-2.0,4.0,4.0,-2.0,-4.0,-3.0,200.0,2.0,0.0,1.0,0.0,5.0,-3.0,5100.0
+fujifilm-x-trans-iv-film-simulation-recipe-creamy-color,Creamy Color,Classic Negative,4.0,4.0,-4.0,-4.0,-4.0,-5.0,400.0,2.0,2.0,2.0,1.0,4.0,6.0,8700.0
+fujifilm-x100v-film-simulation-recipe-nature-neon,Nature Neon,Classic Chrome,0.0,2.0,3.0,-2.0,-4.0,-4.0,400.0,1.0,1.0,1.0,0.0,2.0,-5.0,4000.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-grizzly-ride,Grizzly Ride,Eterna Bleach Bypass,0.0,2.5,-2.0,-4.0,-4.0,-5.0,200.0,2.0,2.0,2.0,1.0,3.0,-7.0,6990.0
+fujifilm-x-e4-film-simulation-recipe-analog-gold,Analog Gold,Eterna Bleach Bypass,-2.0,1.5,3.0,-2.0,-4.0,-4.0,400.0,2.0,0.0,2.0,0.0,4.0,-9.0,5500.0
+getting-a-wes-anderson-look-from-your-fujifilm-camera-4-new-film-simulation-recipes,Indoor Angouleme,Classic Chrome,-2.0,-2.0,4.0,-2.0,-4.0,-3.0,400.0,0.0,1.0,1.0,0.0,6.0,-8.0,4350.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-gaf-500,GAF 500,Eterna,2.0,4.0,0.0,-3.0,-4.0,-2.0,100.0,0.0,2.0,2.0,1.0,9.0,-9.0,2900.0
+fujifilm-x-trans-iv-film-simulation-recipe-low-key,Low Key,Classic Negative,1.0,2.0,4.0,-1.0,-4.0,-2.0,200.0,2.0,1.0,1.0,0.0,-2.0,-4.0,5500.0
+fujifilm-x100v-film-simulation-recipe-the-rockwell-velvia,The Rockwell,Velvia,-1.0,-1.0,4.0,4.0,-4.0,5.0,200.0,2.0,2.0,1.0,0.0,1.0,-1.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-vibrant-velvia,Vibrant Velvia,Velvia,-2.0,-1.0,4.0,0.0,-4.0,4.0,400.0,2.0,2.0,1.0,0.0,-1.0,1.0,5500.0
+fujifilm-x100v-film-simulation-recipe-bleach-bypass,“Bleach Bypass”,Classic Negative,2.0,4.0,-4.0,-1.0,-4.0,3.0,100.0,1.0,2.0,2.0,1.0,-1.0,1.0,5500.0
+eterna-bleach-bypass-fujifilm-x-e4-x-trans-iv-film-simulation-recipe,Eterna Bleach Bypass,Eterna Bleach Bypass,2.5,-1.5,-4.0,0.0,-4.0,2.0,400.0,0.0,2.0,1.0,0.0,0.0,0.0,5500.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-muted-color,Muted Color,Eterna Bleach Bypass,-0.5,1.0,-4.0,0.0,-4.0,-2.0,400.0,2.0,1.0,1.0,0.0,3.0,-8.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-ferrania-solaris-fg-400,Ferrania Solaris FG 400,Eterna Bleach Bypass,0.0,-2.0,2.0,-2.0,-4.0,-2.0,400.0,2.0,1.0,2.0,0.0,1.0,-6.0,5200.0
+fujifilm-x-trans-iv-film-simulation-recipe-lomochrome-metropolis,LomoChrome Metropolis,Eterna Bleach Bypass,1.0,2.5,-2.0,-1.0,-4.0,4.0,200.0,2.0,2.0,2.0,0.0,1.0,-7.0,
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-silver-summer,Silver Summer,Eterna Bleach Bypass,-1.0,1.0,4.0,-2.0,-4.0,-3.0,400.0,2.0,2.0,2.0,0.0,-3.0,-6.0,5300.0
+kodachrome-blue-fujifilm-x-e4-x-trans-iv-film-simulation-recipe,Kodachrome Blue,Eterna Bleach Bypass,2.5,-0.5,4.0,1.0,-4.0,3.0,200.0,2.0,2.0,1.0,0.0,-6.0,9.0,6500.0
+fujifilm-x-e4-film-simulation-recipe-ektachrome-320t,Ektachrome 320T,Eterna Bleach Bypass,1.0,-2.0,4.0,0.0,-4.0,-3.0,400.0,2.0,2.0,2.0,0.0,-6.0,-5.0,
+expired-ecn-2-100t-fujifilm-x-trans-iv-x-trans-v-film-simulation-recipe,Expired ECN-2 100T,Eterna Bleach Bypass,0.5,-1.0,1.0,-3.0,-4.0,-4.0,400.0,2.0,1.0,2.0,1.0,-9.0,-6.0,6000.0
+fujifilm-x100v-film-simulation-recipe-faded-negative,Faded Negative,Classic Negative,3.0,4.0,-2.0,-2.0,-4.0,0.0,400.0,2.0,2.0,1.0,1.0,4.0,-6.0,
+fujifilm-x-trans-iv-film-simulation-recipe-cinestill-50d,CineStill 50D,Astia,-1.0,0.0,-4.0,0.0,-4.0,-4.0,200.0,2.0,0.0,1.0,0.0,-5.0,-3.0,6800.0
+kodak-portra-do-sol-fujifilm-x-trans-iv-film-simulation-recipe,Kodak Portra do Sol,Classic Chrome,-2.0,-2.0,3.0,-2.0,-4.0,-1.0,400.0,2.0,0.0,0.0,0.0,2.0,-6.0,
+fujifilm-x-trans-iv-film-simulation-recipe-bright-kodak,Bright Kodak,Classic Chrome,-2.0,-2.0,4.0,-2.0,-4.0,-3.0,400.0,0.0,0.0,2.0,1.0,3.0,-7.0,5500.0
+fujifilm-x100v-film-simulation-recipe-preet,Bright Summer,Classic Chrome,-2.0,-2.0,4.0,0.0,-4.0,-5.0,400.0,2.0,0.0,0.0,0.0,-4.0,-2.0,7100.0
+expired-velvia-fujifilm-x-trans-iv-x-pro3-x100v-x-t4-x-s10-x-e4-x-t30-ii-film-simulation-recipe,Expired Velvia,Classic Negative,2.0,-2.0,3.0,-2.0,-4.0,-4.0,400.0,2.0,0.0,1.0,0.0,-1.0,8.0,6400.0
+two-fujifilm-x-trans-iv-film-simulation-recipes-expired-slide-expired-slide-v2,Expired Slide &,Velvia,2.0,-1.0,-4.0,-2.0,-4.0,-2.0,400.0,2.0,2.0,2.0,1.0,7.0,-2.0,5500.0
+redscale-fujifilm-x-trans-iv-v-film-simulation-recipe,RedScale,Classic Negative,0.0,2.0,4.0,-2.0,-4.0,-3.0,200.0,2.0,0.0,2.0,0.0,9.0,-9.0,0.0
+fujifilm-x100v-x-trans-iv-film-simulation-recipe-xpro-62,Xpro ’62,Classic Negative,3.0,0.0,4.0,-4.0,-4.0,-4.0,400.0,2.0,2.0,2.0,1.0,-3.0,-9.0,
+bewaremyvelvia-a-fujifilm-film-simulation-recipe-for-x-trans-iv-v,BewareMyVelvia,Velvia,2.0,2.0,4.0,1.0,-4.0,0.0,200.0,2.0,2.0,1.0,0.0,-9.0,0.0,6590.0
+my-fujifilm-x100v-cine-teal-film-simulation-recipe,Cine Teal,Eterna,-2.0,4.0,-1.0,-2.0,-4.0,-5.0,200.0,1.0,2.0,1.0,1.0,1.0,-9.0,4550.0
+fujifilm-x100v-film-simulation-recipe-cinestill-800t,CineStill 800T,Eterna,0.0,2.0,4.0,-3.0,-4.0,-5.0,400.0,2.0,2.0,2.0,1.0,-6.0,-4.0,4000.0
+fujifilm-x-e4-x-trans-iv-film-simulation-recipe-pushed-cinestill-800t,Pushed CineStill 800T,Eterna Bleach Bypass,-0.5,-1.5,3.0,0.0,-4.0,-3.0,400.0,2.0,2.0,2.0,1.0,-9.0,5.0,7700.0
+fujifilm-x100v-x-pro3-film-simulation-recipe-pushed-cinestill,Pushed CineStill 800T (X100V + X-Pro3),Eterna,3.0,1.0,-2.0,0.0,-4.0,-3.0,400.0,2.0,2.0,2.0,1.0,-9.0,7.0,7700.0
+fujifilm-x-trans-iv-film-simulation-recipe-serrs-500t,Serr’s 500T,Classic Chrome,-2.0,-1.0,-1.0,-1.0,-2.0,0.0,250.0,2.0,2.0,2.0,1.0,-1.0,4.0,3200.0
+kodak-plus-x-125-fujifilm-x-trans-iv-x-trans-v-film-simulation-recipe,Kodak Plus-X 125,Acros,-1.0,1.0,,-1.0,-4.0,2.0,200.0,2.0,0.0,1.0,1.0,9.0,9.0,5500.0
+fujifilm-x100v-film-simulation-recipe-kodak-tri-x-400,Kodak Tri-X 400,Acros,0.0,3.0,,1.0,-4.0,4.0,200.0,2.0,0.0,2.0,1.0,9.0,-9.0,5500.0
+kodak-t-max-p3200-a-fujifilm-film-simulation-recipe-for-x-trans-iv-v,Kodak T-Max P3200,Acros,1.0,3.0,,2.0,-4.0,1.0,400.0,0.0,0.0,2.0,1.0,4.0,7.0,5500.0
+fujifilm-x100v-film-simulation-recipe-kodak-t-max-400,Kodak T-Max 400,Monochrome,0.0,3.0,,2.0,-4.0,3.0,200.0,2.0,0.0,2.0,0.0,9.0,-9.0,5500.0
+fujifilm-x100v-film-simulation-recipe-bw-superia,B&W Superia,Acros,0.0,2.0,,-1.0,-4.0,-4.0,400.0,2.0,2.0,1.0,1.0,0.0,0.0,
+fujifilm-x100v-film-simulation-recipe-classic-monochrome,Classic Monochrome,Monochrome,4.0,2.0,,1.0,-4.0,4.0,100.0,2.0,2.0,1.0,0.0,0.0,0.0,
+fujifilm-x100v-x-trans-iii-x-trans-iv-film-simulation-recipe-monochrome-negative,Monochrome Negative,Acros,3.0,0.0,,-2.0,-4.0,0.0,400.0,0.0,0.0,2.0,0.0,0.0,0.0,5500.0
+kentmere-pan-400-fujifilm-x100v-x-trans-iv-v-film-simulation-recipe,Kentmere Pan 400,Acros,1.0,1.0,,3.0,-4.0,1.0,250.0,0.0,0.0,2.0,1.0,7.0,6.0,
+fujifilm-x-trans-iv-film-simulation-recipe-ilford-hp5-plus-400,Ilford HP5 Plus 400,Monochrome,-1.0,1.0,,-2.0,-4.0,0.0,400.0,0.0,0.0,2.0,1.0,1.0,-8.0,5500.0
+fujifilm-x100v-film-simulation-recipe-ilford-pan-f-plus-50,Ilford Pan F Plus 50,Monochrome,0.0,1.0,,0.0,-4.0,2.0,100.0,0.0,0.0,1.0,1.0,1.0,-6.0,5500.0
+fujifilm-x100v-film-simulation-recipe-ilford-ortho-plus-80,Ilford Ortho Plus 80,Monochrome,2.0,3.0,,2.0,-4.0,-2.0,400.0,2.0,0.0,1.0,0.0,-5.0,0.0,7000.0
+fujifilm-x-trans-iv-film-simulation-recipe-moody-monochrome,Moody Monochrome,Acros,-1.0,4.0,,-2.0,-4.0,-3.0,400.0,0.0,0.0,2.0,1.0,-4.0,-9.0,4000.0
+fujifilm-x100v-film-simulation-recipe-black-white-infrared,Black & White Infrared,Acros,4.0,3.0,,-4.0,-4.0,5.0,200.0,0.0,0.0,2.0,1.0,-5.0,9.0,2750.0
+sepia-the-forgotten-film-simulation,Sepia,,,,,-2.0,-4.0,2.0,400.0,,,2.0,1.0,,,
+my-fujifilm-x-t30-kodachrome-64-film-simulation-recipe,Kodachrome 64,Classic Chrome,1.0,2.0,0.0,2.0,-4.0,,400.0,1.0,,1.0,,2.0,-5.0,5500.0
+my-fujifilm-x-t30-kodak-gold-200-film-simulation-recipe,Kodak Gold 200,Classic Chrome,-2.0,1.0,3.0,-2.0,-4.0,,250.0,0.0,,2.0,,4.0,-5.0,5500.0
+my-fujifilm-x-t30-kodak-portra-400-film-simulation-recipe,Kodak Portra 400,Classic Chrome,-1.0,-1.0,2.0,-2.0,-4.0,,250.0,2.0,,2.0,,4.0,-5.0,5500.0
+fujifilm-x-t3-x-t30-film-simulation-recipe-kodak-portra-400-v2,Kodak Portra 400 v2,Classic Chrome,-1.0,-1.0,2.0,-2.0,-4.0,,250.0,2.0,,2.0,,2.0,-6.0,5500.0
+my-fujifilm-x-t30-kodak-portra-160-film-simulation-recipe,Kodak Porta 160,Classic Chrome,-2.0,-2.0,1.0,-2.0,-4.0,,250.0,0.0,,1.0,,4.0,-5.0,5500.0
+my-fujifilm-x-t30-kodak-vision3-250d-film-simulation-recipe,Kodak Vision3 250D,Eterna,3.0,4.0,3.0,-2.0,-4.0,,100.0,2.0,,2.0,,-3.0,-1.0,5500.0
+my-fujifilm-x-t30-eterna-film-simulation-recipe,Eterna,Eterna,4.0,4.0,4.0,2.0,-4.0,,100.0,1.0,,2.0,,5.0,-6.0,
+my-fujifilm-x-t30-expired-eterna-film-simulation-recipe,Expired Eterna,Eterna,4.0,4.0,4.0,-2.0,-4.0,,100.0,1.0,,2.0,,5.0,5.0,
+my-fujifilm-x-t30-eterna-low-contrast-film-simulation-recipe,Eterna Low-Contrast,Eterna,-2.0,-1.0,4.0,-4.0,-4.0,,200.0,2.0,,2.0,,-3.0,3.0,5900.0
+fujifilm-x-t30-film-simulation-recipe-eterna-v3,Eterna v3,Eterna,2.0,3.0,4.0,-2.0,-4.0,,400.0,2.0,,2.0,,-1.0,-1.0,
+fujifilm-x-t30-x-t3-film-simulation-recipe-cinematic-negative,Cinematic Negative,Eterna,1.0,2.0,4.0,-1.0,-4.0,,400.0,2.0,,1.0,,8.0,-9.0,3200.0
+my-fujifilm-x-t30-polaroid-film-simulation-recipe,Polaroid,Eterna,4.0,-2.0,-2.0,-1.0,-4.0,,400.0,0.0,,2.0,,5.0,-5.0,
+my-fujifilm-x-t30-polaroid-ii-film-simulation-recipe,Polaroid II,Eterna,4.0,4.0,-3.0,-4.0,-4.0,,100.0,2.0,,2.0,,4.0,6.0,7500.0
+my-fujifilm-x-t30-analog-color-film-simulation-recipe,Analog Color,PRO Neg,3.0,0.0,-1.0,1.0,-4.0,,200.0,2.0,,2.0,,-3.0,1.0,5500.0
+my-fujifilm-x-t30-jeff-davenport-night-recipe,Jeff Davenport Night,PRO Neg,1.0,0.0,2.0,1.0,-4.0,,400.0,2.0,,1.0,,-1.0,4.0,2650.0
+my-fujifilm-x-t30-faded-color-film-simulation-recipe,Faded Color,Classic Chrome,3.0,4.0,4.0,2.0,-4.0,,100.0,2.0,,2.0,,,,
+my-fujifilm-x-t30-vintage-color-fade-film-simulation-recipe,Vintage Color Fade,PRO Neg,4.0,4.0,4.0,1.0,-4.0,,200.0,2.0,,1.0,,-5.0,5.0,
+my-fujifilm-x-t30-kodak-elite-chrome-200-color-fade-film-simulation-recipe,Elite Chrome Color Fade,Classic Chrome,0.0,2.0,-2.0,-4.0,2.0,,200.0,2.0,,2.0,,4.0,8.0,8300.0
+fujifilm-x-t3-x-t30-x-h1-film-simulation-recipe-negative-print,Negative Print,Eterna,2.0,4.0,4.0,-1.0,-4.0,,200.0,0.0,,1.0,,-2.0,-7.0,4000.0
+my-fujifilm-x-t30-color-negative-film-simulation-recipe,Color Negative,PRO Neg,2.0,2.0,-2.0,1.0,-4.0,,400.0,0.0,,1.0,,-2.0,4.0,5500.0
+pro-neg-fujifilm-x-t3-x-t30-x-trans-iii-film-simulation-recipe,Pro Neg,PRO Neg,1.0,1.0,1.0,-1.0,-4.0,,400.0,0.0,,1.0,,-7.0,7.0,9100.0
+my-fujifilm-x-t30-provia-film-simulation-recipe-fujichrome-sensia-100,Fujichrome Sensia 100,Provia,0.0,2.0,0.0,1.0,-4.0,,400.0,0.0,,1.0,,-1.0,-3.0,4000.0
+a-different-approach-7-new-fujicolor-pro-160ns-film-simulation-recipes-yes-7,Fujicolor Pro 160NS,PRO Neg,0.0,0.0,0.0,-3.0,-4.0,,400.0,0.0,,1.0,,0.0,0.0,5500.0
+7-new-fujicolor-pro-400h-film-simulation-recipes,Fujicolor Pro 400H,PRO Neg,0.0,0.0,1.0,-3.0,-4.0,,400.0,2.0,,1.0,,1.0,-3.0,5500.0
+my-fujifilm-x-t30-fujicolor-pro-400h-overexposed-film-simulation-recipe,Fujicolor Pro 400H Overexposed,Provia,-2.0,4.0,1.0,1.0,-4.0,,400.0,0.0,,1.0,,2.0,2.0,
+not-my-fujifilm-x-t30-warm-contrast-film-simulation-recipe,“Warm Contrast”,PRO Neg,1.0,3.0,4.0,1.0,-4.0,,200.0,0.0,,2.0,,-2.0,-4.0,
+fujifilm-x-trans-iii-x-t3-x-t30-film-simulation-recipe-porto-200,Porto 200,PRO Neg,-1.0,0.0,0.0,0.0,-4.0,,200.0,0.0,,1.0,,0.0,-4.0,7500.0
+my-fujifilm-bleach-bypass-film-simulation-recipe,“Bleach Bypass”,Classic Chrome,3.0,4.0,2.0,1.0,-4.0,,200.0,2.0,,2.0,,-1.0,3.0,
+fujifilm-x-trans-iii-x-t30-x-t3-film-simulation-recipe-eterna-bleach-bypass,“Eterna Bleach Bypass”,PRO Neg,3.0,3.0,-4.0,0.0,-4.0,,400.0,0.0,,1.0,,8.0,-9.0,3200.0
+fujifilm-x-trans-iii-x-t30-x-t3-film-simulation-recipe-chrome-bypass,Chrome Bypass,PRO Neg,3.0,4.0,-4.0,-1.0,-4.0,,200.0,0.0,,2.0,,2.0,-5.0,
+my-fujifilm-x-t30-kodacolor-film-simulation-recipe,Kodacolor,Classic Chrome,-1.0,2.0,-2.0,2.0,-4.0,,400.0,0.0,,2.0,,-1.0,-4.0,6300.0
+fujifilm-x-trans-iii-x-t3-x-t30-film-simulation-recipe-kodacolor-vr,Kodacolor VR,Classic Chrome,-1.0,1.0,2.0,-1.0,-4.0,,400.0,0.0,,1.0,,-7.0,8.0,0.0
+fujifilm-x-trans-iii-x-t3-x-t30-film-simulation-recipe-vintage-kodacolor,Vintage Kodacolor,Classic Chrome,2.0,0.0,-4.0,-1.0,-4.0,,200.0,0.0,,2.0,,-4.0,4.0,9100.0
+my-fujifilm-x-t30-kodacolor-ii-126-film-simulation-recipe,Kodacolor II 126,Classic Chrome,-1.0,3.0,-4.0,-4.0,-4.0,,200.0,2.0,,2.0,,6.0,3.0,6300.0
+fujifilm-x-t30-x-t3-x-trans-iii-film-simulation-recipe-classic-kodak,Classic Kodak,Classic Chrome,-2.0,1.0,4.0,-1.0,-4.0,,400.0,0.0,,2.0,,-1.0,2.0,7500.0
+my-fujifilm-x-t30-classic-slide-film-simulation-recipe,Classic Slide,Classic Chrome,1.0,2.0,0.0,1.0,-4.0,,400.0,0.0,,1.0,,-2.0,3.0,5500.0
+not-my-fujifilm-x-urban-vintage-chrome-film-simulation-recipe,Urban Vintage Chrome,Classic Chrome,0.0,2.0,-4.0,0.0,-4.0,,200.0,0.0,,1.0,,-1.0,-3.0,4300.0
+my-fujifilm-x-t30-fujicolor-100-industrial-film-simulation-recipe,Fujicolor 100 Industrial,PRO Neg,1.0,2.0,1.0,2.0,-4.0,,400.0,1.0,,1.0,,8.0,-8.0,3200.0
+my-fujifilm-x-t30-lomography-color-100-film-simulation-setting,Lomography Color 100,Velvia,1.0,1.0,-3.0,1.0,-4.0,,400.0,1.0,,1.0,,-3.0,7.0,7500.0
+my-fujifilm-x-t30-velvia-film-simulation-recipe,Velvia,Velvia,0.0,1.0,3.0,2.0,-4.0,,250.0,2.0,,1.0,,1.0,-1.0,
+fujifilm-x-t30-x-trans-iv-film-simulation-recipe-velvia-v2,Velvia v2,Velvia,-1.0,-1.0,4.0,0.0,-4.0,,200.0,2.0,,1.0,,0.0,0.0,
+my-fujifilm-x-t30-redscale-film-simulation-recipe,Redscale,Astia,1.0,2.0,-2.0,-2.0,-4.0,,200.0,2.0,,2.0,,9.0,0.0,0.0
+my-fujifilm-x-t30-cross-process-film-simulation-recipe,Cross Process,Classic Chrome,4.0,-1.0,3.0,1.0,-4.0,,400.0,0.0,,1.0,,-8.0,-3.0,7700.0
+xpro-fujifilm-x-trans-iii-x-t3-x-t30-film-simulation-recipe,XPro,Classic Chrome,-1.0,3.0,4.0,-1.0,-4.0,,400.0,0.0,,1.0,,-6.0,-9.0,3400.0
+my-fujifilm-x-t30-acros-film-simulation-recipe-agfa-apx-400,Agfa APX 400,Acros,-2.0,4.0,,4.0,-4.0,,400.0,2.0,,1.0,,,,
+my-fujifilm-x-t30-monochrome-kodachrome-film-simulation-recipe,Monochrome Kodachrome,Acros,4.0,-2.0,,1.0,-4.0,,200.0,0.0,,2.0,,0.0,9.0,
+my-fujifilm-x-t30-ilford-hp5-plus-400-push-process-film-simulation-recipe,Ilford HP5 Push Process,Acros,3.0,4.0,,-2.0,-4.0,,,2.0,,2.0,,,,
+not-my-fujifilm-x-t30-ilford-delta-push-process-film-simulation-recipe,Ilford Delta Push Process,Monochrome,0.0,3.0,,-3.0,-4.0,,400.0,0.0,,2.0,,,,
+my-fujifilm-x-t30-dramatic-monochrome-film-simulation-recipe,Dramatic Monochrome,Monochrome,4.0,4.0,,3.0,-4.0,,200.0,2.0,,2.0,,,,
+my-fujifilm-x-t30-faded-monochrome-film-simulation-recipe,Faded Monochrome,Acros,4.0,4.0,,2.0,-4.0,,100.0,2.0,,2.0,,,,
+my-fujifilm-x-t30-split-toned-bw-film-simulation-recipe,Split-Toned B&W,Acros,4.0,4.0,2.0,1.0,-4.0,,200.0,2.0,,1.0,,0.0,0.0,
+my-fujifilm-x-t30-cyanotype-film-simulation-recipe,Cyanotype,Acros,3.0,3.0,,-4.0,-4.0,,400.0,2.0,,2.0,,,,
+fujifilm-x100v-film-simulation-recipe-verano-tostado,Verano Tostado,Classic Chrome,-1.0,2.0,3.0,2.0,-4.0,0.0,200.0,0.0,0.0,2.0,1.0,-2.0,-5.0,

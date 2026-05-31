@@ -1,0 +1,50 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+
+# Large generated data (reproducible from scripts)
+html_cache/
+recipes/
+index.html
+
+# Debug / temp files
+blockdump.txt
+check_fs.*
+coverage.txt
+debug_fs.*
+encode_err.txt
+encode_report.txt
+env.txt
+fs_count.txt
+fs_ctx.txt
+missing_fs.txt
+multi_sim.txt
+names_err.txt
+names2_err.txt
+nn_debug.txt
+ping.txt
+probe_fs.*
+report1*.txt
+reparse_err.txt
+scrape.log
+sim_clean.txt
+sim_err.txt
+sim_out.txt
+similar_result.json
+strong_dump.txt
+subw_err.txt
+summary.py
+SUMMARY.txt
+test_parse.json
+umap_err.txt
+verify.json
+viz_err.txt
+desc_err.txt
+desc_ru_err.txt
+vision_err.txt
+cluster_err.txt

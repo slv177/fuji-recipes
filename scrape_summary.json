@@ -1,0 +1,16 @@
+{
+  "total_urls": 184,
+  "parsed": 184,
+  "failed": 0,
+  "low_field_recipes": [],
+  "field_count_histogram": {
+    "5": 1,
+    "9": 3,
+    "10": 6,
+    "11": 47,
+    "12": 12,
+    "13": 100,
+    "14": 15
+  },
+  "failures": []
+}

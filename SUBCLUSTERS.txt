@@ -1,0 +1,51 @@
+### Classic Chrome  (n=53)  ->  4 sub-groups (silhouette 0.13)
+  group 0 (n=23): dynamic_range=+330.4(high); wb_blue=-5.0(low); wb_red=+2.3(high); shadow=-1.3(low)
+      e.g.: Kodachrome 64, Kodachrome 25, Kodachrome 1
+  group 1 (n=14): dynamic_range=+300.0(low); wb_blue=-0.9(high); highlight=-0.6(low); grain_size=+0.9(high)
+      e.g.: McCurry Kodachrome, Kodak Portra 800, Kodak Portra 800 v3
+  group 2 (n=15): dynamic_range=+326.7(high); wb_red=-2.0(low); shadow=+1.9(high); clarity=-3.0(low)
+      e.g.: Kodachrome II &Kodachrome II v2, Kodak High Definition Plus 200, Fujichrome Provia 100F
+  group 3 (n=1): dynamic_range=+200.0(low); wb_blue=+8.0(high); color=-2.0(low); wb_red=+4.0(high)
+      e.g.: Elite Chrome Color Fade
+
+### Classic Negative  (n=45)  ->  4 sub-groups (silhouette 0.12)
+  group 0 (n=17): dynamic_range=+364.7(high); wb_blue=-3.6(low); wb_red=+1.4(high); clarity=-3.4(low)
+      e.g.: Kodak Royal Gold 400, Positive Film, Pacific Blues
+  group 1 (n=19): dynamic_range=+326.3(low); wb_blue=-0.2(high); wb_red=-1.7(low); clarity=-1.1(high)
+      e.g.: Chrome Slide, Fujicolor Reala 100, Fujicolor Superia 100
+  group 2 (n=6): dynamic_range=+400.0(high); wb_blue=-5.2(low); highlight=-1.4(low); wb_red=+1.2(high)
+      e.g.: Kodak Max 800, September Summer, Superia Xtra 400
+  group 3 (n=3): dynamic_range=+233.3(low); wb_blue=+3.7(high); color=-4.0(low); highlight=+2.7(high)
+      e.g.: Vintage Analog, Creamy Color, “Bleach Bypass”
+
+### Eterna  (n=22)  ->  3 sub-groups (silhouette 0.11)
+  group 0 (n=13): dynamic_range=+253.8(high); wb_blue=-5.7(low); wb_red=+4.2(high); sharpness=-1.1(high)
+      e.g.: Timeless Negative, Eterna Summer, Eterna v2
+  group 1 (n=7): dynamic_range=+171.4(low); wb_blue=+2.1(high); wb_red=-1.4(low); highlight=+2.4(high)
+      e.g.: Kodak Vision3 250D, Vintage Color, Pushed CineStill 800T (X100V + X-Pro3)
+  group 2 (n=2): dynamic_range=+300.0(high); wb_red=-2.5(low); wb_blue=-6.5(low); highlight=-1.0(low)
+      e.g.: Cine Teal, CineStill 800T
+
+### PRO Neg  (n=15)  ->  5 sub-groups (silhouette 0.18)
+  group 0 (n=7): dynamic_range=+371.4(high); wb_blue=+0.7(high); shadow=+0.2(low); wb_red=-1.1(low)
+      e.g.: PRO Negative 160C, Jeff Davenport Night, Color Negative
+  group 1 (n=4): dynamic_range=+200.0(low); wb_red=-2.0(low); highlight=+2.8(high); shadow=+2.8(high)
+      e.g.: Analog Color, Vintage Color Fade, “Warm Contrast”
+  group 2 (n=1): dynamic_range=+400.0(high); color=-4.0(low); highlight=-2.0(low); wb_red=-3.0(low)
+      e.g.: Nostalgic Print
+  group 3 (n=2): dynamic_range=+400.0(high); wb_red=+8.0(high); wb_blue=-8.5(low); color=-1.5(low)
+      e.g.: “Eterna Bleach Bypass”, Fujicolor 100 Industrial
+  group 4 (n=1): dynamic_range=+200.0(low); color=-4.0(low); sharpness=+1.0(high); wb_red=+1.0(high)
+      e.g.: Pure Negative
+
+### Acros  (n=14)  ->  2 sub-groups (silhouette 0.18)
+  group 0 (n=11): dynamic_range=+255.0(low); wb_blue=+4.4(high); clarity=+2.6(high); wb_red=+3.4(high)
+      e.g.: Kodak Plus-X 125, Kodak Tri-X 400, Kodak T-Max P3200
+  group 1 (n=3): dynamic_range=+400.0(high); wb_blue=-3.0(low); wb_red=-1.3(low); clarity=-2.3(low)
+      e.g.: B&W Superia, Monochrome Negative, Moody Monochrome
+
+### Eterna Bleach Bypass  (n=12)  ->  2 sub-groups (silhouette 0.24)
+  group 0 (n=10): dynamic_range=+360.0(high); wb_blue=-5.3(low); clarity=-2.4(low); highlight=-0.3(low)
+      e.g.: 1960 Chrome, Grizzly Ride, Analog Gold
+  group 1 (n=2): dynamic_range=+300.0(low); wb_blue=+4.5(high); clarity=+2.5(high); highlight=+2.5(high)
+      e.g.: Eterna Bleach Bypass, Kodachrome Blue

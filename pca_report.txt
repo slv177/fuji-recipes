@@ -1,0 +1,18 @@
+explained variance: PC1=13.5%  PC2=12.2%  (sum 25.7%)
+
+loadings (feature contribution to each axis):
+                    PC1   PC2
+highlight          0.30  0.25
+shadow             0.10  0.07
+color              0.20 -0.28
+sharpness          0.50 -0.11
+noise_reduction   -0.03  0.29
+clarity            0.47 -0.03
+dynamic_range     -0.35 -0.13
+color_chrome      -0.10  0.07
+color_chrome_blue -0.10  0.17
+grain_strength    -0.32  0.22
+grain_size        -0.32  0.15
+wb_red            -0.05 -0.35
+wb_blue            0.21  0.54
+wb_kelvin          0.04  0.47
