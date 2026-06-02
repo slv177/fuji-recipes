@@ -127,6 +127,51 @@ main{max-width:100%;padding:36px 40px}
 .intro-note{color:#888 !important;font-size:.82rem !important}
 .sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}
+
+/* ── tablet ── */
+@media (max-width: 900px) {
+  main{padding:24px 18px}
+  .gallery{grid-template-columns:repeat(5,1fr)}
+  .og-photos{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+
+/* ── phone ── */
+@media (max-width: 600px) {
+  header{padding:24px 18px}
+  header h1{font-size:1.3rem}
+  header p{font-size:.8rem}
+  main{padding:16px 12px}
+
+  .sim-sec{margin-bottom:28px;border-radius:8px}
+  .sim-hdr{padding:14px 16px;flex-wrap:wrap;gap:4px 12px}
+  .sim-title{font-size:1.1rem}
+  .si-body{padding:16px}
+  .si-row{flex-direction:column;gap:16px}
+  .si-desc,.si-bestfor{max-width:100%}
+  .sim-cards-area{padding:14px}
+
+  .card{padding:18px 16px;gap:14px}
+  .card-name{font-size:1rem}
+  .desc{font-size:.88rem;max-width:100%}
+
+  /* galleries: 3 columns on phone */
+  .gallery{grid-template-columns:repeat(3,1fr);gap:3px}
+  .og-photos{grid-template-columns:repeat(2,1fr)}
+  .og-photos img{aspect-ratio:3/2}
+
+  /* recipes single column */
+  .rlist{columns:1}
+
+  /* homogeneity wraps */
+  .hom-block{flex-direction:column;gap:4px}
+
+  /* comparison table — horizontal scroll */
+  .cmp-section{padding:18px 14px}
+  .cmp-section .cmp-tbl{display:block;overflow-x:auto;white-space:nowrap;font-size:.75rem}
+
+  .intro-block{padding:18px 16px}
+  .intro-block p,.intro-block ul{font-size:.86rem;max-width:100%}
+}
 </style>
 </head>
 <body>
