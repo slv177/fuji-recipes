@@ -224,5 +224,121 @@ BLOCKS['en'] = '''
 </div>'''
 
 
+# ── Spanish ───────────────────────────────────────────────────────────────────
+BLOCKS['es'] = '''
+<div class="intro-block lead">
+  <h2>Sobre el proyecto</h2>
+  <p>Las cámaras Fujifilm pueden imitar el carácter de la película directamente al disparar, y la
+  combinación exacta de ajustes — una «receta» — se puede guardar y reutilizar. Aficionados de todo
+  el mundo llevan años afinando estas recetas y compartiéndolas en sitios especializados. Se han
+  acumulado cientos.</p>
+
+  <p>Se me ocurrió mirar estas recetas desde la óptica del <strong>aprendizaje automático</strong>.
+  Si cada ajuste se trata como una dimensión independiente, entonces cada receta es un punto en un
+  espacio multidimensional, y sobre esos puntos se pueden aplicar algoritmos de clasificación para
+  ver si forman grupos con sentido.</p>
+
+  <p>Y lo hacen — de forma bastante nítida. Eso planteó la siguiente pregunta: ¿existe una relación
+  entre estos grupos y las propias fotografías? Mi hipótesis era que cada grupo de recetas tiene su
+  propio <strong>estado de ánimo</strong> reconocible en las imágenes. Para comprobarlo, entregué a
+  un modelo de lenguaje fotos de muestra de cada grupo junto con las descripciones de texto que los
+  autores adjuntan a sus recetas, y le pedí que encontrara patrones.</p>
+
+  <p class="lead-finding"><strong>El hallazgo:</strong> la hipótesis se confirmó — con un matiz.
+  Los grupos sí comparten un estado de ánimo común. Pero ese carácter se hereda en gran medida de la
+  simulación de película base, en lugar de surgir por sí solo del ajuste fino. Dicho de otro modo, el
+  «carácter» lo define ante todo la elección de la película; la receta solo lo matiza. Más abajo, los
+  detalles.</p>
+</div>
+
+<div class="intro-block">
+  <h2>Cómo funciona técnicamente</h2>
+
+  <p><strong>Cada ajuste es una dimensión.</strong> 14 parámetros de la receta (Highlight, Shadow,
+  Color, balance de blancos, rango dinámico, grano y otros) definen los ejes del espacio, y cada
+  receta se convierte en un punto. Antes del análisis hubo que ordenar los datos: unificar sinónimos
+  (un mismo ajuste se llama distinto según la cámara), descomponer campos compuestos (balance de
+  blancos → temperatura + desplazamientos Red/Blue) y reescalar todo a rangos comparables.</p>
+
+  <p><strong>Agrupación.</strong> Las recetas se agruparon con clustering jerárquico. El hallazgo
+  clave: solo con los ajustes numéricos las recetas <em>apenas se separan</em> en grupos limpios —
+  hay poca estructura en los datos. Pero al añadir la característica «tipo de simulación de película»
+  los grupos se vuelven nítidos y limpios. Conclusión: el tipo de simulación domina sobre el ajuste
+  fino de parámetros. Dentro de cada simulación encontramos luego subgrupos — distinguidos sobre todo
+  por el balance de blancos, el rango dinámico y la claridad.</p>
+
+  <p><strong>El vínculo con las fotografías.</strong> Para cada grupo, las fotos de muestra se
+  pasaron a un modelo multimodal que describió los temas y el estado de ánimo y seleccionó los
+  fotogramas más representativos. En paralelo, se extrajeron de las descripciones de los autores las
+  palabras clave que distinguen un grupo de los demás. Los nombres y descripciones de los grupos se
+  generaron a partir de estos datos.</p>
+
+  <details class="ml-details">
+    <summary>Detalles técnicos</summary>
+    <ul>
+      <li><strong>Clustering:</strong> aglomerativo, método de Ward. El número de grupos se eligió
+      maximizando la métrica silhouette. Sin la característica de simulación, silhouette ≈ 0,09 (casi
+      sin estructura); con la característica one-hot de simulación, ≈ 0,46. Dentro de las
+      simulaciones, el silhouette de los subgrupos es 0,11–0,24 (fronteras difusas — los ajustes
+      varían de forma continua, no en clústeres discretos).</li>
+      <li><strong>Reducción de dimensionalidad:</strong> PCA y UMAP. Las dos primeras componentes de
+      PCA explican solo ~26% de la varianza — las características son bastante independientes — así
+      que para los «mapas» visuales se usó un UMAP no lineal con la simulación añadida como
+      característica ponderada.</li>
+      <li><strong>Análisis de texto:</strong> las palabras clave de los grupos se extrajeron con
+      TF-IDF sobre las descripciones de los autores (un término frecuente en un grupo y raro en los
+      demás recibe más peso). Los nombres de los grupos también usan TF-IDF sobre los títulos de las
+      recetas, para que las películas «repartidas» entre muchos grupos no dominen.</li>
+      <li><strong>Análisis visual:</strong> un modelo Claude (visión) por grupo. La búsqueda de
+      similares usa los vecinos más cercanos (métrica euclídea) en el mismo espacio.</li>
+    </ul>
+  </details>
+</div>
+
+<div class="intro-block">
+  <h2>Sobre el catálogo</h2>
+  <p>El catálogo se construye a partir de dos fuentes. El grueso — <strong>184 recetas</strong> de
+  <a href="https://fujixweekly.com/fujifilm-x-trans-iv-recipes/" target="_blank">Fuji X Weekly</a>
+  (Ritchie Roesch), la mayor colección de recetas para X-Trans IV. A ellas se añaden
+  <strong>7 recetas</strong> de Joseph D’Agostino
+  (<a href="https://www.josephdagostinophotography.com/joedagostino-photo-blog/2021/1/27/r7ydnsoxgcgdi4uasfztt70yyuty1t" target="_blank">josephdagostinophotography.com</a>).
+  Total: <strong>191 recetas</strong>. Debajo hay una tabla comparativa de películas y luego los
+  grupos: cada uno con su descripción, fotos de muestra, ajustes típicos y la lista de recetas que
+  contiene.</p>
+
+  <h3>Qué une a las recetas de un grupo y qué las diferencia</h3>
+  <p>Analizar la dispersión de parámetros dentro de cada grupo reveló un patrón constante: el
+  <strong>balance de blancos</strong> es el parámetro más variable casi en todas partes. Los autores
+  llegan a un resultado visual parecido por caminos distintos — unos con un Kelvin cálido, otros con
+  desplazamientos Red/Blue. El <strong>grano</strong>, en cambio, suele ser estable — dentro de un
+  grupo los autores convergen en un mismo carácter de grano.</p>
+  <p>El grupo menos homogéneo es <strong>Kodak Contrast Classics</strong> (Acros): varía
+  prácticamente todo, incluido el WB ±1375K. Es más un «cajón de sastre de todo lo Acros» que un
+  clúster compacto. Por el contrario, <strong>Cinematic Teal Glow</strong> (Eterna) es el único grupo
+  donde son estables tanto Clarity = −5 como WB ≈ 4275K: ambos autores llegaron casi al mismo perfil
+  específico de forma independiente.</p>
+  <p><strong>Kodachrome Warm Earth</strong> (Classic Chrome, 26 recetas) es el grupo más grande y,
+  aun así, ningún parámetro está fijado: es el «centro difuso» de la simulación, donde acabó todo lo
+  que no encajaba en un subgrupo más específico. Úsalo como referencia, no como plantilla.</p>
+
+  <h3>Las recetas de D’Agostino: ¿qué tan únicas son?</h3>
+  <p>La comparación con los vecinos más cercanos en el espacio de ajustes mostró lo siguiente:</p>
+  <ul>
+    <li><strong>Kodachrome 64 +</strong> y <strong>Summer</strong> — prácticamente idénticas a
+    recetas ya existentes (distancia 0,00 y 0,26). Redescubrimientos independientes de los mismos
+    ajustes.</li>
+    <li><strong>Classic Negative</strong>, <strong>Kodachrome 64 −</strong>, <strong>Kodak Portra</strong> —
+    encajan en sus grupos pero con un acento personal: más nitidez, altas luces muy levantadas, un
+    fuerte desplazamiento cálido del WB.</li>
+    <li><strong>Noir</strong> (Acros) — destaca de su grupo: Sharpness +4, Highlight +4, DR100.
+    Maximalismo deliberado del contraste.</li>
+    <li><strong>Monochrome</strong> — la más alejada de cualquier vecino (distancia 6,23), ocupa su
+    propio nicho en un grupo pequeño.</li>
+  </ul>
+  <p class="intro-note">Las recetas de D’Agostino están marcadas con un asterisco
+  <span class="ext-mark">*</span> en las listas de recetas.</p>
+</div>'''
+
+
 def blocks(lang):
     return BLOCKS.get(lang, BLOCKS['en'])

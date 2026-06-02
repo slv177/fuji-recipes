@@ -5,7 +5,8 @@ Languages with full UI coverage: ru, en, de, es, fr.
 Missing keys fall back to English.
 """
 
-LANGS = ['en', 'ru', 'de', 'es', 'fr']
+LANGS = ['en', 'ru', 'de', 'es', 'fr']        # all languages the pipeline supports
+VISIBLE_LANGS = ['en', 'ru', 'es']            # shown in the switcher / built by default
 LANG_NAMES = {'en': 'English', 'ru': 'Русский', 'de': 'Deutsch',
               'es': 'Español', 'fr': 'Français'}
 DEFAULT_LANG = 'en'   # served at site root; others at /<lang>/
@@ -13,7 +14,7 @@ DEFAULT_LANG = 'en'   # served at site root; others at /<lang>/
 # ── short UI strings ──────────────────────────────────────────────────────────
 UI = {
     'en': {
-        'page_title': 'Fujifilm X-Trans IV recipes — film simulation groups',
+        'page_title': 'Fuji Recipes',
         'header_h1': 'Fuji recipes through an ML engineer’s eyes',
         'header_sub': '191 recipes · 11 film simulations · 24 groups · clustering, visual analysis and similarity search',
         'comparison_title': 'Film comparison',
@@ -42,7 +43,7 @@ UI = {
         'official_credit': '© Fujifilm X',
     },
     'ru': {
-        'page_title': 'Рецепты Fujifilm X-Trans IV — группы',
+        'page_title': 'Рецепты Fuji',
         'header_h1': 'Рецепты Fuji глазами ML-инженера',
         'header_sub': '191 рецепт · 11 плёночных симуляций · 24 группы · кластеризация, визуальный анализ и поиск похожих',
         'comparison_title': 'Сравнение плёнок',
@@ -65,6 +66,32 @@ UI = {
         'recipes_word': 'рецептов',
         'ext_note_pre': 'Рецепты Д’Агостино отмечены звёздочкой',
         'ext_note_post': 'в списках групп.',
+        'official_credit': '© Fujifilm X',
+    },
+    'es': {
+        'page_title': 'Recetas Fuji',
+        'header_h1': 'Las recetas de Fuji con ojos de ingeniero de ML',
+        'header_sub': '191 recetas · 11 simulaciones de película · 24 grupos · clustering, análisis visual y búsqueda de similares',
+        'comparison_title': 'Comparación de películas',
+        'col_sim': 'Simulación',
+        'cmp_contrast': 'Contraste',
+        'cmp_saturation': 'Saturación',
+        'cmp_colorcast': 'Dominante de color',
+        'cmp_highlights': 'Altas luces',
+        'cmp_shadows': 'Sombras',
+        'cmp_bestfor': 'Ideal para',
+        'cmp_grain': 'Grano',
+        'bw_films': 'Películas monocromas',
+        'settings': 'Ajustes',
+        'recipes': 'Recetas',
+        'visual_analysis': 'Análisis visual',
+        'basis': 'Basada en:',
+        'best_for_label': 'Ideal para:',
+        'same': 'Igual:',
+        'varies': 'Varía:',
+        'recipes_word': 'recetas',
+        'ext_note_pre': 'Las recetas de D’Agostino están marcadas con un asterisco',
+        'ext_note_post': 'en las listas de grupos.',
         'official_credit': '© Fujifilm X',
     },
 }

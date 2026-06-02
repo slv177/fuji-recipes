@@ -13,7 +13,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from collections import defaultdict
 
-from i18n import UI, LANGS, LANG_NAMES, DEFAULT_LANG, t, plural_recipes, plural_groups
+from i18n import UI, LANGS, VISIBLE_LANGS, LANG_NAMES, DEFAULT_LANG, t, plural_recipes, plural_groups
 from i18n_blocks import blocks
 
 # ── language-independent data ─────────────────────────────────────────────────
@@ -178,7 +178,7 @@ def homogeneity_html(slugs, lang):
 # ── per-language build ─────────────────────────────────────────────────────────
 def lang_switcher(cur):
     links = []
-    for lg in LANGS:
+    for lg in VISIBLE_LANGS:
         href = './' if lg == DEFAULT_LANG else f'/{lg}/'
         # from a sub-page, root is '../' ; keep absolute paths for simplicity
         href = '/' if lg == DEFAULT_LANG else f'/{lg}/'
@@ -388,7 +388,7 @@ PAGE = '''<!DOCTYPE html>
 
 if __name__ == '__main__':
     arg = sys.argv[1] if len(sys.argv) > 1 else None
-    targets = [arg] if arg else LANGS
+    targets = [arg] if arg else VISIBLE_LANGS
     # only build languages that actually have UI strings defined
     for lg in targets:
         if lg not in UI:

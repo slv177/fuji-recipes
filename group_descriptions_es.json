@@ -1,0 +1,661 @@
+[
+  {
+    "label": "Acros#0",
+    "film_sim": "Acros",
+    "n": 11,
+    "titles": [
+      "Kodak Plus-X 125",
+      "Kodak Tri-X 400",
+      "Kodak T-Max P3200",
+      "Kentmere Pan 400",
+      "Black & White Infrared",
+      "Agfa APX 400",
+      "Monochrome Kodachrome",
+      "Ilford HP5 Push Process",
+      "Faded Monochrome",
+      "Split-Toned B&W",
+      "Cyanotype"
+    ],
+    "keywords": [
+      "ut fujifilm",
+      "ut",
+      "fujifilm t30",
+      "farmington ut",
+      "farmington",
+      "acros",
+      "x100v iso",
+      "t30 acros",
+      "kentmere",
+      "t30",
+      "plus",
+      "infrared"
+    ],
+    "description": "# Acros — fotografía clásica en blanco y negro\n\nEsta colección de recetas captura el espíritu de la película clásica en blanco y negro: negros profundos, altas luces expresivas, grano característico y un contraste impecable. Los ajustes de Shadow levantado, alta Clarity y Dynamic Range generoso producen imágenes con volumen y nobleza, desde la estética del infrarrojo hasta los matices suaves del split toning. Ideal para retrato, arquitectura y fotoperiodismo, donde la forma y la textura necesitan hablar por sí solas, sin la distracción del color."
+  },
+  {
+    "label": "Acros#1",
+    "film_sim": "Acros",
+    "n": 3,
+    "titles": [
+      "B&W Superia",
+      "Monochrome Negative",
+      "Moody Monochrome"
+    ],
+    "keywords": [
+      "acros",
+      "monochrome",
+      "superia",
+      "moody",
+      "superia film",
+      "monochrome film",
+      "grain size",
+      "fujifilm x100v",
+      "size",
+      "recipe",
+      "black",
+      "acros dynamic"
+    ],
+    "description": "# Descripción del grupo de presets Acros\n\nColección de recetas monocromáticas unidas por la estética oscura y contrastada de la película en blanco y negro con grano expresivo. Los presets funcionan especialmente bien para retrato, fotografía documental y street, donde se buscan negros profundos y transiciones de medios tonos ricas y matizadas. La Clarity moderada y el contraste suave generan un estado de ánimo levemente melancólico y cinematográfico, especialmente efectivo con luz natural difícil y a ISO elevados."
+  },
+  {
+    "label": "Classic Chrome#0",
+    "film_sim": "Classic Chrome",
+    "n": 23,
+    "titles": [
+      "Kodachrome 64",
+      "Kodachrome 25",
+      "Kodachrome 1",
+      "Kodak Portra 160",
+      "Kodak Portra 400",
+      "Kodak Portra 400 v2",
+      "Kodak Portra 400 Warm",
+      "Reggie’s Portra",
+      "Portra-Style",
+      "Kodak Portra 800 v2",
+      "Kodak Ektar 100",
+      "Old Kodak",
+      "Kodak Brilliance",
+      "Classic Color",
+      "Retro Gold",
+      "Retro Gold Low Contrast",
+      "Indoor Angouleme",
+      "Kodak Portra do Sol",
+      "Bright Summer",
+      "Kodak Gold 200",
+      "Kodak Portra 400",
+      "Kodak Portra 400 v2",
+      "Kodak Porta 160"
+    ],
+    "keywords": [
+      "portra",
+      "kodachrome",
+      "portra 400",
+      "kodak",
+      "kodak portra",
+      "400",
+      "160",
+      "portra 160",
+      "retro",
+      "retro gold",
+      "dr",
+      "preet"
+    ],
+    "description": "# Grupo de presets Classic Chrome\n\nEsta colección imita emulsiones de película clásicas, desde el legendario Kodachrome hasta el cálido y suave Portra, creando una paleta nostálgica y levemente desaturada con ese característico desplazamiento dorado y sombras profundas. Los presets son ideales para retrato y situaciones con luz cálida: suavizan la piel con delicadeza, enriquecen los tonos y aportan un encanto vintage sin abusar del contraste. Con una gradación suave y grano natural, estos filtros brillan especialmente bajo el sol, en la hora dorada y en estudio, donde se busca una atmósfera lírica y levemente retro."
+  },
+  {
+    "label": "Classic Chrome#1",
+    "film_sim": "Classic Chrome",
+    "n": 14,
+    "titles": [
+      "McCurry Kodachrome",
+      "Kodak Portra 800",
+      "Kodak Portra 800 v3",
+      "Kodak Gold v2",
+      "Kodak Ultramax 400",
+      "Elite Chrome 200",
+      "Kodak Emulsion",
+      "Old Ektachrome",
+      "Urban Dreams",
+      "Nostalgic Negative",
+      "Bright Kodak",
+      "Serr’s 500T",
+      "Kodacolor II 126",
+      "Verano Tostado"
+    ],
+    "keywords": [
+      "portra 800",
+      "portra",
+      "800",
+      "nostalgic negative",
+      "anders",
+      "kodak",
+      "ektachrome",
+      "200",
+      "elite",
+      "elite chrome",
+      "nostalgic",
+      "old ektachrome"
+    ],
+    "description": "# Presets de película Classic Chrome\n\nEsta colección recrea la magia de la fotografía en película de mediados del siglo XX: contrastes suaves, sombras cálidas y una paleta levemente apagada. Son perfectos para retrato y fotografía de género gracias al tratamiento delicado de la piel, el mood nostálgico y una reproducción del color natural y sin saturación excesiva. Funcionan especialmente bien en el día a día, desde el estudio hasta el viaje, cuando lo que importa es preservar la autenticidad del momento y alejarse de la nitidez digital."
+  },
+  {
+    "label": "Classic Chrome#2",
+    "film_sim": "Classic Chrome",
+    "n": 15,
+    "titles": [
+      "Kodachrome II &Kodachrome II v2",
+      "Kodak High Definition Plus 200",
+      "Fujichrome Provia 100F",
+      "Nature Neon",
+      "Kodachrome 64",
+      "Faded Color",
+      "“Bleach Bypass”",
+      "Kodacolor",
+      "Kodacolor VR",
+      "Vintage Kodacolor",
+      "Classic Kodak",
+      "Classic Slide",
+      "Urban Vintage Chrome",
+      "Cross Process",
+      "XPro"
+    ],
+    "keywords": [
+      "kodacolor",
+      "fujifilm t30",
+      "cross",
+      "kodachrome",
+      "ut fujifilm",
+      "ut",
+      "t30",
+      "t30 kodacolor",
+      "provia",
+      "puzzles",
+      "cross processed",
+      "kodacolor vr"
+    ],
+    "description": "# Classic Chrome — paleta de nostalgia y encanto analógico\n\nEste conjunto de recetas recrea la magia de la película en color clásica, desde el icónico Kodachrome y Kodacolor hasta el proceso cruzado experimental. Los tonos cálidos y levemente desvanecidos, con un contraste suave, son ideales para retratos, escenas urbanas y fotografía documental donde se busca una atmósfera vintage sin grano agresivo. La Clarity ligeramente reducida y las sombras levantadas preservan el detalle en las altas luces, creando esa sensación genuinamente analógica, romántica, levemente nublada y con alma."
+  },
+  {
+    "label": "Classic Chrome#3",
+    "film_sim": "Classic Chrome",
+    "n": 1,
+    "titles": [
+      "Elite Chrome Color Fade"
+    ],
+    "keywords": [
+      "fujifilm t30",
+      "elite",
+      "elite chrome",
+      "chrome 200",
+      "weber ut",
+      "south weber",
+      "weber",
+      "south",
+      "ut fujifilm",
+      "ut",
+      "north salt",
+      "lake ut"
+    ],
+    "description": "# Classic Chrome — Elite Chrome Color Fade\n\nEsta receta recrea la estética característica de la película en color clásica: una paleta suave y levemente desvanecida con saturación apagada. Las sombras levantadas y el contraste mínimo producen un look delicado y nostálgico con un grano sutil, perfecto para retrato y escenas en días despejados. El balance de blancos cálido con tendencia a los amarillos y naranjas aporta un mood soleado y levemente vintage, como si la foto hubiera reposado al sol durante una década."
+  },
+  {
+    "label": "Classic Negative#0",
+    "film_sim": "Classic Negative",
+    "n": 17,
+    "titles": [
+      "Kodak Royal Gold 400",
+      "Positive Film",
+      "Pacific Blues",
+      "Nostalgia Color",
+      "Vintage Negative",
+      "Vintage Color v2",
+      "Vintage Print",
+      "Vintage Vibes",
+      "Superia Premium 400",
+      "Fujicolor Superia 800",
+      "Fujicolor Superia 1600",
+      "Fujicolor Natura 1600",
+      "Magenta Negative",
+      "Fujicolor Pro 400H",
+      "Faded Negative",
+      "RedScale",
+      "Xpro ’62"
+    ],
+    "keywords": [
+      "superia",
+      "1600",
+      "classic negative",
+      "magenta",
+      "redscale",
+      "fujifilm x100v",
+      "superia 1600",
+      "vintage",
+      "royal",
+      "royal gold",
+      "vintage color",
+      "draper"
+    ],
+    "description": "# Classic Negative\n\nEsta colección encarna la estética clásica de la película en color: sombras cálidas y levemente difusas, contraste suave, ideal para retratos y fotografía cotidiana con luz natural. Las recetas remiten a películas legendarias como Kodak Royal Gold y Fujifilm Superia, dotando a los fotogramas de un encanto vintage con esos característicos matices magenta y rojizos. Estos presets son la elección perfecta para quienes valoran la nostalgia y la autenticidad del analógico, sin necesidad de un revelado digital complejo."
+  },
+  {
+    "label": "Classic Negative#1",
+    "film_sim": "Classic Negative",
+    "n": 19,
+    "titles": [
+      "Chrome Slide",
+      "Fujicolor Reala 100",
+      "Fujicolor Superia 100",
+      "Scanned Superia",
+      "Pulled Fujicolor Superia",
+      "Fujicolor NPS 160 Pulled",
+      "Fujicolor C200",
+      "Fujicolor C200 v2",
+      "Fujicolor Analog",
+      "Fujicolor Super HG",
+      "Fujicolor Super HG v2",
+      "Color Negative 400",
+      "AgfaChrome RS 100",
+      "Agfa Ultra 100",
+      "Agfa Vista 100",
+      "Classic Negative",
+      "Amanda’s Classic Negative",
+      "Low Key",
+      "Expired Velvia"
+    ],
+    "keywords": [
+      "fujicolor",
+      "superia",
+      "c200",
+      "classic negative",
+      "fujicolor c200",
+      "hg",
+      "super hg",
+      "100",
+      "fujifilm x100v",
+      "super",
+      "dr",
+      "x100v"
+    ],
+    "description": "# Classic Negative — colección para una clásica cálida y contrastada\n\nEsta colección de presets recrea el carácter de la reproducción del color de Fujicolor: su tono cálido característico y sus colores saturados, una elección ideal para retrato, fotografía callejera y documental. La nitidez y el contraste reducidos, combinados con un Dynamic Range ampliado, producen un render suave y envolvente con buena definición tanto en sombras como en altas luces. Los ajustes funcionan de maravilla con luz mixta, calentando de forma natural los tonos fríos y acentuando el volumen del sujeto gracias a la profundidad tonal."
+  },
+  {
+    "label": "Classic Negative#2",
+    "film_sim": "Classic Negative",
+    "n": 6,
+    "titles": [
+      "Kodak Max 800",
+      "September Summer",
+      "Superia Xtra 400",
+      "Superia Summer",
+      "Fujicolor 100 Gold",
+      "Fujicolor Negative"
+    ],
+    "keywords": [
+      "superia",
+      "800",
+      "xtra",
+      "xtra 400",
+      "fujicolor 100",
+      "max",
+      "summer",
+      "brian",
+      "superia xtra",
+      "max 800",
+      "september",
+      "400"
+    ],
+    "description": "# Classic Negative #2\n\nEsta colección de recetas recrea la paleta cálida y saturada de las películas en color clásicas, desde el dorado Fujicolor 100 hasta el enérgico Superia Xtra 400. La Clarity levemente reducida y el contraste suave aportan un toque de nostalgia y cinematografismo, evocando días de verano y fotografía callejera. Ideales para retrato, paisaje y fotografía documental con luz diurna intensa, donde lo que prima es la naturalidad y la calidez artística."
+  },
+  {
+    "label": "Classic Negative#3",
+    "film_sim": "Classic Negative",
+    "n": 3,
+    "titles": [
+      "Vintage Analog",
+      "Creamy Color",
+      "“Bleach Bypass”"
+    ],
+    "keywords": [
+      "immanuel",
+      "creamy color",
+      "creamy",
+      "bleach",
+      "bleach bypass",
+      "bypass",
+      "fujifilm x100v",
+      "vintage",
+      "x100v",
+      "classic negative",
+      "weather",
+      "blue clarity"
+    ],
+    "description": "# Classic Negative: nostalgia sutil con visión contemporánea\n\nEste trío de presets representa un enfoque refinado de la estética analógica: sombras suaves, contraste apagado y una paleta cremosa que crea un mood lírico y levemente vintage, sin pasarse de lo pastel. Funcionan especialmente bien para retrato, paisajes con luz compleja y escenas cotidianas donde la atmósfera lo es todo: trabajan las sombras con delicadeza, añaden aire al encuadre y aportan una frialdad natural y sutil en las altas luces. La receta Bleach Bypass ofrece una versión más contrastada y gráfica para quienes buscan intensidad, mientras que Vintage Analog y Creamy Color son perfectas para una estética suave y envolvente, incluso en días nublados."
+  },
+  {
+    "label": "Eterna Bleach Bypass#0",
+    "film_sim": "Eterna Bleach Bypass",
+    "n": 10,
+    "titles": [
+      "1960 Chrome",
+      "Grizzly Ride",
+      "Analog Gold",
+      "Muted Color",
+      "Ferrania Solaris FG 400",
+      "LomoChrome Metropolis",
+      "Silver Summer",
+      "Ektachrome 320T",
+      "Expired ECN-2 100T",
+      "Pushed CineStill 800T"
+    ],
+    "keywords": [
+      "eterna bleach",
+      "bleach",
+      "bleach bypass",
+      "bypass",
+      "320t",
+      "does",
+      "eterna",
+      "ektachrome",
+      "lomochrome metropolis",
+      "lomochrome",
+      "metropolis",
+      "ektachrome 320t"
+    ],
+    "description": "# Eterna Bleach Bypass\n\nEsta colección de presets recrea el look característico del blanqueado de película: colores apagados y como desvanecidos, con una tonalidad fría plateada y contraste mínimo. Son ideales para fotografía atmosférica y nostálgica: retratos de mood melancólico, escenas urbanas y secuencias cinematográficas donde se busca una sobreexposición dramática en las altas luces y el carácter granulado y suave de una película antigua. Estos presets son especialmente efectivos con luz mixta o fría, potenciando la estética retro y aportando al encuadre un aspecto levemente difuso y onírico."
+  },
+  {
+    "label": "Eterna Bleach Bypass#1",
+    "film_sim": "Eterna Bleach Bypass",
+    "n": 2,
+    "titles": [
+      "Eterna Bleach Bypass",
+      "Kodachrome Blue"
+    ],
+    "keywords": [
+      "kodachrome",
+      "bleach",
+      "bleach bypass",
+      "corrected",
+      "bypass",
+      "color corrected",
+      "kodachrome blue",
+      "bypass look",
+      "youtube video",
+      "incorrectly",
+      "youtube",
+      "video"
+    ],
+    "description": "# Eterna Bleach Bypass\n\nEste grupo de recetas recrea el look característico del proceso de blanqueado conservando el brillo metálico de la película: frío, contrastado y velado por una suave neblina plateada. Los ajustes producen altas luces levantadas, sombras profundas y una Clarity acentuada, perfectos para retrato y fotografía artística donde se busca expresividad y una cierta dramatismo nostálgico. Las recetas resultan especialmente impactantes bajo luz de estudio o con iluminación diurna de alto contraste, cuando se quiere resaltar la textura y el volumen del sujeto."
+  },
+  {
+    "label": "Eterna#0",
+    "film_sim": "Eterna",
+    "n": 13,
+    "titles": [
+      "Timeless Negative",
+      "Eterna Summer",
+      "Eterna v2",
+      "Vintage Eterna",
+      "Arizona Analog",
+      "1981 Kodak",
+      "SantaColor",
+      "GAF 500",
+      "Eterna",
+      "Eterna v3",
+      "Cinematic Negative",
+      "Polaroid",
+      "Negative Print"
+    ],
+    "keywords": [
+      "eterna",
+      "gaf",
+      "h1",
+      "t30 eterna",
+      "nostalgic neg",
+      "1981",
+      "500",
+      "eterna film",
+      "santacolor",
+      "nostalgic",
+      "neg",
+      "scott"
+    ],
+    "description": "# Eterna — clásicos del cine\n\nEste grupo de recetas recrea el aspecto cálido y nostálgico característico del cine en película: contraste suave y sombras doradas, ideal para retratos y reportajes con un subtexto histórico. Los ajustes con Highlight y Shadow levantados aportan cinematografismo y volumen a las imágenes, y las transiciones tonales fluidas y suaves funcionan especialmente bien en la hora dorada o bajo luz de estudio delicada. Son presets que eligen los fotógrafos que buscan un carácter tranquilo y contemplativo, perfectos para bodas, series de retrato y documental atmosférico donde se valora la autenticidad de décadas pasadas."
+  },
+  {
+    "label": "Eterna#1",
+    "film_sim": "Eterna",
+    "n": 7,
+    "titles": [
+      "Kodak Vision3 250D",
+      "Vintage Color",
+      "Pushed CineStill 800T (X100V + X-Pro3)",
+      "Kodak Vision3 250D",
+      "Expired Eterna",
+      "Eterna Low-Contrast",
+      "Polaroid II"
+    ],
+    "keywords": [
+      "polaroid",
+      "250d",
+      "vision3 250d",
+      "eterna",
+      "expired eterna",
+      "vision3",
+      "t30 expired",
+      "kodak vision3",
+      "expired",
+      "800t film",
+      "daytime",
+      "800t"
+    ],
+    "description": "# Eterna\n\nEste grupo de recetas recrea la estética de la película cinematográfica clásica: una paleta cálida y levemente desvaída con contraste suave, ideal para retrato y fotoperiodismo en cualquier condición de luz. Los colores apagados y el grano visible generan un mood nostálgico que remite a archivos históricos y película expuesta; estos presets son especialmente efectivos en interiores y con luz diurna tenue. Gracias al desplazamiento hacia las sombras y a la preservación del detalle en altas luces, estos filtros se adaptan bien a escenas de alto contraste y revelan el carácter de los retratos con una expresividad casi cinematográfica."
+  },
+  {
+    "label": "Eterna#2",
+    "film_sim": "Eterna",
+    "n": 2,
+    "titles": [
+      "Cine Teal",
+      "CineStill 800T"
+    ],
+    "keywords": [
+      "fujifilm x100v",
+      "cinestill",
+      "x100v",
+      "farmington ut",
+      "farmington",
+      "vision3 500t",
+      "cinestill 800t",
+      "800t",
+      "500t",
+      "vision3",
+      "ut fujifilm",
+      "ut"
+    ],
+    "description": "# Eterna #2: Cine Teal & CineStill 800T\n\nEste par de recetas recrea la calidez de la película cinematográfica con ese característico desplazamiento teal en las sombras, una elección perfecta para fotografía de mood cinematográfico con una atmósfera envolvente y levemente nostálgica. La Clarity reducida y la luz suave crean un look soñador y levemente sobreexpuesto, especialmente acertado para escenas nocturnas, retratos bajo luz artificial y fotografía urbana. Gracias al Dynamic Range ampliado y al agradable grano de película, estos presets preservan el detalle en las zonas brillantes y aportan a las imágenes un aspecto auténticamente cinematográfico."
+  },
+  {
+    "label": "PRO Neg#0",
+    "film_sim": "PRO Neg",
+    "n": 7,
+    "titles": [
+      "PRO Negative 160C",
+      "Jeff Davenport Night",
+      "Color Negative",
+      "Pro Neg",
+      "Fujicolor Pro 160NS",
+      "Fujicolor Pro 400H",
+      "Porto 200"
+    ],
+    "keywords": [
+      "pro",
+      "porto",
+      "joão",
+      "ace",
+      "reala ace",
+      "approach",
+      "pro neg",
+      "city",
+      "neg",
+      "hi",
+      "neg hi",
+      "variations"
+    ],
+    "description": "# PRO Neg #0 — Película negativa profesional\n\nEste grupo de recetas simula la película negativa en color profesional clásica: una paleta suave y natural con un tratamiento delicado de las sombras, ideal para retrato y reportaje en diversas condiciones de iluminación. Estos presets dotan a las imágenes de un carácter cálido y levemente difuminado en los detalles, con un grano agradable que funciona especialmente bien en escenas urbanas, fotografía callejera y nocturna. Los ajustes están orientados a preservar la información en las altas luces con un tratamiento moderado de las sombras, lo que los convierte en herramientas versátiles para el fotógrafo que trabaja en condiciones cambiantes."
+  },
+  {
+    "label": "PRO Neg#1",
+    "film_sim": "PRO Neg",
+    "n": 4,
+    "titles": [
+      "Analog Color",
+      "Vintage Color Fade",
+      "“Warm Contrast”",
+      "Chrome Bypass"
+    ],
+    "keywords": [
+      "fujifilm t30",
+      "t30",
+      "ut fujifilm",
+      "ut",
+      "farmington ut",
+      "farmington",
+      "lake city",
+      "bypass",
+      "salt lake",
+      "salt",
+      "city ut",
+      "monument"
+    ],
+    "description": "# PRO Neg #1 — Descripción del grupo de presets\n\nEsta línea de presets encarna la sensibilidad de la estética analógica: contraste suave y desplazamientos de color cálidos, perfectos para retratos y paisajes con luz natural. El tratamiento fluido de sombras y altas luces, el grano sutil y el enfriamiento delicado del canal azul crean la atmósfera de una película cinematográfica de los años 70: suficientemente nostálgica sin resultar excesiva. Las recetas sacan el máximo partido en condiciones nubladas o con luz suave, donde despliegan toda la profundidad de su paleta y subrayan la textura del sujeto."
+  },
+  {
+    "label": "PRO Neg#2",
+    "film_sim": "PRO Neg",
+    "n": 1,
+    "titles": [
+      "Nostalgic Print"
+    ],
+    "keywords": [
+      "nostalgic",
+      "print",
+      "print film",
+      "ignore color",
+      "neg std",
+      "std",
+      "ignore",
+      "pro neg",
+      "definitely",
+      "gfx cameras",
+      "pretty",
+      "neg"
+    ],
+    "description": "# PRO Neg — Nostalgic Print\n\nEsta simulación clásica de película negativa encarna la estética de la copia de archivo: contraste suave y colores apagados. Es ideal para retrato y fotografía de género donde la naturalidad y el carácter nostálgico de la imagen son lo primero: la saturación reducida y el desplazamiento cálido del balance de blancos generan una atmósfera de fotografía vintage. El preset se luce especialmente en cámaras GFX y es perfecto para trabajar con momentos memorables donde lo que importa no es la perfección técnica, sino la autenticidad emocional del encuadre."
+  },
+  {
+    "label": "PRO Neg#3",
+    "film_sim": "PRO Neg",
+    "n": 2,
+    "titles": [
+      "“Eterna Bleach Bypass”",
+      "Fujicolor 100 Industrial"
+    ],
+    "keywords": [
+      "slc",
+      "slc ut",
+      "bypass",
+      "bleach",
+      "eterna bleach",
+      "fujicolor 100",
+      "bleach bypass",
+      "bypass film",
+      "fujifilm t30",
+      "100 industrial",
+      "industrial",
+      "eterna"
+    ],
+    "description": "# PRO Neg #3\n\nEstos presets recrean el estilo cinematográfico característico del bleach bypass, con altas luces levantadas y sombras profundas, ideales para conseguir un look de cine contrastado, levemente desgastado y con una reproducción del color fría. Úsalos para retrato, moda y fotografía urbana cuando se busca una atmósfera dramática y grafismo expresivo sin saturación excesiva. Funcionan bien con luz mixta y en un flujo de trabajo digital, añadiendo a los encuadres la sensación de material rodado en película con un grano con carácter."
+  },
+  {
+    "label": "PRO Neg#4",
+    "film_sim": "PRO Neg",
+    "n": 1,
+    "titles": [
+      "Pure Negative"
+    ],
+    "keywords": [
+      "kodachrome",
+      "thomas",
+      "pure",
+      "pure negative",
+      "dr auto",
+      "dr",
+      "ignore",
+      "dr200",
+      "excellent",
+      "trans",
+      "modification",
+      "kodak portra"
+    ],
+    "description": "# PRO Neg — Pure Negative\n\nEsta simulación recrea la estética clásica de las películas negativas con una paleta limpia, sin contrastes forzados, y una reproducción tonal natural. Es ideal para retrato en cualquier condición de luz gracias al tratamiento moderado de las sombras y al rango tonal suave, que preserva el detalle tanto en altas luces como en las zonas oscuras del encuadre. Especialmente acertada para fotografía documental y lifestyle, donde se busca una interpretación honesta y sin saturación del sujeto, con un desplazamiento cálido apenas perceptible."
+  },
+  {
+    "label": "Velvia",
+    "film_sim": "Velvia",
+    "n": 7,
+    "titles": [
+      "The Rockwell",
+      "Vibrant Velvia",
+      "Expired Slide &",
+      "BewareMyVelvia",
+      "Lomography Color 100",
+      "Velvia",
+      "Velvia v2"
+    ],
+    "keywords": [],
+    "description": "# Velvia — paleta de saturación y contraste intensos\n\nEste grupo de presets basado en la legendaria emulsión Velvia está pensado para fotógrafos que buscan saturación profunda y contraste dramático. Con el canal azul potenciado, grano visible y alta Clarity, estas recetas son ideales para fotografía de paisaje y aventura, especialmente en días soleados, cuando los colores naturales ya son expresivos y solo necesitan ese último empuje. La hora mágica del atardecer, los paisajes de montaña y las escenas urbanas vibrantes se desplegarán con toda su saturación, adquiriendo un carácter cinematográfico y levemente exótico con guiño retro."
+  },
+  {
+    "label": "Monochrome",
+    "film_sim": "Monochrome",
+    "n": 7,
+    "titles": [
+      "Kodak T-Max 400",
+      "Classic Monochrome",
+      "Ilford HP5 Plus 400",
+      "Ilford Pan F Plus 50",
+      "Ilford Ortho Plus 80",
+      "Ilford Delta Push Process",
+      "Dramatic Monochrome"
+    ],
+    "keywords": [],
+    "description": "# Monochrome — grupo de simulaciones de película en blanco y negro\n\nEste grupo de recetas recrea la estética clásica de la película en blanco y negro con contraste marcado y grano característico, perfectas para retrato, arquitectura y fotografía callejera. Los ajustes medios con Shadow levantado (+2,4) y Highlight iluminado (+1,3) preservan el detalle en las zonas oscuras sin sacrificar la luminosidad de las altas luces, mientras que la Clarity y la nitidez añadidas aportan volumen y grafismo a las imágenes. El balance de blancos calibrado con tendencia al azul (-4,6) y al rojo (+1,2) garantiza un tono neutro y natural, permitiendo revelar al máximo la textura del sujeto."
+  },
+  {
+    "label": "Provia",
+    "film_sim": "Provia",
+    "n": 5,
+    "titles": [
+      "KodaNeg VC & NC",
+      "Fujicolor NPH",
+      "Standard Provia",
+      "Fujichrome Sensia 100",
+      "Fujicolor Pro 400H Overexposed"
+    ],
+    "keywords": [],
+    "description": "# Provia — grupo de emulsiones clásicas positivas y negativas\n\nEsta selección recrea el carácter de las legendarias emulsiones de película, desde negativos en color hasta diapositivas positivas, con su suavidad tonal característica y una paleta cálida y levemente apagada. Las recetas son ideales para retrato y fotografía documental: trabajan las altas luces con delicadeza, preservan el detalle en las sombras y aportan a las imágenes un mood nostálgico y meditativo con un grano natural. Elige esta simulación para luz suave, fotografía callejera en días nublados o sesiones de estudio donde lo que importa es la plasticidad de la piel y no se necesita un contraste agresivo."
+  },
+  {
+    "label": "Astia",
+    "film_sim": "Astia",
+    "n": 3,
+    "titles": [
+      "Super HG Astia",
+      "CineStill 50D",
+      "Redscale"
+    ],
+    "keywords": [],
+    "description": "# Astia: delicadeza y suavidad\n\nGrupo de presets para los amantes de la estética apagada y romántica, con el contraste suave y las sombras levemente difuminadas característicos de Astia. Las altas luces levantadas y la corrección de color delicada con tendencia a los tonos cálidos son perfectas para retrato, love story y fotografía de moda con luz natural. A pesar del grano discreto y la ligera pérdida de nitidez, los presets preservan la luminosidad y la suavidad de la piel, creando ese look analógico con matiz nostálgico tan valorado en la fotografía de bodas y lifestyle."
+  }
+]
