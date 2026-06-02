@@ -1,0 +1,142 @@
+{
+  "Classic Chrome": {
+    "inspired_by": "Not based on a specific film stock — recreates the aesthetic of documentary photojournalism from the 1960s–80s, as seen in Life and National Geographic magazines.",
+    "description": "Classic Chrome was developed by analyzing hundreds of documentary and journalistic photographs rather than copying a specific film stock. The result is muted, rich tones with soft contrast and a characteristic shift of blue toward dark cyan. Skies don't oversaturate, oranges don't scream — everything works as a single, restrained palette. The simulation pulls magenta out of blue skies, producing that signature \"cold\" documentary look. It makes an excellent base for editing thanks to its controlled color character. Debuting in 2014, it quickly became iconic — and it was Classic Chrome that sparked today's recipe culture, as photographers realized color could be \"dialed in\" right in-camera. Tip: Classic Chrome shines in overcast conditions and soft light, where its restraint adds atmosphere; in bright sun it can look flat.",
+    "best_for": "Street photography, travel, documentary, photojournalism",
+    "table": {
+      "Контраст": "Medium",
+      "Насыщенность": "Low",
+      "Цветовой сдвиг": "Cool (blue)",
+      "Светa": "Neutral",
+      "Тени": "Deep",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 2
+  },
+  "Classic Negative": {
+    "inspired_by": "Fujicolor Superia — Fujifilm's consumer color negative film from the 1980s.",
+    "description": "Classic Negative is the most \"film-like\" of the color simulations in character. It applies separate tonal curves to different colors, so reds, blues, and greens each receive different contrast simultaneously — exactly how real color negative film behaved. This produces a rich, slightly uneven image with warm highlights and cool shadows. High contrast and saturation keep colors vivid, but without any digital \"plasticky\" feel. It's especially flattering for people — skin tones get warmth, greens stay green rather than going yellow. The inspiration is Fujicolor Superia, the affordable everyday film that came in yellow boxes and filled family photo albums throughout the 1990s — hence its nostalgic, slightly imperfect character. The simulation arrived in 2019 on the X-Pro3 and instantly became a community favorite. Tip: it loves contrasty light and saturated scenes — it comes alive wherever there's something worth \"painting.\"",
+    "best_for": "Portraits, weddings, bright natural light, reportage",
+    "table": {
+      "Контраст": "Very high",
+      "Насыщенность": "High",
+      "Цветовой сдвиг": "Warm (red-magenta)",
+      "Светa": "Warm",
+      "Тени": "Cool, deep",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 4
+  },
+  "Eterna": {
+    "inspired_by": "Fujifilm Eterna — a professional cinematographic film stock designed for motion picture production.",
+    "description": "Eterna was designed for cinematographers who need maximum flexibility in post. The profile is intentionally flat: lifted shadows, restrained highlights, minimal contrast, and very muted colors — somewhere between a Log profile and standard color. For unedited stills it looks dull, but that's exactly what videographers need. In photography, Eterna provides a \"cinematic frame\" — the feeling of an undeveloped frame, a soft film stock waiting to be color graded. It pairs well with warm light sources. The reference is Fujifilm's Eterna motion picture film, used for shooting feature films. The simulation debuted in 2018 on the flagship X-H1, Fujifilm's first camera with a serious video focus. Tip: photographers use Eterna for its subdued, cinematic palette in everyday shooting — it forgives difficult mixed light situations where more vivid simulations would fall apart.",
+    "best_for": "Video, color grading, cinematic style",
+    "table": {
+      "Контраст": "Very low",
+      "Насыщенность": "Very low",
+      "Цветовой сдвиг": "Neutral",
+      "Светa": "Lifted, soft",
+      "Тени": "Lifted",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 1
+  },
+  "Eterna Bleach Bypass": {
+    "inspired_by": "Bleach bypass — a process of skipping the bleaching stage when developing Eterna motion picture film. Used in cinema to create a harsh, desaturated look.",
+    "description": "Bleach Bypass is a chemical process in which the silver is not washed out of the film, leaving it layered on top of the color dye. The result: extreme contrast, crushed shadows, blown highlights, and minimal color — essentially black-and-white with a ghost of chroma. In cinema the technique was famously used in Saving Private Ryan and L.A. Confidential. Fujifilm's simulation faithfully reproduces this effect — it's the harshest of all the color simulations. It works best wherever color gets in the way of composition — urban environments, architecture, abstract subjects. The simulation arrived in 2020 on the X-T4. Tip: exposure discipline is essential — the high contrast makes highlights clip easily; protect the highlights and look for textured, graphic subjects.",
+    "best_for": "Urban, abstract, fine art projects, travel",
+    "table": {
+      "Контраст": "Extreme",
+      "Насыщенность": "Minimal",
+      "Цветовой сдвиг": "Silvery",
+      "Светa": "Bright",
+      "Тени": "Very deep",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 5
+  },
+  "PRO Neg": {
+    "inspired_by": "Fujifilm PRO 160NS — a professional studio color negative film designed specifically for portrait photography.",
+    "description": "The PRO Neg family was built with one purpose: to flatter the subject. The base version (Std) is one of the softest and flattest simulations in the lineup — it holds back shadows, reduces contrast, and lets studio lighting fully shape the image. PRO Neg Hi adds contrast, making it suited for outdoor and environmental portraits where the photographer can't control the light. Skin tones render naturally, without excess warmth or an overly smooth, plastic quality. The neutral color balance makes both simulations a reliable foundation for portrait work in any conditions. The reference stock is Fujicolor PRO 160NS, the professional studio film photographers relied on for shooting people under controlled lighting. Tip: choose Std when you're building the light yourself and want a soft, neutral base; go with Hi for outdoor and reportage work where you need ready-made depth without post-processing.",
+    "best_for": "Studio and outdoor portraits, fashion, weddings",
+    "table": {
+      "Контраст": "Low (Std) / Medium (Hi)",
+      "Насыщенность": "Low",
+      "Цветовой сдвиг": "Neutral, warm",
+      "Светa": "Soft",
+      "Тени": "Lifted (Std) / Medium (Hi)",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 2
+  },
+  "Acros": {
+    "inspired_by": "Fujifilm Neopan Acros 100 — a black-and-white film stock renowned for its exceptionally fine grain and wide tonal range, considered a benchmark among B&W films.",
+    "description": "Neopan Acros is one of the finest B&W film stocks ever made, discontinued in 2018. Fujifilm recreated its character in a digital simulation, preserving its structured fine grain, shadow detail, and expressive highlights. Unlike standard Monochrome, Acros is more dramatic and contrasty — it's \"character\" B&W, not neutral B&W. It supports color filter simulation: Red boosts sky contrast, Yellow softens skin, Green brings out foliage. It's the best option for expressive in-camera B&W work. The simulation debuted in 2016 on the X-Pro2 and is considered technically the most complex in the lineup: Fujifilm calculates the grain pattern based on ISO and local brightness, just as it would vary on real film. Tip: chase light and texture — Acros rewards contrasty scenes, shadows with detail, and graphic compositions.",
+    "best_for": "Fine art B&W photography, landscapes, street photography, portraits",
+    "table": {
+      "Контраст": "High",
+      "Насыщенность": "B&W",
+      "Цветовой сдвиг": "Neutral B&W",
+      "Светa": "Textured",
+      "Тени": "Deep with detail",
+      "Зерно": "Structured, fine"
+    },
+    "contrast_rank": 3
+  },
+  "Velvia": {
+    "inspired_by": "Fujichrome Velvia RVP 50 — an iconic reversal film with extreme saturation that became the standard for landscape and nature photography.",
+    "description": "Velvia launched in 1990 and revolutionized landscape photography. Its hyper-real saturation, deep dark greens, and intense reds became the benchmark for nature and wildlife publications. In the digital simulation, Fujifilm reproduces this extreme character: colors look \"too real,\" more vivid than reality itself. For portraits it's unsuitable — skin tones go unnatural. But for sunsets, mountain landscapes, or a blooming meadow, it delivers that emotional \"wow\" you simply can't achieve any other way. Velvia is one of Fujifilm's oldest simulations, present in cameras long before the recipe craze began. Tip: it performs best with a slight underexposure — this deepens the colors and saves the highlights from blowing out; avoid portraits, as skin tones will go red.",
+    "best_for": "Landscapes, nature, sunsets, abstract",
+    "table": {
+      "Контраст": "Extreme",
+      "Насыщенность": "Extreme",
+      "Цветовой сдвиг": "Oversaturated",
+      "Светa": "Bright, dramatic",
+      "Тени": "Very deep",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 5
+  },
+  "Monochrome": {
+    "inspired_by": "Provia with color removed — a neutral starting point for black-and-white photography.",
+    "description": "Monochrome is the standard, balanced black-and-white profile with no strong character of its own. Unlike Acros, it doesn't chase drama and contrast: smooth gradients, even transitions from shadow to light, predictable results. This makes it a clean foundation for further editing — it doesn't impose an aesthetic. It supports color filters: Yellow gently darkens the sky and softens skin, Red increases contrast, Green emphasizes vegetation. Choosing between Acros and Monochrome is choosing between expressiveness and neutrality. It's Fujifilm's oldest B&W mode, available on all X-series cameras from the very beginning — unlike Acros, which requires a more recent processor. Tip: if you plan to finish your B&W in post, use Monochrome as a clean starting point; for a ready-to-use result straight from the camera, Acros is more expressive.",
+    "best_for": "Neutral B&W shooting, editorial work, base for editing",
+    "table": {
+      "Контраст": "Medium",
+      "Насыщенность": "B&W",
+      "Цветовой сдвиг": "Neutral B&W",
+      "Светa": "Balanced",
+      "Тени": "Balanced",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 2
+  },
+  "Provia": {
+    "inspired_by": "Fujichrome Provia 100F — a professional reversal film with neutral, balanced color. Fujifilm's baseline standard.",
+    "description": "Provia is the neutral reference point in the Fujifilm lineup — the equivalent of a \"standard\" color profile. It doesn't do anything extreme: moderate contrast, moderate saturation, clean white balance. There's a slight warm cast — a yellowish-green characteristic of Fujifilm — but it's barely noticeable under real-world conditions. Where other simulations create a mood, Provia simply records the scene. This makes it the ideal starting point for anyone getting to know their camera, and a reliable fallback for everyone else. The reference stock is Fujichrome Provia 100F, a professional reversal film with honest, balanced color; it's the default mode on all Fujifilm cameras. Tip: use it when accurate representation matters more than a stylized look — or when you already know you'll be editing the shot.",
+    "best_for": "General-purpose shooting, starting point, learning",
+    "table": {
+      "Контраст": "Medium",
+      "Насыщенность": "Medium",
+      "Цветовой сдвиг": "Neutral, warm",
+      "Светa": "Balanced",
+      "Тени": "Balanced",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 2
+  },
+  "Astia": {
+    "inspired_by": "Fujichrome Astia 100F — a reversal film for portrait and fashion photography, designed for smooth, flattering skin tone reproduction.",
+    "description": "Astia was developed for fashion film photography: soft skin tones, vibrant blues and greens, graceful highlight transitions. The digital simulation preserves this logic: reds and oranges (skin, sunsets) are pulled back and softened, while blue skies and green foliage gain saturation and pop. This makes Astia unique — it's simultaneously \"gentle\" and \"vivid,\" depending on what's in front of the lens. The soft highlight rolloff lets you shoot in harsh midday light without blowing out faces. It's one of the hardest profiles to replicate convincingly in post. The reference stock is Fujichrome Astia 100F, a reversal film prized for its delicate skin tone rendering. Tip: an underrated choice for outdoor portraits — skin stays soft while the background (sky, foliage) remains lively and saturated; it works exactly where Velvia would have turned faces red.",
+    "best_for": "Outdoor portraits, fashion, mixed lighting",
+    "table": {
+      "Контраст": "Medium",
+      "Насыщенность": "Medium (low for skin tones)",
+      "Цветовой сдвиг": "Warm, soft",
+      "Светa": "Soft, graceful",
+      "Тени": "Smooth",
+      "Зерно": "Subtle"
+    },
+    "contrast_rank": 2
+  }
+}
