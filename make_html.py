@@ -373,6 +373,7 @@ PAGE = '''<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
+<script defer src="https://stats.ss.zone/script.js" data-website-id="58d1f8c5-a3e9-4cc3-805a-1f0802b2f5b3"></script>
 <style>{css}</style>
 </head>
 <body>
