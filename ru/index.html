@@ -128,14 +128,22 @@ main{max-width:100%;padding:36px 40px}
 .intro-block.lead h2{font-size:1.35rem}
 .lead-finding{background:#faf6f0;border-radius:6px;padding:14px 18px;
                font-size:.92rem !important;line-height:1.7 !important}
-.ml-details{margin-top:6px;border-top:1px solid #f0eeea;padding-top:12px}
-.ml-details summary{cursor:pointer;font-size:.85rem;color:#4a6fa5;font-weight:600;
-                     list-style:none}
+.ml-details{margin-top:10px}
+.ml-details summary{cursor:pointer;font-size:.9rem;color:#4a6fa5;font-weight:700;
+                    list-style:none;background:#eef2ff;border:1px solid #d6e0ff;
+                    border-radius:8px;padding:10px 14px;transition:background .15s}
+.ml-details summary:hover{background:#e2e9ff}
+.ml-details[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;
+                          margin-bottom:0}
 .ml-details summary::-webkit-details-marker{display:none}
-.ml-details summary::before{content:"▸ ";color:#aaa}
+.ml-details summary::before{content:"▸ ";color:#7a8fd0}
 .ml-details[open] summary::before{content:"▾ "}
 .ml-details ul{margin-top:12px;font-size:.85rem !important;color:#555 !important}
 .ml-details li{margin-bottom:8px}
+.ml-details > ul,.ml-details > p,.ml-details > h4{padding-left:14px;padding-right:14px}
+.ml-sub{font-size:.95rem;font-weight:700;color:#333;margin:18px 0 8px;
+        padding-top:14px;border-top:1px solid #f0eeea}
+.ml-details > p{font-size:.85rem !important;color:#555 !important;line-height:1.7;margin-bottom:8px}
 .sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}
 
@@ -244,7 +252,7 @@ main{max-width:100%;padding:36px 40px}
   одну группу от других. На основе этих данных сгенерированы названия и описания групп.</p>
 
   <details class="ml-details">
-    <summary>Технические детали</summary>
+    <summary>Технические детали (для любителей ML) — Развернуть</summary>
     <ul>
       <li><strong>Кластеризация:</strong> агломеративная, метод Уорда. Число групп выбрано по
       максимуму silhouette-метрики. Без учёта симуляции silhouette ≈ 0.09 (структуры практически
@@ -259,6 +267,29 @@ main{max-width:100%;padding:36px 40px}
       доминировали.</li>
       <li><strong>Визуальный анализ:</strong> модель Claude (vision) на каждую группу.
       Поиск похожих рецептов — ближайшие соседи (евклидова метрика) в том же пространстве.</li>
+    </ul>
+
+    <h4 class="ml-sub">Сходство поверх границ плёнок</h4>
+    <p>Поиск похожих рецептов работает в пространстве, где тип плёночной симуляции — самый весомый
+    признак, поэтому «соседями» почти всегда оказываются рецепты той же плёнки. Но если убрать
+    симуляцию из вектора и сравнивать рецепты <strong>только по числовым настройкам</strong>,
+    открывается скрытый слой: <strong>74% ближайших соседей оказываются из другой плёнки</strong>.</p>
+    <p>Иначе говоря, под делением на симуляции есть второе измерение сходства — по «механике» рецепта.
+    Например, McCurry Kodachrome (Classic Chrome) по чистым настройкам ближе к Velvia v2 и к рецептам
+    на базе Superia, чем к большинству других Classic Chrome: их роднит тёплый баланс белого, высокий
+    динамический диапазон и лёгкое зерно. Это прямое подтверждение главного вывода проекта —
+    симуляция доминирует, но под ней живёт самостоятельная структура по настройкам.</p>
+    <p>На этом слое начинают по-разному вести себя и сами метрики расстояния:</p>
+    <ul>
+      <li><strong>Евклидово расстояние</strong> (используется в поиске) даёт сбалансированный
+      список — общая близость с акцентом на крупные расхождения.</li>
+      <li><strong>Манхэттенское</strong> резко выделяет «почти точные совпадения» и обрывает
+      остальных. Оно отвечает на вопрос «<em>сколько</em> настроек надо поменять», а не «насколько
+      сильно» — удобно, чтобы найти рецепт, повторяющий нужный минимальной правкой.</li>
+      <li><strong>Косинусное сходство</strong> игнорирует «силу» стиля и сравнивает только его
+      направление. Оно находит родственников по характеру через границы плёнок — рецепты с тем же
+      вектором отклонений (приглушённость, тёплый сдвиг), даже если базовая плёнка и интенсивность
+      разные.</li>
     </ul>
   </details>
 </div>

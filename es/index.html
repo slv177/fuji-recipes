@@ -128,14 +128,22 @@ main{max-width:100%;padding:36px 40px}
 .intro-block.lead h2{font-size:1.35rem}
 .lead-finding{background:#faf6f0;border-radius:6px;padding:14px 18px;
                font-size:.92rem !important;line-height:1.7 !important}
-.ml-details{margin-top:6px;border-top:1px solid #f0eeea;padding-top:12px}
-.ml-details summary{cursor:pointer;font-size:.85rem;color:#4a6fa5;font-weight:600;
-                     list-style:none}
+.ml-details{margin-top:10px}
+.ml-details summary{cursor:pointer;font-size:.9rem;color:#4a6fa5;font-weight:700;
+                    list-style:none;background:#eef2ff;border:1px solid #d6e0ff;
+                    border-radius:8px;padding:10px 14px;transition:background .15s}
+.ml-details summary:hover{background:#e2e9ff}
+.ml-details[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;
+                          margin-bottom:0}
 .ml-details summary::-webkit-details-marker{display:none}
-.ml-details summary::before{content:"▸ ";color:#aaa}
+.ml-details summary::before{content:"▸ ";color:#7a8fd0}
 .ml-details[open] summary::before{content:"▾ "}
 .ml-details ul{margin-top:12px;font-size:.85rem !important;color:#555 !important}
 .ml-details li{margin-bottom:8px}
+.ml-details > ul,.ml-details > p,.ml-details > h4{padding-left:14px;padding-right:14px}
+.ml-sub{font-size:.95rem;font-weight:700;color:#333;margin:18px 0 8px;
+        padding-top:14px;border-top:1px solid #f0eeea}
+.ml-details > p{font-size:.85rem !important;color:#555 !important;line-height:1.7;margin-bottom:8px}
 .sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}
 
@@ -247,7 +255,7 @@ main{max-width:100%;padding:36px 40px}
   generaron a partir de estos datos.</p>
 
   <details class="ml-details">
-    <summary>Detalles técnicos</summary>
+    <summary>Detalles técnicos (para aficionados al ML) — Desplegar</summary>
     <ul>
       <li><strong>Clustering:</strong> aglomerativo, método de Ward. El número de grupos se eligió
       maximizando la métrica silhouette. Sin la característica de simulación, silhouette ≈ 0,09 (casi
@@ -264,6 +272,31 @@ main{max-width:100%;padding:36px 40px}
       recetas, para que las películas «repartidas» entre muchos grupos no dominen.</li>
       <li><strong>Análisis visual:</strong> un modelo Claude (visión) por grupo. La búsqueda de
       similares usa los vecinos más cercanos (métrica euclídea) en el mismo espacio.</li>
+    </ul>
+
+    <h4 class="ml-sub">Similitud más allá de las fronteras de película</h4>
+    <p>La búsqueda de similares trabaja en un espacio donde el tipo de simulación de película es la
+    característica de mayor peso, así que los «vecinos» son casi siempre recetas de la misma película.
+    Pero si se quita la simulación del vector y se comparan las recetas <strong>solo por sus ajustes
+    numéricos</strong>, aparece una capa oculta: <strong>el 74% de los vecinos más cercanos resultan
+    ser de otra película</strong>.</p>
+    <p>Dicho de otro modo, bajo la división por simulaciones hay un segundo eje de similitud — la
+    «mecánica» de la receta. Por ejemplo, McCurry Kodachrome (Classic Chrome), por sus ajustes puros,
+    está más cerca de Velvia v2 y de recetas basadas en Superia que de la mayoría de las demás Classic
+    Chrome: comparten un balance de blancos cálido, un rango dinámico alto y grano ligero. Esto
+    confirma directamente el hallazgo central del proyecto — la simulación domina, pero debajo vive
+    una estructura independiente por ajustes.</p>
+    <p>En esta capa, las propias métricas de distancia empiezan a comportarse de forma distinta:</p>
+    <ul>
+      <li><strong>Distancia euclídea</strong> (usada en la búsqueda) da una lista equilibrada —
+      cercanía global con énfasis en las grandes discrepancias.</li>
+      <li><strong>Distancia de Manhattan</strong> aísla con nitidez las «coincidencias casi exactas» y
+      cae bruscamente para el resto. Responde a «<em>cuántos</em> ajustes hay que cambiar», no
+      «cuánto» — útil para encontrar la receta que reproduce otra con la mínima edición.</li>
+      <li><strong>Similitud del coseno</strong> ignora la «intensidad» de un estilo y compara solo su
+      dirección. Encuentra parientes por carácter a través de las fronteras de película — recetas con
+      el mismo vector de desviación (apagado, desplazado al cálido), aunque la película base y la
+      intensidad sean distintas.</li>
     </ul>
   </details>
 </div>

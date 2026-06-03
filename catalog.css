@@ -122,14 +122,22 @@ main{max-width:100%;padding:36px 40px}
 .intro-block.lead h2{font-size:1.35rem}
 .lead-finding{background:#faf6f0;border-radius:6px;padding:14px 18px;
                font-size:.92rem !important;line-height:1.7 !important}
-.ml-details{margin-top:6px;border-top:1px solid #f0eeea;padding-top:12px}
-.ml-details summary{cursor:pointer;font-size:.85rem;color:#4a6fa5;font-weight:600;
-                     list-style:none}
+.ml-details{margin-top:10px}
+.ml-details summary{cursor:pointer;font-size:.9rem;color:#4a6fa5;font-weight:700;
+                    list-style:none;background:#eef2ff;border:1px solid #d6e0ff;
+                    border-radius:8px;padding:10px 14px;transition:background .15s}
+.ml-details summary:hover{background:#e2e9ff}
+.ml-details[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;
+                          margin-bottom:0}
 .ml-details summary::-webkit-details-marker{display:none}
-.ml-details summary::before{content:"▸ ";color:#aaa}
+.ml-details summary::before{content:"▸ ";color:#7a8fd0}
 .ml-details[open] summary::before{content:"▾ "}
 .ml-details ul{margin-top:12px;font-size:.85rem !important;color:#555 !important}
 .ml-details li{margin-bottom:8px}
+.ml-details > ul,.ml-details > p,.ml-details > h4{padding-left:14px;padding-right:14px}
+.ml-sub{font-size:.95rem;font-weight:700;color:#333;margin:18px 0 8px;
+        padding-top:14px;border-top:1px solid #f0eeea}
+.ml-details > p{font-size:.85rem !important;color:#555 !important;line-height:1.7;margin-bottom:8px}
 .sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}
 

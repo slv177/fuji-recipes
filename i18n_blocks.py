@@ -52,7 +52,7 @@ BLOCKS['ru'] = '''
   одну группу от других. На основе этих данных сгенерированы названия и описания групп.</p>
 
   <details class="ml-details">
-    <summary>Технические детали</summary>
+    <summary>Технические детали (для любителей ML) — Развернуть</summary>
     <ul>
       <li><strong>Кластеризация:</strong> агломеративная, метод Уорда. Число групп выбрано по
       максимуму silhouette-метрики. Без учёта симуляции silhouette ≈ 0.09 (структуры практически
@@ -67,6 +67,29 @@ BLOCKS['ru'] = '''
       доминировали.</li>
       <li><strong>Визуальный анализ:</strong> модель Claude (vision) на каждую группу.
       Поиск похожих рецептов — ближайшие соседи (евклидова метрика) в том же пространстве.</li>
+    </ul>
+
+    <h4 class="ml-sub">Сходство поверх границ плёнок</h4>
+    <p>Поиск похожих рецептов работает в пространстве, где тип плёночной симуляции — самый весомый
+    признак, поэтому «соседями» почти всегда оказываются рецепты той же плёнки. Но если убрать
+    симуляцию из вектора и сравнивать рецепты <strong>только по числовым настройкам</strong>,
+    открывается скрытый слой: <strong>74% ближайших соседей оказываются из другой плёнки</strong>.</p>
+    <p>Иначе говоря, под делением на симуляции есть второе измерение сходства — по «механике» рецепта.
+    Например, McCurry Kodachrome (Classic Chrome) по чистым настройкам ближе к Velvia v2 и к рецептам
+    на базе Superia, чем к большинству других Classic Chrome: их роднит тёплый баланс белого, высокий
+    динамический диапазон и лёгкое зерно. Это прямое подтверждение главного вывода проекта —
+    симуляция доминирует, но под ней живёт самостоятельная структура по настройкам.</p>
+    <p>На этом слое начинают по-разному вести себя и сами метрики расстояния:</p>
+    <ul>
+      <li><strong>Евклидово расстояние</strong> (используется в поиске) даёт сбалансированный
+      список — общая близость с акцентом на крупные расхождения.</li>
+      <li><strong>Манхэттенское</strong> резко выделяет «почти точные совпадения» и обрывает
+      остальных. Оно отвечает на вопрос «<em>сколько</em> настроек надо поменять», а не «насколько
+      сильно» — удобно, чтобы найти рецепт, повторяющий нужный минимальной правкой.</li>
+      <li><strong>Косинусное сходство</strong> игнорирует «силу» стиля и сравнивает только его
+      направление. Оно находит родственников по характеру через границы плёнок — рецепты с тем же
+      вектором отклонений (приглушённость, тёплый сдвиг), даже если базовая плёнка и интенсивность
+      разные.</li>
     </ul>
   </details>
 </div>
@@ -161,7 +184,7 @@ BLOCKS['en'] = '''
   recipe descriptions. Group names and descriptions were generated from this data.</p>
 
   <details class="ml-details">
-    <summary>Technical details</summary>
+    <summary>Technical details (for ML enthusiasts) — Expand</summary>
     <ul>
       <li><strong>Clustering:</strong> agglomerative, Ward’s method. The number of groups was
       chosen by maximizing the silhouette score. Without the simulation feature, silhouette ≈ 0.09
@@ -177,6 +200,30 @@ BLOCKS['en'] = '''
       dominate.</li>
       <li><strong>Visual analysis:</strong> a Claude (vision) model per group. Similarity search
       uses nearest neighbours (Euclidean metric) in the same space.</li>
+    </ul>
+
+    <h4 class="ml-sub">Similarity across film boundaries</h4>
+    <p>The similarity search works in a space where the film simulation type is the
+    heaviest-weighted feature, so the “neighbours” are almost always recipes of the same film. But
+    if you drop the simulation from the vector and compare recipes <strong>by numeric settings
+    only</strong>, a hidden layer appears: <strong>74% of nearest neighbours turn out to be from a
+    different film</strong>.</p>
+    <p>In other words, beneath the split into simulations there is a second axis of similarity — the
+    “mechanics” of a recipe. For example, McCurry Kodachrome (Classic Chrome) is, by raw settings,
+    closer to Velvia v2 and to Superia-based recipes than to most other Classic Chrome recipes: they
+    share a warm white balance, high dynamic range and light grain. This directly confirms the
+    project’s central finding — the simulation dominates, but an independent structure by settings
+    lives beneath it.</p>
+    <p>On this layer the distance metrics themselves start to behave differently:</p>
+    <ul>
+      <li><strong>Euclidean distance</strong> (used in the search) gives a balanced list — overall
+      closeness with an emphasis on large discrepancies.</li>
+      <li><strong>Manhattan distance</strong> sharply isolates “near-exact matches” and drops off
+      steeply for the rest. It answers “<em>how many</em> settings need to change”, not “by how
+      much” — handy for finding the recipe that reproduces a given one with the smallest edit.</li>
+      <li><strong>Cosine similarity</strong> ignores the “strength” of a style and compares only its
+      direction. It finds relatives by character across film boundaries — recipes with the same
+      deviation vector (muted, warm-shifted), even if the base film and the intensity differ.</li>
     </ul>
   </details>
 </div>
@@ -274,7 +321,7 @@ BLOCKS['es'] = '''
   generaron a partir de estos datos.</p>
 
   <details class="ml-details">
-    <summary>Detalles técnicos</summary>
+    <summary>Detalles técnicos (para aficionados al ML) — Desplegar</summary>
     <ul>
       <li><strong>Clustering:</strong> aglomerativo, método de Ward. El número de grupos se eligió
       maximizando la métrica silhouette. Sin la característica de simulación, silhouette ≈ 0,09 (casi
@@ -291,6 +338,31 @@ BLOCKS['es'] = '''
       recetas, para que las películas «repartidas» entre muchos grupos no dominen.</li>
       <li><strong>Análisis visual:</strong> un modelo Claude (visión) por grupo. La búsqueda de
       similares usa los vecinos más cercanos (métrica euclídea) en el mismo espacio.</li>
+    </ul>
+
+    <h4 class="ml-sub">Similitud más allá de las fronteras de película</h4>
+    <p>La búsqueda de similares trabaja en un espacio donde el tipo de simulación de película es la
+    característica de mayor peso, así que los «vecinos» son casi siempre recetas de la misma película.
+    Pero si se quita la simulación del vector y se comparan las recetas <strong>solo por sus ajustes
+    numéricos</strong>, aparece una capa oculta: <strong>el 74% de los vecinos más cercanos resultan
+    ser de otra película</strong>.</p>
+    <p>Dicho de otro modo, bajo la división por simulaciones hay un segundo eje de similitud — la
+    «mecánica» de la receta. Por ejemplo, McCurry Kodachrome (Classic Chrome), por sus ajustes puros,
+    está más cerca de Velvia v2 y de recetas basadas en Superia que de la mayoría de las demás Classic
+    Chrome: comparten un balance de blancos cálido, un rango dinámico alto y grano ligero. Esto
+    confirma directamente el hallazgo central del proyecto — la simulación domina, pero debajo vive
+    una estructura independiente por ajustes.</p>
+    <p>En esta capa, las propias métricas de distancia empiezan a comportarse de forma distinta:</p>
+    <ul>
+      <li><strong>Distancia euclídea</strong> (usada en la búsqueda) da una lista equilibrada —
+      cercanía global con énfasis en las grandes discrepancias.</li>
+      <li><strong>Distancia de Manhattan</strong> aísla con nitidez las «coincidencias casi exactas» y
+      cae bruscamente para el resto. Responde a «<em>cuántos</em> ajustes hay que cambiar», no
+      «cuánto» — útil para encontrar la receta que reproduce otra con la mínima edición.</li>
+      <li><strong>Similitud del coseno</strong> ignora la «intensidad» de un estilo y compara solo su
+      dirección. Encuentra parientes por carácter a través de las fronteras de película — recetas con
+      el mismo vector de desviación (apagado, desplazado al cálido), aunque la película base y la
+      intensidad sean distintas.</li>
     </ul>
   </details>
 </div>

@@ -128,14 +128,22 @@ main{max-width:100%;padding:36px 40px}
 .intro-block.lead h2{font-size:1.35rem}
 .lead-finding{background:#faf6f0;border-radius:6px;padding:14px 18px;
                font-size:.92rem !important;line-height:1.7 !important}
-.ml-details{margin-top:6px;border-top:1px solid #f0eeea;padding-top:12px}
-.ml-details summary{cursor:pointer;font-size:.85rem;color:#4a6fa5;font-weight:600;
-                     list-style:none}
+.ml-details{margin-top:10px}
+.ml-details summary{cursor:pointer;font-size:.9rem;color:#4a6fa5;font-weight:700;
+                    list-style:none;background:#eef2ff;border:1px solid #d6e0ff;
+                    border-radius:8px;padding:10px 14px;transition:background .15s}
+.ml-details summary:hover{background:#e2e9ff}
+.ml-details[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;
+                          margin-bottom:0}
 .ml-details summary::-webkit-details-marker{display:none}
-.ml-details summary::before{content:"▸ ";color:#aaa}
+.ml-details summary::before{content:"▸ ";color:#7a8fd0}
 .ml-details[open] summary::before{content:"▾ "}
 .ml-details ul{margin-top:12px;font-size:.85rem !important;color:#555 !important}
 .ml-details li{margin-bottom:8px}
+.ml-details > ul,.ml-details > p,.ml-details > h4{padding-left:14px;padding-right:14px}
+.ml-sub{font-size:.95rem;font-weight:700;color:#333;margin:18px 0 8px;
+        padding-top:14px;border-top:1px solid #f0eeea}
+.ml-details > p{font-size:.85rem !important;color:#555 !important;line-height:1.7;margin-bottom:8px}
 .sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
           margin-right:7px;vertical-align:middle}
 
@@ -245,7 +253,7 @@ main{max-width:100%;padding:36px 40px}
   recipe descriptions. Group names and descriptions were generated from this data.</p>
 
   <details class="ml-details">
-    <summary>Technical details</summary>
+    <summary>Technical details (for ML enthusiasts) — Expand</summary>
     <ul>
       <li><strong>Clustering:</strong> agglomerative, Ward’s method. The number of groups was
       chosen by maximizing the silhouette score. Without the simulation feature, silhouette ≈ 0.09
@@ -261,6 +269,30 @@ main{max-width:100%;padding:36px 40px}
       dominate.</li>
       <li><strong>Visual analysis:</strong> a Claude (vision) model per group. Similarity search
       uses nearest neighbours (Euclidean metric) in the same space.</li>
+    </ul>
+
+    <h4 class="ml-sub">Similarity across film boundaries</h4>
+    <p>The similarity search works in a space where the film simulation type is the
+    heaviest-weighted feature, so the “neighbours” are almost always recipes of the same film. But
+    if you drop the simulation from the vector and compare recipes <strong>by numeric settings
+    only</strong>, a hidden layer appears: <strong>74% of nearest neighbours turn out to be from a
+    different film</strong>.</p>
+    <p>In other words, beneath the split into simulations there is a second axis of similarity — the
+    “mechanics” of a recipe. For example, McCurry Kodachrome (Classic Chrome) is, by raw settings,
+    closer to Velvia v2 and to Superia-based recipes than to most other Classic Chrome recipes: they
+    share a warm white balance, high dynamic range and light grain. This directly confirms the
+    project’s central finding — the simulation dominates, but an independent structure by settings
+    lives beneath it.</p>
+    <p>On this layer the distance metrics themselves start to behave differently:</p>
+    <ul>
+      <li><strong>Euclidean distance</strong> (used in the search) gives a balanced list — overall
+      closeness with an emphasis on large discrepancies.</li>
+      <li><strong>Manhattan distance</strong> sharply isolates “near-exact matches” and drops off
+      steeply for the rest. It answers “<em>how many</em> settings need to change”, not “by how
+      much” — handy for finding the recipe that reproduces a given one with the smallest edit.</li>
+      <li><strong>Cosine similarity</strong> ignores the “strength” of a style and compares only its
+      direction. It finds relatives by character across film boundaries — recipes with the same
+      deviation vector (muted, warm-shifted), even if the base film and the intensity differ.</li>
     </ul>
   </details>
 </div>
