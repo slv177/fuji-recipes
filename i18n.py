@@ -14,7 +14,7 @@ DEFAULT_LANG = 'en'   # served at site root; others at /<lang>/
 # ── short UI strings ──────────────────────────────────────────────────────────
 UI = {
     'en': {
-        'page_title': 'Fuji Recipes',
+        'page_title': 'ML and Fuji Recipes',
         'header_h1': 'Fuji recipes through an ML engineer’s eyes',
         'header_sub': '191 recipes · 11 film simulations · 24 groups · clustering, visual analysis and similarity search',
         'comparison_title': 'Film comparison',
@@ -43,7 +43,7 @@ UI = {
         'official_credit': '© Fujifilm X',
     },
     'ru': {
-        'page_title': 'Рецепты Fuji',
+        'page_title': 'ML и рецепты Fuji',
         'header_h1': 'Рецепты Fuji глазами ML-инженера',
         'header_sub': '191 рецепт · 11 плёночных симуляций · 24 группы · кластеризация, визуальный анализ и поиск похожих',
         'comparison_title': 'Сравнение плёнок',
@@ -69,7 +69,7 @@ UI = {
         'official_credit': '© Fujifilm X',
     },
     'es': {
-        'page_title': 'Recetas Fuji',
+        'page_title': 'ML y recetas Fuji',
         'header_h1': 'Las recetas de Fuji con ojos de ingeniero de ML',
         'header_sub': '191 recetas · 11 simulaciones de película · 24 grupos · clustering, análisis visual y búsqueda de similares',
         'comparison_title': 'Comparación de películas',
