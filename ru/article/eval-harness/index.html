@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Как измерить работу LLM: проектируем eval-харнесс</title>
+<script defer src="https://stats.ss.zone/script.js" data-website-id="58d1f8c5-a3e9-4cc3-805a-1f0802b2f5b3"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#f4f3ef;color:#1a1a1a;line-height:1.6}
+header{background:#111;color:#fff;padding:36px 44px}
+header h1{font-size:1.75rem;font-weight:700;letter-spacing:-.4px}
+header p{color:#999;margin-top:8px;font-size:.9rem}
+main{max-width:100%;padding:36px 40px}
+
+/* ── outer film-simulation container ── */
+.sim-sec{background:#fff;border-radius:12px;margin-bottom:48px;
+          box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.sim-hdr{padding:20px 28px;display:flex;align-items:baseline;gap:14px;
+          border-bottom:1px solid #f0eeea}
+.sim-title{font-size:1.3rem;font-weight:800}
+.sim-n{font-size:.82rem;color:#aaa}
+
+/* film sim description inside the container */
+.si-body{padding:20px 28px;border-bottom:1px solid #f0eeea;
+          display:flex;flex-direction:column;gap:10px}
+
+/* nested recipe-group cards area */
+.sim-cards-area{background:#f7f6f2;padding:20px 28px;
+                 display:flex;flex-direction:column;gap:0}
+
+.grid{display:flex;flex-direction:column;gap:16px}
+
+/* inner card — slightly inset look */
+.card{background:#fff;border-radius:8px;padding:24px 28px;
+       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:16px;
+       width:100%}
+.card-head{display:flex;justify-content:space-between;align-items:center}
+.card-name{font-weight:700;font-size:1.05rem}
+.pill{background:#f0f0f0;color:#666;font-size:.75rem;padding:3px 10px;border-radius:20px}
+
+.desc{font-size:.92rem;color:#444;line-height:1.75;max-width:900px}
+
+.gallery{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;
+          border-radius:6px;overflow:hidden}
+.gallery img{width:100%;aspect-ratio:1;object-fit:cover;display:block;
+              transition:opacity .2s;cursor:pointer}
+.gallery img:hover{opacity:.85}
+.gallery:empty{display:none}
+
+.bottom-row{display:flex;flex-direction:column;gap:20px}
+.col-recipes{width:100%}
+.col-settings{width:100%}
+.stbl{border-collapse:collapse;font-size:.78rem}
+.sk{color:#888;padding:2px 12px 2px 0;white-space:nowrap}
+.sv{font-variant-numeric:tabular-nums;color:#333;text-align:right}
+.mode-val{color:#555}
+.col-lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:#aaa;margin-bottom:6px}
+
+.rlist{list-style:none;font-size:.82rem;color:#333;columns:2;column-gap:24px}
+.rlist li{padding:2px 0;border-bottom:1px solid #f2f2f2;break-inside:avoid}
+.rlist li:last-child{border-bottom:none}
+.rlist a{color:#333;text-decoration:none}
+.rlist a:hover{color:#4a6fa5;text-decoration:underline}
+.ext-mark{color:#c17c3a;font-weight:700;font-size:.85em}
+.hom-block{font-size:.78rem;color:#666;background:#f7f6f2;border-radius:4px;
+            padding:6px 12px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.hom-lbl{color:#aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
+.hom-val{color:#4a7a5a;font-weight:500}
+.hom-var{color:#b05a5a}
+
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.badge{background:#eef2ff;color:#4a6fa5;font-size:.7rem;
+        padding:2px 8px;border-radius:12px}
+
+.vision-block{background:#f9f8f5;border-radius:6px;padding:14px 18px;
+               display:flex;flex-direction:column;gap:8px;flex:1}
+.vision-notes{font-size:.88rem;color:#444;line-height:1.7}
+.vision-rows{display:flex;gap:24px;font-size:.82rem;flex-wrap:wrap}
+.vtag-lbl{color:#aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-right:4px}
+.vtags{color:#555}
+
+/* film simulation description (inside outer container) */
+.si-inspired{font-size:.83rem;color:#aaa}
+.si-lbl{font-weight:600;color:#666;margin-right:5px}
+.si-desc{font-size:.92rem;color:#333;line-height:1.75;max-width:900px}
+.si-row{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;margin-top:4px}
+.si-tbl{border-collapse:collapse;font-size:.82rem}
+.si-tbl td{padding:3px 16px 3px 0;vertical-align:top}
+.ti-k{color:#888;white-space:nowrap}
+.ti-v{color:#333;font-weight:500}
+.si-bestfor{font-size:.88rem;color:#555;max-width:300px}
+
+/* official gallery */
+.official-gallery{margin-top:4px}
+.og-photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;border-radius:6px;overflow:hidden}
+.og-photos img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:opacity .2s}
+.og-photos img:hover{opacity:.9}
+.og-credit{font-size:.72rem;color:#bbb;margin-top:5px;text-align:right}
+.og-credit a{color:#bbb;text-decoration:none}
+.og-credit a:hover{color:#4a6fa5}
+
+/* comparison table */
+.cmp-section{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:48px;
+              box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.cmp-section h2{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.cmp-tbl{width:100%;border-collapse:collapse;font-size:.82rem}
+.cmp-tbl th{background:#f4f3ef;padding:8px 12px;text-align:left;font-weight:600;
+             color:#555;border-bottom:2px solid #e0ddd8;white-space:nowrap}
+.cmp-tbl td{padding:7px 12px;border-bottom:1px solid #f0eeea;vertical-align:top}
+.cmp-tbl tr:last-child td{border-bottom:none}
+.cmp-tbl tr:hover td{background:#faf9f6}
+.cmp-link{cursor:pointer}
+.cmp-link:hover td{background:#eef2ff}
+.bw-sep td{background:#f4f3ef;color:#999;font-size:.72rem;text-transform:uppercase;
+            letter-spacing:.08em;padding:6px 12px;border-top:2px solid #e0ddd8}
+
+/* intro block */
+.intro-block{background:#fff;border-radius:8px;padding:28px 32px;margin-bottom:24px;
+              box-shadow:0 1px 4px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:14px}
+.intro-block h2{font-size:1.1rem;font-weight:700}
+.intro-block h3{font-size:.95rem;font-weight:700;color:#555;margin-top:4px}
+.intro-block p{font-size:.9rem;color:#444;line-height:1.75;max-width:900px}
+.intro-block ul{font-size:.9rem;color:#444;line-height:1.75;max-width:900px;
+                 padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.intro-block a{color:#4a6fa5}
+.intro-note{color:#888 !important;font-size:.82rem !important}
+.intro-block.lead{border-left:4px solid #c17c3a}
+.intro-block.lead h2{font-size:1.35rem}
+.lead-finding{background:#faf6f0;border-radius:6px;padding:14px 18px;
+               font-size:.92rem !important;line-height:1.7 !important}
+.ml-details{margin-top:10px}
+.ml-details summary{cursor:pointer;font-size:.9rem;color:#4a6fa5;font-weight:700;
+                    list-style:none;background:#eef2ff;border:1px solid #d6e0ff;
+                    border-radius:8px;padding:10px 14px;transition:background .15s}
+.ml-details summary:hover{background:#e2e9ff}
+.ml-details[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;
+                          margin-bottom:0}
+.ml-details summary::-webkit-details-marker{display:none}
+.ml-details summary::before{content:"▸ ";color:#7a8fd0}
+.ml-details[open] summary::before{content:"▾ "}
+.ml-details ul{margin-top:12px;font-size:.85rem !important;color:#555 !important}
+.ml-details li{margin-bottom:8px}
+.ml-details > ul,.ml-details > p,.ml-details > h4{padding-left:14px;padding-right:14px}
+.ml-sub{font-size:.95rem;font-weight:700;color:#333;margin:18px 0 8px;
+        padding-top:14px;border-top:1px solid #f0eeea}
+.ml-details > p{font-size:.85rem !important;color:#555 !important;line-height:1.7;margin-bottom:8px}
+.sim-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
+          margin-right:7px;vertical-align:middle}
+
+/* ── tablet ── */
+@media (max-width: 900px) {
+  main{padding:24px 18px}
+  .gallery{grid-template-columns:repeat(5,1fr)}
+  .og-photos{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+
+/* ── phone ── */
+@media (max-width: 600px) {
+  header{padding:24px 18px}
+  header h1{font-size:1.3rem}
+  header p{font-size:.8rem}
+  main{padding:16px 12px}
+
+  .sim-sec{margin-bottom:28px;border-radius:8px}
+  .sim-hdr{padding:14px 16px;flex-wrap:wrap;gap:4px 12px}
+  .sim-title{font-size:1.1rem}
+  .si-body{padding:16px}
+  .si-row{flex-direction:column;gap:16px}
+  .si-desc,.si-bestfor{max-width:100%}
+  .sim-cards-area{padding:14px}
+
+  .card{padding:18px 16px;gap:14px}
+  .card-name{font-size:1rem}
+  .desc{font-size:.88rem;max-width:100%}
+
+  /* galleries: 3 columns on phone */
+  .gallery{grid-template-columns:repeat(3,1fr);gap:3px}
+  .og-photos{grid-template-columns:repeat(2,1fr)}
+  .og-photos img{aspect-ratio:3/2}
+
+  /* recipes single column */
+  .rlist{columns:1}
+
+  /* homogeneity wraps */
+  .hom-block{flex-direction:column;gap:4px}
+
+  /* comparison table — horizontal scroll */
+  .cmp-section{padding:18px 14px}
+  .cmp-section .cmp-tbl{display:block;overflow-x:auto;white-space:nowrap;font-size:.75rem}
+
+  .intro-block{padding:18px 16px}
+  .intro-block p,.intro-block ul{font-size:.86rem;max-width:100%}
+}
+
+/* language switcher */
+/* header link to the articles section */
+.art-link{display:inline-block;font-size:.78rem;color:#aaa;text-decoration:none;
+           margin-top:10px;border-bottom:1px solid #444}
+.art-link:hover{color:#fff;border-bottom-color:#888}
+
+.lang-switch{display:flex;gap:4px;margin-bottom:14px}
+.lang-switch a{color:#888;text-decoration:none;font-size:.75rem;font-weight:600;
+               padding:3px 9px;border-radius:6px;border:1px solid #333}
+.lang-switch a:hover{color:#fff;border-color:#666}
+.lang-switch a.lang-cur{color:#fff;background:#333;border-color:#555}
+/* Styles for long-form articles (/article/<slug>/). Loaded after catalog.css
+   so the header, lang switcher and palette stay identical to the catalog. */
+
+.art-main{max-width:820px;margin:0 auto;padding:40px 24px 80px}
+
+.art-back{display:inline-block;font-size:.78rem;color:#888;text-decoration:none;
+           margin-bottom:14px}
+.art-back:hover{color:#333}
+
+.art-body{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);
+           padding:44px 52px 52px}
+
+.art-body h2{font-size:1.35rem;font-weight:800;letter-spacing:-.3px;
+              margin:44px 0 14px;padding-top:18px;border-top:1px solid #f0eeea}
+.art-body h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.art-body h3{font-size:1.05rem;font-weight:700;margin:30px 0 10px;color:#333}
+.art-body h4{font-size:.95rem;font-weight:700;margin:22px 0 8px;color:#444}
+
+.art-body p{font-size:.95rem;line-height:1.8;color:#333;margin:0 0 16px;
+             max-width:70ch}
+.art-body strong{font-weight:700;color:#1a1a1a}
+.art-body em{font-style:italic}
+
+.art-body ul,.art-body ol{margin:0 0 18px 22px;font-size:.95rem;line-height:1.8;color:#333}
+.art-body li{margin-bottom:6px;max-width:68ch}
+
+.art-body a{color:#4a6fa5;text-decoration:none;border-bottom:1px solid #d5dded}
+.art-body a:hover{border-bottom-color:#4a6fa5}
+
+.art-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+                font-size:.85em;background:#f4f3ef;color:#8a4b2a;
+                padding:1px 5px;border-radius:4px}
+.art-body pre{background:#f7f6f2;border-radius:8px;padding:16px 18px;
+               overflow-x:auto;margin:0 0 20px;font-size:.82rem;line-height:1.55}
+.art-body pre code{background:none;color:#333;padding:0;font-size:1em}
+
+.art-body blockquote{border-left:3px solid #e3e0d8;padding-left:18px;
+                      color:#666;margin:0 0 18px}
+
+.art-body hr{border:none;border-top:1px solid #f0eeea;margin:32px 0}
+
+/* tables — wrapped in .art-tw so wide ones scroll instead of pushing the page */
+.art-tw{overflow-x:auto;margin:0 0 22px}
+.art-body table{border-collapse:collapse;font-size:.84rem;width:100%;
+                 min-width:max-content}
+.art-body th{text-align:left;font-weight:700;color:#666;font-size:.72rem;
+              text-transform:uppercase;letter-spacing:.06em;
+              padding:8px 14px 8px 0;border-bottom:1px solid #e3e0d8;white-space:nowrap}
+.art-body td{padding:7px 14px 7px 0;border-bottom:1px solid #f2f1ed;color:#333;
+              vertical-align:top}
+.art-body tr:last-child td{border-bottom:none}
+.art-body td:nth-child(n+2){font-variant-numeric:tabular-nums}
+
+/* mermaid diagrams */
+.art-body pre.mermaid{background:#fff;border:1px solid #f0eeea;text-align:center;
+                       padding:22px 12px;line-height:normal}
+
+/* shown when the article has no translation into the current site language */
+.art-na{font-size:.8rem;color:#8a6d3b;background:#fdf6e3;border-radius:6px;
+         padding:8px 14px;margin-bottom:24px}
+
+/* article index */
+.art-list{list-style:none;margin:0}
+.art-list li{background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);
+              padding:20px 26px;margin-bottom:14px}
+.art-list a{font-size:1.05rem;font-weight:700;color:#1a1a1a;text-decoration:none}
+.art-list a:hover{color:#4a6fa5}
+.art-list .art-meta{font-size:.78rem;color:#aaa;margin-top:6px}
+
+@media (max-width:720px){
+  .art-body{padding:26px 20px 32px;border-radius:8px}
+  .art-main{padding:24px 12px 60px}
+  .art-body p,.art-body li{max-width:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="lang-switch"><a class="" href="/article/eval-harness/">EN</a><a class="lang-cur" href="/ru/article/eval-harness/">RU</a></nav>
+  <h1>Как измерить работу LLM: проектируем eval-харнесс</h1>
+  
+</header>
+<main class="art-main">
+<a class="art-back" href="/ru/article/">← Все статьи</a>
+<article class="art-body"><h2>Введение</h2>
+<p>В настоящее время запустить LLM даже на среднем ноутбуке несложно. Но при внешней простоте эксплуатации на своём оборудовании многие параметры оценки остаются скрытыми. Мы создадим проект, в котором разберёмся, как измерить работу модели.</p>
+<p>Построим наше решение на примере такого бизнес-кейса: распознать массив сканированных счетов и внести его в корпоративную CRM. Итак, мы получили солидную пачку бумажных документов, прогнали её через сканер, и теперь у нас есть набор строк, где каждая строка соответствует одному счёту. Нам надо выбрать подходящую модель, чтобы распознавать и структурировать текст. Кроме того, желательно минимизировать расходы на эксплуатацию, хотя бы в условных единицах.</p>
+<p>Весь код, генератор датасета и артефакты прогонов лежат здесь: <a href="https://github.com/slv177/LLM-evaluation-and-harness">github.com/slv177/LLM-evaluation-and-harness</a>. Каждое число в статье можно проследить до конкретного прогона.</p>
+<h2>Концепции</h2>
+<p>Для того чтобы двигаться дальше, надо усвоить несколько концепций.</p>
+<p><strong>Схема</strong> — формальное описание структуры данных, которую мы примем для дальнейшей обработки: какие есть поля и какого они типа. Это то, что известно как JSON Schema или как класс-валидатор в библиотеке Pydantic. На практике схема встречается, например, как описание требований к результату парсинга текста. В дальнейшем мы можем легко проверить формальное соответствие результата и вынести заключение: валиден результат или нет.</p>
+<p><strong>Грамматика</strong> — ограничение того, какой следующий токен будет сгенерирован. Это, к примеру, предотвращает генерацию ответа с незакрытыми скобками, со строками вместо <code>Integer</code>. Под капотом это реализовано как обнуление вероятностей всех токенов, которые вывели бы генерируемый ответ за пределы заданной нами схемы.</p>
+<p>У грамматики есть ловушка. Слабость её в том, что она обеспечивает форму, но не смысл. В нашем случае с точки зрения грамматики вполне допустима дата инвойса <code>1712-20-20</code>: шаблон требует четыре цифры, две и две — и получает ровно это. В документе было напечатано 17/12/2025, то есть 17 декабря 2025 года; модель не смогла выдать дату в исходном начертании и залила готовую форму теми цифрами, что были под рукой. Двадцатого месяца не существует, но формально всё правильно.</p>
+<p>Можно запомнить связку: если мы определяем схему output модели, то грамматику строит сам сервер, где размещена модель, а output структурируется в соответствии с грамматикой. Схему мы определим в коде в виде Pydantic-класса, он будет преобразован в JSON-схему, которая будет передана на сервер и в виде грамматики попадёт в модель.</p>
+<p><strong>Мягкая и строгая точность</strong> — мы рассматриваем значения «2 803.63» и «2803.63» как одинаковые или разные? С точки зрения строгой точности это разные значения, а с точки зрения мягкой — одинаковые. Как выяснилось, некоторые модели склонны оформлять значения по-своему, и потому показывают высокий результат по мягкой точности при низком по строгой.</p>
+<h2>Методика</h2>
+<p>Мы построим пайплайн, где сначала генерируем исходные данные, затем отправляем их на обработку в локально запущенную модель с нужными параметрами и принимаем ответ. Так как обработчик ответа — это тоже написанный нами код, мы полагаем, что после разбора первых ответов найдём способ его доработать и тем самым повысим качество работы всего пайплайна. Подробный разбор того, что происходит на каждом этапе, приведён ниже, в разделе «Обзор пайплайна».</p>
+<p>Если в бизнес-кейсе мы готовим набор размеченных данных на основании распознанных сканов, то тут в учебных целях будем двигаться в обратном направлении: на этапе подготовки сгенерируем идеальный <code>output</code> (программно, по шаблонам с фиксированным seed), а затем, отталкиваясь от него, построим строку <code>input</code>, внеся в неё некоторое количество неясности.</p>
+<p>Для оценки работы мы сравниваем ответ с эталоном поле за полем и получаем долю совпавших. При этом совпадение может быть строгим и мягким. К тому же надо учитывать и другие параметры результата работы — полный их список приведён ниже, в разделе про оценку.</p>
+<p>Этап сканирования документов мы опустим, так как он не относится к обсуждаемой теме — проектированию измерения LLM.</p>
+<p>Модели для эксперимента мы подбирали так, чтобы представить разные их типы — рассуждающие, нерассуждающие и гибридные — и посмотреть на разницу в поведении. Конкретный список приведён ниже, в разделе про модели.</p>
+<h3>Данные</h3>
+<p>Всякое решение, построенное на LLM, нуждается в проверке его работы на тестовых данных. Предположим, что в нашем бизнес-кейсе мы не поленились и часть таких строк обработали вручную. В результате у нас появился json-файл, в котором есть значения каждого поля, которое мы ожидаем получить от LLM: <code>buyer_name</code>, <code>currency</code>, <code>due_date</code>, <code>invoice_number</code> и так далее.</p>
+<p>Дополнительно у каждого счёта есть данные, которые мы разобьём на две группы — <code>strata</code> и <code>meta</code>. В <code>strata</code> мы положим то, что будем учитывать при оценке работы модели и при дальнейшей корректировке подачи на вход. Остановимся на трёх:</p>
+<ul>
+<li>язык счёта;</li>
+<li>длина счёта (по количеству позиций мы сгруппируем счета в три группы);</li>
+<li><code>noise</code> — является ли скан чистым или «замусоренным», с нечёткими таблицами, слитыми строками и так далее.</li>
+</ul>
+<p>В <code>meta</code> мы положим формат документа (<code>classic</code>, <code>compact</code> или <code>letter</code>) и <code>seed</code> (что это и зачем нужно, разберёмся позже).</p>
+<p>Для хранения данных мы выберем формат jsonl — это текстовый файл, где каждая строка представляет собой отдельный json. То есть данные по каждому счёту будут соответствовать одной строке. Преимущества такого формата в том, что легко дописывать новые строки в конец файла, легко проводить diff, а главное — легко читать большие файлы построчно, не загружая их в память целиком.</p>
+<p>Секцию json <code>input</code> мы подадим на вход модели, а остальное использует наша система для анализа результата её работы.</p>
+<h3>Обзор пайплайна</h3>
+<p>В целом наш пайплайн можно разбить на этапы, каждый будет состоять из нескольких модулей. Сейчас познакомимся с ними обзорно, чтобы представлять общую картину, а потом обсудим каждый этап.</p>
+<pre class="mermaid">flowchart TB
+    subgraph P1[&quot;1 · Подготовка данных&quot;]
+        direction LR
+        V[vocab] --&gt; D[dataset] --&gt; R[render]
+    end
+    subgraph P2[&quot;2 · Раннер&quot;]
+        direction LR
+        M[models] --&gt; RUN[цикл по строкам] --&gt; SC[scoring]
+        PP[prompt] --&gt; RUN
+    end
+    subgraph P3[&quot;3 · Оценка&quot;]
+        ST[strata]
+    end
+    subgraph P4[&quot;4 · Вывод&quot;]
+        direction LR
+        RP[report]
+        RS[rescore]
+    end
+
+    P1 --&gt;|dataset.jsonl| P2
+    P2 --&gt;|runs/*.json| P3
+    P3 --&gt; P4
+    P4 -.-&gt;|переоценка| P3
+</pre>
+<p><strong>1. Подготовка данных.</strong> Выполняется в самом начале. Результатом этого этапа является тот самый jsonl, который служит датасетом для следующего этапа — раннера.</p>
+<ul>
+<li><code>dataset</code> — порождение записей и сборка JSONL;</li>
+<li><code>render</code> — превращение записи в текст документа и внесение шума;</li>
+<li><code>vocab</code> — замороженные словари.</li>
+</ul>
+<p><strong>2. Раннер</strong> — выполняет обращение к модели.</p>
+<ul>
+<li><code>models</code> — реестр моделей, клиент LM Studio и сборка схемы для грамматики;</li>
+<li><code>prompt</code> — версионированные промпты;</li>
+<li><code>scoring</code> — сравнение поле за полем, три исхода, F1 по строкам таблицы.</li>
+</ul>
+<p><strong>3. Оценка работы модели.</strong></p>
+<ul>
+<li><code>strata</code> — агрегация по срезам, micro и macro, доверительные интервалы, регрессионный дифф.</li>
+</ul>
+<p><strong>4. Вывод.</strong></p>
+<ul>
+<li><code>report</code> — консоль и HTML;</li>
+<li><code>rescore</code> — переоценка старых прогонов после исправления скорера.</li>
+</ul>
+<p>В нашем кейсе мы используем две схемы. Одна, <code>Invoice</code>, определяет поля собственно инвойса (номер, дата и так далее). Вторая, <code>LineItem</code>, определяет поля, относящиеся к конкретной позиции инвойса (наименование, количество, цена, сумма). Обе схемы живут в модуле <code>schema</code> — он определяет центральные понятия проекта и потому используется почти на всех этапах: по нему порождаются записи, из него строится грамматика, по нему же проверяется ответ модели.</p>
+<h3>Этап 1 — подготовка данных</h3>
+<p>Мы порождаем записи и формируем файл JSONL в каталоге <code>data</code>. Как было описано выше, в нашем проекте мы генерируем нужное нам количество распознанных записей, а потом «засоряем» их и формируем строку <code>input</code> по каждому документу.</p>
+<p>Для того чтобы массив счетов выглядел достоверно, мы используем «замороженные словари» — питоновский файл, где в виде словарей описаны возможные контрагенты, торговые позиции (товары), локали и так далее.</p>
+<p>Получается, что шаблон определит структуру документа, поля будут заданы значениями из словарей. А для того чтобы результат был воспроизводим, мы задаём seed в генераторе и записываем в метаданные.</p>
+<h3>Этап 2 — раннер</h3>
+<p>Пожалуй, это ключевой этап во всём рабочем процессе. Процесс организован как цикл по строкам датасета. Раннер берёт очередную строку, собирает из неё запрос, передаёт запрос на исполнение серверу и записывает результат в файл.</p>
+<p>Остановимся подробнее на запросе. Он состоит из двух частей:</p>
+<ul>
+<li><strong>системный промпт</strong> — вида «ты извлекаешь данные из счёта, верни только json»;</li>
+<li><strong>пользовательский промпт</strong> — в него попадает только содержимое поля <code>input</code> обрабатываемой строки. Остальные поля, особенно <code>expected_output</code>, в запрос попадать не должны.</li>
+</ul>
+<p>Почему обязателен системный промпт? Не только потому, что модель не знает, что ей делать с поступившими данными. Передавая его, мы избавляемся от чужих инструкций, которые могут быть зашиты в chat template (шаблон чата, которым сервер оборачивает сообщения перед подачей в модель).</p>
+<p>Этот промпт отправляется на локально развёрнутую модель в LM Studio с температурой 0 и фиксированным seed.</p>
+<p>Важно заметить, что раннер до отправки запросов проверяет, что модель уже загружена в память. С точки зрения получаемых данных это повлияло бы на латентность первого примера, а следовательно, сместило бы среднее по всей выборке.</p>
+<p>На выходе получается один JSON-файл на прогон: шапка с моделью, квантом, версией промпта, хешем датасета и параметрами сэмплирования, и массив записей по каждому примеру с исходами по полям, токенами, латентностью и стоимостью. Этот результат сохраняется как артефакт нетронутым, и это позволит потом улучшать отдельные модули и повторно обрабатывать данные. В рамках процесса полученный ответ оценивается модулем <code>scoring</code>.</p>
+<h3>Этап 3 — оценка работы модели</h3>
+<p>Тут мы работаем с сохранёнными результатами, к модели уже не возвращаемся. У нас уже есть сравнение поле за полем, и мы собираем срезы по стратам.</p>
+<p>Модуль <code>strata</code> группирует наши примеры по каждой из осей (язык, количество позиций в инвойсе, шум) и по ячейкам, то есть по сочетаниям всех трёх осей сразу.</p>
+<p>У нас есть три оси с дискретными величинами — два языка, три размера, шум есть или нет. Всего возможны 12 сочетаний этих величин. Поэтому мы генерируем 120 наблюдений, по 10 в каждой ячейке. Следовательно, мы можем не просто усреднять значения по осям, но и заглядывать в каждую отдельную ячейку. Забегая вперёд: это оказалось нелишним — по осям картина выглядит благополучной, а в ячейках разброс почти в два с половиной раза шире.</p>
+<p>После этого модуль рассчитывает параметры:</p>
+<ul>
+<li>строгую точность;</li>
+<li>мягкую точность;</li>
+<li>долю схемно-валидных ответов;</li>
+<li>F1 по наименованию;</li>
+<li>F1 по строке таблицы;</li>
+<li>латентность — приводим медианную, а не среднюю: распределение времени ответа перекошено вправо, и один длинный документ утягивает среднее вверх, искажая картину типичного запроса;</li>
+<li>стоимость;</li>
+<li>и обязательно <code>n</code>, потому что без размера выборки число ничего не значит.</li>
+</ul>
+<p>Почему мы считаем F1 дважды? Потому что пропуск строки и ошибка в цифрах строки — это разные ошибки. В первом случае строка считается угаданной, если совпало хотя бы наименование. Во втором — если совпали ещё и количество, цена и сумма, а значит, модель верно находит и позиции, и цифры в них. Почему именно F1? Потому что он одинаково наказывает и за precision, и за recall.</p>
+<p>Что мы принимаем за стоимость? Для каждой модели мы задали ценник за токены в условных единицах. Этот показатель не равен ценам в долларах у какого-либо провайдера. Он нужен, чтобы показать условные расходы на работу разных моделей и сравнить их экономику.</p>
+<h3>Этап 4 — представление результатов</h3>
+<p>На последнем этапе мы представляем рассчитанные значения.</p>
+<p>Первый модуль <code>report</code> генерирует два представления одних и тех же чисел — таблицу в консоли и HTML рядом с артефактом в папке <code>runs</code>. Намеренно выбран самый простой и переносимый формат, чтобы с результатом можно было ознакомиться на любом ноутбуке.</p>
+<p>Второй модуль этапа, <code>rescore</code>, решает более общую задачу: scorer — это такой же код, как любой другой, и в нём бывают ошибки. Когда мы находим и исправляем такую ошибку, все прошлые прогоны оказываются измерены по неверному правилу, а значит, их числа недействительны.</p>
+<p>Прогонять модели заново — плохой выход, и не только из-за времени работы GPU. Ответы не воспроизводятся до байта даже при температуре 0, поэтому вместе с исправлением правила изменились бы и сами данные, и мы не смогли бы сказать, что именно повлияло на результат. Поэтому в артефакт с самого начала сохраняется сырой текст ответа модели, и <code>rescore</code> применяет исправленные правила к тем же самым байтам, складывая результат в файл с пометкой <code>-rescored</code>. Оригинал при этом не трогаем: артефакт — это запись о случившемся, а не рабочий файл.</p>
+<p>Первый же случай оказался показательным. Числа в нём относятся к раннему пробному прогону на шестнадцати примерах — он делался в самом начале, чтобы проверить, есть ли вообще разница между моделями, ещё до сборки основного датасета из 120 документов. Модель возвращала корректный JSON, но добавляла в конце одну лишнюю закрывающую скобку. Парсер брал текст от первой скобки до последней, захватывал лишнюю и не мог его разобрать — четыре безупречных ответа из шестнадцати записались как нечитаемые с нулём по всем полям. После исправления парсера переоценка заняла секунду и подняла строгую точность прогона с 0.75 до 1.00. Изменился не результат модели, а качество нашего измерителя — и это, пожалуй, главный урок всего этапа.</p>
+<h3>Используемые модели и работа с ними</h3>
+<p>Модели могут относиться к рассуждающим, нерассуждающим и гибридным. Рассуждающие перед выводом ответа сначала готовят черновик, то есть обрабатывают информацию до того, как начать отвечать. Нерассуждающие приступают к ответу сразу по получении промпта. Гибридные умеют работать в обоих режимах, причём режим переключается явно.</p>
+<p>Для эксперимента мы использовали следующие модели:</p>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>модель</th>
+<th>размер</th>
+<th>квантизация</th>
+<th>класс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mistralai/ministral-3-3b</code></td>
+<td>3B</td>
+<td>Q4_K_M</td>
+<td>нерассуждающая</td>
+</tr>
+<tr>
+<td><code>openai/gpt-oss-20b</code></td>
+<td>20B</td>
+<td>MXFP4</td>
+<td>рассуждающая</td>
+</tr>
+<tr>
+<td><code>Qwen3-8B</code></td>
+<td>8B</td>
+<td>Q4_K_S</td>
+<td>гибридная</td>
+</tr>
+</tbody>
+</table></div>
+<p>Мы прогнали тесты в двух режимах декодирования — с грамматикой и без неё.</p>
+<p>Сразу оговоримся про Qwen3: полный прогон по нему пришлось остановить на 71 примере из 120, потому что под грамматикой эта модель не заканчивает рассуждать и возвращает пустоту. Неполные и заведомо испорченные данные в общую таблицу не попадают, поэтому в результатах Qwen3 представлен отдельным опытом на одном документе — и опыт этот оказался самым интересным во всей работе.</p>
+<p>Наша задача — получить распознанный счёт в строго определённом виде, и у нас есть два способа этого добиться.</p>
+<p>Первый: передать схему в поле <code>response_format</code>, после чего сервер компилирует её в грамматику, которая физически ограничивает модель в выборе токенов.</p>
+<p>Второй: пересказать ту же схему словами в промпте — это уже не жёсткое требование, а просьба, и модель может её выполнить, а может и не выполнить.</p>
+<h2>Результаты</h2>
+<p>Все прогоны выполнены на одном датасете (<code>e4f80889443e</code>, 120 примеров), с промптом v1, температурой 0 и фиксированным seed.</p>
+<h3>Основная таблица</h3>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>модель</th>
+<th>схема подана</th>
+<th>строгая (95 % ДИ)</th>
+<th>мягкая</th>
+<th>валидных</th>
+<th>F1 наимен.</th>
+<th>F1 строки</th>
+<th>медиана</th>
+<th>стоимость</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-oss-20b</td>
+<td>промптом</td>
+<td>0.998 (0.99–1.00)</td>
+<td>0.998</td>
+<td>97 %</td>
+<td>0.977</td>
+<td>0.971</td>
+<td>12.2 с</td>
+<td>0.0833</td>
+</tr>
+<tr>
+<td>gpt-oss-20b</td>
+<td>грамматикой</td>
+<td>0.511 (0.48–0.55)</td>
+<td>0.524</td>
+<td>36 %</td>
+<td>0.036</td>
+<td>0.022</td>
+<td>4.0 с</td>
+<td>0.0284</td>
+</tr>
+<tr>
+<td>ministral-3b</td>
+<td>промптом</td>
+<td>0.777 (0.73–0.82)</td>
+<td>0.920</td>
+<td>22 %</td>
+<td>0.928</td>
+<td>0.893</td>
+<td>9.8 с</td>
+<td>0.0129</td>
+</tr>
+<tr>
+<td>ministral-3b</td>
+<td>грамматикой</td>
+<td>0.739 (0.71–0.77)</td>
+<td>0.741</td>
+<td>30 %</td>
+<td>0.993</td>
+<td>0.818</td>
+<td>9.1 с</td>
+<td>0.0120</td>
+</tr>
+</tbody>
+</table></div>
+<p>Строки сгруппированы по моделям, поэтому разницу между режимами видно построчно. У gpt-oss смена способа подачи схемы меняет строгую точность на 0.486, у ministral — всего на 0.038. При этом разрыв между самими моделями в их лучших режимах составляет 0.220, то есть вдвое меньше, чем разброс внутри одной gpt-oss.</p>
+<p>Лучший и худший результат всей таблицы принадлежат одной и той же модели.</p>
+<p>Доля схемно-валидных ответов движется независимо от точности: ministral с грамматикой валиден чаще (30 % против 22 %), но точнее он в режиме промпта.</p>
+<p>Два F1 стоят рядом не для симметрии. У ministral под грамматикой разрыв между ними самый большой в таблице: 0.993 против 0.818. Модель находит практически все позиции, но правильно читает цифры лишь в 82 % из них — это совсем другая поломка, чем пропуск строк, и чинится она иначе. В режиме промпта разрыв у него всего 0.035.</p>
+<h3>Разбивка поля <code>total</code> у ministral-3b</h3>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>исход</th>
+<th>количество</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>точное совпадение</td>
+<td>42 из 120</td>
+</tr>
+<tr>
+<td>верное значение, иное оформление</td>
+<td>70 из 120</td>
+</tr>
+<tr>
+<td>ошибка</td>
+<td>8 из 120</td>
+</tr>
+</tbody>
+</table></div>
+<p>Строгая метрика даёт 35 %, тогда как верно прочитано 93 %.</p>
+<h3>Срез по длине документа (ministral-3b, режим промпта)</h3>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>длина</th>
+<th>позиций</th>
+<th>строгая</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>короткие</td>
+<td>1–3</td>
+<td>0.864</td>
+</tr>
+<tr>
+<td>средние</td>
+<td>4–8</td>
+<td>0.734</td>
+</tr>
+<tr>
+<td>длинные</td>
+<td>9–18</td>
+<td>0.734</td>
+</tr>
+</tbody>
+</table></div>
+<p>Падение происходит между тремя и четырьмя позициями, дальше кривая плоская.</p>
+<h3>Срез по ячейкам (ministral-3b, режим промпта)</h3>
+<p>Ячейка — это сочетание всех трёх осей сразу. Их двенадцать, по 10 примеров в каждой.</p>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>срез</th>
+<th>строгая</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>по языку</td>
+<td>de 0.762, en 0.792</td>
+</tr>
+<tr>
+<td>по длине</td>
+<td>short 0.864, medium 0.734, long 0.734</td>
+</tr>
+<tr>
+<td>по шуму</td>
+<td>clean 0.821, noisy 0.733</td>
+</tr>
+<tr>
+<td>худшая ячейка <code>de/long/noisy</code></td>
+<td>0.573</td>
+</tr>
+<tr>
+<td>лучшая ячейка <code>de/short/noisy</code></td>
+<td>0.891</td>
+</tr>
+</tbody>
+</table></div>
+<p>По отдельным осям ничего тревожного: язык стоит 0.03, шум 0.09, длина 0.13. А между ячейками разброс достигает 0.32, то есть почти в два с половиной раза больше самой широкой оси. Общее число 0.777 не описывает ни одну из этих ситуаций.</p>
+<p>Немецкий при этом не виноват: лучшая ячейка тоже немецкая. Зато все четыре худшие ячейки — зашумлённые.</p>
+<p>Оговорка обязательна: в ячейке 10 примеров, доверительный интервал худшей из них тянется от 0.31 до 0.81. Часть разброса объясняется самим размером выборки, поэтому ячейки указывают, где копать, но не измеряют.</p>
+<h3>Отдельный опыт: рассуждение против грамматики</h3>
+<p>Один и тот же документ (18 позиций) и одна и та же гибридная модель Qwen3-8B. Таблица содержит не один опыт, а три сравнения, и читать её надо парами строк.</p>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>схема подана</th>
+<th>рассуждение</th>
+<th>бюджет</th>
+<th>израсходовано токенов</th>
+<th>из них рассуждения</th>
+<th>завершение</th>
+<th>ответ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>грамматикой</td>
+<td>включено</td>
+<td>2048</td>
+<td>2048 (весь)</td>
+<td>2046</td>
+<td>по лимиту</td>
+<td>пусто</td>
+</tr>
+<tr>
+<td>грамматикой</td>
+<td>включено</td>
+<td>6000</td>
+<td>6000 (весь)</td>
+<td>5998</td>
+<td>по лимиту</td>
+<td>пусто</td>
+</tr>
+<tr>
+<td>грамматикой</td>
+<td>выключено</td>
+<td>2048</td>
+<td>1086</td>
+<td>0</td>
+<td>штатно</td>
+<td>есть, дата <code>0404-20-26</code></td>
+</tr>
+<tr>
+<td>промптом</td>
+<td>включено</td>
+<td>6000</td>
+<td>2534</td>
+<td>1487</td>
+<td>штатно</td>
+<td>есть, верный</td>
+</tr>
+</tbody>
+</table></div>
+<p>Что из чего следует:</p>
+<ul>
+<li><strong>строки 1 и 3</strong> различаются только режимом рассуждения: грамматика в обеих, потолок бюджета одинаковый. С рассуждением ответа нет вовсе, без рассуждения он появляется. Это и есть контролируемое сравнение;</li>
+<li><strong>строка 2</strong> проверяет догадку, что модели просто не хватило места. Бюджет поднят втрое — она сожгла его целиком и снова вернула пустоту, значит дело не в тесноте;</li>
+<li><strong>строка 4</strong> показывает, что в режиме промпта та же модель с тем же включённым рассуждением отвечает верно.</li>
+</ul>
+<p>Именно по этой причине полный прогон Qwen3 и был остановлен: из 71 обработанного примера 42 вернулись пустыми.</p>
+<h2>Обсуждение</h2>
+<p>В результате мы пришли к выводу, что грамматика гарантирует форму ценой содержимого, а схема, описанная в промпте, сохраняет содержимое, но может нарушить форму.</p>
+<p>Разумный практический подход состоит в том, чтобы сначала обрабатывать документ с описанием схемы в промпте, а затем строго проверять результат. Упавшие случаи прогоняются повторно, уже с грамматикой.</p>
+<h3>Что мы нашли за время работы</h3>
+<p>Главный вывод такой: самая точная связка оказалась и самой дорогой. Gpt-oss в режиме промпта даёт 0.998 при стоимости 0.0833. Дешёвая ministral стоит 0.0129 условных единиц — в 6.5 раза меньше — и даёт точность 0.777. То есть за экономию в 6.5 раза мы платим 0.22 точности.</p>
+<p>Но у дешёвой модели есть скрытая цена. Схему проходят только 22 % её ответов, остальные надо чинить или прогонять заново. При этом по мягкой точности она даёт 0.920, а значит, большая часть расхождений — это оформление чисел, а не ошибки чтения, и такое чинится обычным кодом.</p>
+<p>Итог: сравнивать надо не цену токенов, а полную стоимость прогона вместе с починкой и ручной проверкой. Стоит ли экономия своих 0.22 точности — зависит от того, во сколько обходится ручная проверка одного счёта.</p>
+<p>По ходу работы над проектом накопились находки, и мы разбили их на группы:</p>
+<p><strong>Дефекты нашего собственного стенда на этапе исследования</strong></p>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>№</th>
+<th>суть</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-001</td>
+<td>Без своего системного сообщения шаблон модели подставляет промпт, зашитый разработчиком. Он может содержать лишнюю информацию, раздувает потребление токенов и разрешает переспрашивать — всё это искажает запрос.</td>
+</tr>
+<tr>
+<td>F-002</td>
+<td>Докстринги классов могут утечь в схему и попасть в промпт. Следовательно, промпт раздувается, а модель получает сведения о дизайне системы оценки.</td>
+</tr>
+<tr>
+<td>F-003</td>
+<td>Схема для проверки ответа и схема для ограничения генерации — два разных документа. Первая может быть сколь угодно выразительной, потому что её читает питон. Вторая обязана укладываться в возможности грамматики.</td>
+</tr>
+<tr>
+<td>F-005</td>
+<td>Нужно быть осторожным при объявлении необязательного поля в схеме ответа. Для модели это разрешение не возвращать таблицу и сэкономить усилия, тогда как человек читает такое поле как «скорее всего, таблица придёт».</td>
+</tr>
+<tr>
+<td>F-007</td>
+<td>Лишняя скобка в ответе ломала парсер, и четыре верных ответа записались как нечитаемые. Следовательно, доработка обработчика под типичные ошибки может повысить качество распознавания.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Свойства моделей, данных и декодирования</strong></p>
+<div class="art-tw"><table>
+<thead>
+<tr>
+<th>№</th>
+<th>суть</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-006</td>
+<td>Заданная схема и построенная по ней грамматика могут подавлять работу рассуждающей модели (на примере gpt-oss), так как не дают возможности набросать черновик перед ответом.</td>
+</tr>
+<tr>
+<td>F-008</td>
+<td>Режим декодирования влияет сильнее выбора модели. При разработке решения следует уделять окружению модели не меньше внимания, чем её выбору.</td>
+</tr>
+<tr>
+<td>F-009</td>
+<td>Строгая и мягкая метрики могут давать заметно разную точность (35 % против 93 %). Возможно, на практике стоит опираться на мягкую метрику, а приводить значения к строгому виду обычным программным кодом.</td>
+</tr>
+<tr>
+<td>F-010</td>
+<td>Гибридная Qwen3 с включённой грамматикой может не закончить рассуждения в отведённый бюджет токенов — даже если поднять его с 2048 до 6000 — и вернуть пустоту. Она же без грамматики отвечает достаточно точно.</td>
+</tr>
+<tr>
+<td>F-011</td>
+<td>Модель ведёт себя очень по-разному в зависимости от сочетания условий. Разброс между ячейками почти в два с половиной раза больше, чем между осями, — агрегат не описывает ни одну из ситуаций.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Одиннадцатая находка, F-004, смешанная: вывод о том, что грамматика гарантирует форму, но не смысл, обнаружился одновременно с нашей же ошибкой — промпт требовал копировать значения как напечатано, а схема требовала долю вместо процентов.</p>
+<p>Соотношение стоит проговорить: <strong>пять находок из одиннадцати оказались дефектами измерителя, а не свойствами моделей</strong>. Отсюда и главный вывод всей работы — сначала доказываешь, что измеритель исправен, и только потом говоришь что-либо о моделях.</p>
+<h2>Ограничения</h2>
+<p>Модель gpt-oss в режиме промпта дала строгую точность 0.998: ошибки нашлись всего в трёх документах из 120. С одной стороны, это хорошо характеризует найденное сочетание модели и промпта. С другой — это значит, что другая модель того же класса, скорее всего, покажет сходный результат, и на таком датасете мы уже не сможем их различить. Иначе говоря, наверху шкалы измеритель упёрся в потолок, и это ограничение нашей задачи, а не свойство модели. Отсюда два пути: усложнять документы или сравнивать модели попроще.</p>
+<p>Важно отметить, что наши тесты работали со сгенерированными данными в учебном бизнес-кейсе. Возможно, в производственной среде картина окажется иной.</p>
+<p>Каждая из двенадцати ячеек включает только 10 примеров. С точки зрения статистики этого недостаточно: доверительный интервал в такой ячейке достигает половины шкалы.</p>
+<p>Следует также отметить, что мы измеряли работу связки «модель плюс одна версия промпта». Значит, доработка промпта открывает дополнительные возможности улучшить пайплайн.</p>
+<p>Мы приводим стоимость в условных единицах, не в какой-либо валюте.</p>
+<p>И конечно, как учебный проект, он может сохранять нераскрытые дефекты. Пять из одиннадцати находок относятся к самому стенду, а не к моделям, и вряд ли мы выявили все.</p></article>
+</main>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";mermaid.initialize({startOnLoad:true,theme:"neutral",fontFamily:"-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif"});</script>
+</body>
+</html>

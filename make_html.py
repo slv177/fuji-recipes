@@ -356,7 +356,9 @@ def build(lang):
 
     html = PAGE.format(lang=lang, title=t(lang,'page_title'), h1=t(lang,'header_h1'),
                        sub=t(lang,'header_sub'), switcher=lang_switcher(lang),
-                       body=comparison_table + '\n' + sections, css=CSS)
+                       body=comparison_table + '\n' + sections, css=CSS,
+                       articles_href='/article/' if lang == DEFAULT_LANG else f'/{lang}/article/',
+                       articles_link=t(lang, 'articles_link'))
 
     out = 'index.html' if lang == DEFAULT_LANG else f'{lang}/index.html'
     os.makedirs(os.path.dirname(out), exist_ok=True) if os.path.dirname(out) else None
@@ -381,6 +383,7 @@ PAGE = '''<!DOCTYPE html>
   {switcher}
   <h1>{h1}</h1>
   <p>{sub}</p>
+  <a class="art-link" href="{articles_href}">{articles_link}</a>
 </header>
 <main>{body}</main>
 </body>

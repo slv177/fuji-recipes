@@ -41,6 +41,12 @@ UI = {
         'ext_note_pre': 'D’Agostino recipes are marked with an asterisk',
         'ext_note_post': 'in the recipe lists.',
         'official_credit': '© Fujifilm X',
+        'articles_link': 'Articles →',
+        'articles_title': 'Articles',
+        'articles_sub': 'Notes on machine learning, evaluation and this project',
+        'back_to_articles': '← All articles',
+        'back_to_catalog': '← Recipe catalog',
+        'lang_na': 'not available in this language — showing English',
     },
     'ru': {
         'page_title': 'ML и рецепты Fuji',
@@ -67,6 +73,12 @@ UI = {
         'ext_note_pre': 'Рецепты Д’Агостино отмечены звёздочкой',
         'ext_note_post': 'в списках групп.',
         'official_credit': '© Fujifilm X',
+        'articles_link': 'Статьи →',
+        'articles_title': 'Статьи',
+        'articles_sub': 'Заметки про машинное обучение, оценку моделей и этот проект',
+        'back_to_articles': '← Все статьи',
+        'back_to_catalog': '← Каталог рецептов',
+        'lang_na': 'нет перевода на этот язык — показан английский',
     },
     'es': {
         'page_title': 'ML y recetas Fuji',
@@ -93,6 +105,12 @@ UI = {
         'ext_note_pre': 'Las recetas de D’Agostino están marcadas con un asterisco',
         'ext_note_post': 'en las listas de grupos.',
         'official_credit': '© Fujifilm X',
+        'articles_link': 'Artículos →',
+        'articles_title': 'Artículos',
+        'articles_sub': 'Notas sobre aprendizaje automático, evaluación y este proyecto',
+        'back_to_articles': '← Todos los artículos',
+        'back_to_catalog': '← Catálogo de recetas',
+        'lang_na': 'no disponible en este idioma — se muestra en inglés',
     },
 }
 

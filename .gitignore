@@ -50,3 +50,6 @@ desc_err.txt
 desc_ru_err.txt
 vision_err.txt
 cluster_err.txt
+
+# macOS
+.DS_Store
